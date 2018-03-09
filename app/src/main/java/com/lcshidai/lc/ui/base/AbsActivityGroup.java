@@ -19,6 +19,8 @@ import com.lcshidai.lc.ui.account.AccountActivity;
 import com.lcshidai.lc.ui.finance.ManageFinanceActivity;
 import com.lcshidai.lc.ui.newfinan.NewFinanceActivity;
 import com.lcshidai.lc.ui.project.ProjectActivity;
+import com.lcshidai.lc.utils.Constants;
+import com.lcshidai.lc.utils.GoLoginUtil;
 import com.lcshidai.lc.utils.MemorySave;
 
 import java.util.HashMap;
@@ -145,11 +147,25 @@ public abstract class AbsActivityGroup extends ActivityGroup {
                     String name = classes.get(checkedId).getName();
 //                    账户页
                     if (name.equals(AccountActivity.class.getName())) {
-//						if(!MemorySave.MS.mIsLogin){
-//							boolean isTrue=GoLoginUtil.ToLoginActivityForResult((TRJActivity) AbsActivityGroup.this.getCurrentActivity(),CallBack.REQUEST_CODE,"");
-//							tempId=checkedId;
-//							if(!isTrue)return;
-//						}
+                        if (!MemorySave.MS.mIsLogin) {
+                            boolean isTrue = GoLoginUtil.ToLoginActivityForResultBase((TRJActivity) AbsActivityGroup.this.getCurrentActivity(), Constants.REQUEST_CODE, "");
+                            tempId = radioGroupCheckId;
+                            switch (radioGroupCheckId) {
+                                case R.id.activity_group_radioButton0:
+                                    switchTab(1);
+                                    break;
+                                case R.id.activity_group_radioButton1:
+                                    switchTab(0);
+                                    break;
+                                case R.id.activity_group_radioButton2:
+                                    switchTab(2);
+                                    break;
+                                case R.id.activity_group_radioButton3:
+                                    switchTab(3);
+                                    break;
+                            }
+                            if (!isTrue) return;
+                        }
 //                        首页
                     } else if (name.equals(ManageFinanceActivity.class.getName())) {
                         MemorySave.MS.goToFinanceAll = true;
