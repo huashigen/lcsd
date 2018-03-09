@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.lcshidai.lc.utils.MsgUtil;
 import com.socks.library.KLog;
 import com.lcshidai.lc.R;
 import com.lcshidai.lc.alarm.AlarmXmlManager;
@@ -132,6 +133,8 @@ public class AccountSettingActivity extends TRJActivity implements OnClickListen
                     SpUtils.setString(SpUtils.Table.CONFIG, SpUtils.Config.U_APP_ID, "");
                     MemorySave.MS.mIsLoginout = true;
                     sendBroadcast(MY_RESON_LOGIN_STATUS);
+                    //去掉账户消息红点
+                    MsgUtil.remove(this, MsgUtil.ACCOUNT);
                     AlarmXmlManager.clearAllAlarm(this);
                     Intent intent = new Intent(this, MainActivity.class);
                     MemorySave.MS.mIsGoFinanceHome = true;
