@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_notification" >
+    
+    <ImageView 
+        android:id="@+id/update_download_notification_icon"
+        android:padding="10dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="fitXY"
+        android:layout_centerVertical="true"
+        />
+    
+    <TextView 
+        android:id="@+id/update_download_notification_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/update_download_notification_icon"
+        android:textColor="@color/dark_gray"
+		android:paddingRight="10dp"
+		android:layout_marginTop="8dp"
+        />
+    
+    <TextView 
+        android:id="@+id/update_download_notification_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:layout_below="@id/update_download_notification_title"
+        android:layout_alignLeft="@id/update_download_notification_title"
+        android:textColor="@color/dark_gray"
+		android:paddingRight="10dp"
+        />
+    
+	<ProgressBar
+	  	android:id="@+id/update_download_notification_progress"
+	  	android:layout_width="match_parent"
+	  	android:layout_height="5dp"
+	  	style="?android:attr/progressBarStyleHorizontal"
+	  	android:progressDrawable="@drawable/bg_update_progressbar"
+        android:layout_below="@id/update_download_notification_path"
+        android:layout_alignLeft="@id/update_download_notification_title"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="2dp"
+	  />
+</RelativeLayout>

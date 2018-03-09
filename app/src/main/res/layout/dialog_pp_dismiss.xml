@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/re_main_res"
+        layout="@layout/dialog_reg_succ"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/re_main"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.lcshidai.lc.widget.AnieLayout
+            android:id="@+id/ll_dpop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/bg_pay_pwd_pp_dismiss"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/reImgTitle"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp" >
+
+                <ImageView
+                    android:id="@+id/iv_dpop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_dpop"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:visibility="gone"
+                    android:textColor="@color/xzd_qidai"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" >
+
+                <TextView
+                    android:id="@+id/tv_dpop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:textColor="#343434"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/imgsleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@+id/tv_dpop"
+                    android:src="@drawable/sleep"
+                    android:visibility="gone" />
+            </RelativeLayout>
+	 <LinearLayout
+            android:id="@+id/bespeak_info_bottom_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:visibility="gone"
+             >
+
+          
+
+            <Button
+                android:id="@+id/bespeak_info_bt_cancle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/feedback_submit_cancel_bg_xml"
+                android:padding="5dp"
+                android:text="确认取消"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+               />
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="1dp"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/bespeak_info_bt_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/feedback_submit_bg_xml"
+                android:padding="5dp"
+                android:text="返回"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                 />
+        </LinearLayout>
+            <Button
+                android:id="@+id/btn_dpop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/account_login_bg_xml"
+                android:padding="5dp"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+               <ImageView
+                    android:id="@+id/img_gesture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:visibility="gone" />
+        </com.lcshidai.lc.widget.AnieLayout>
+    </RelativeLayout>
+
+</LinearLayout>

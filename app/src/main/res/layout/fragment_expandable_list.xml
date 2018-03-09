@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+	<LinearLayout android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_margin="6dp"
+	    android:layout_height="match_parent" >
+	    <ExpandableListView
+	        android:background="@color/white"
+	        android:id="@+id/listview"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:dividerHeight="10dp"
+	        android:divider="@android:color/transparent"
+	        android:childDivider="@android:color/transparent"
+	        android:cacheColorHint="@android:color/transparent"
+	        android:scrollbars="none" />
+	    <TextView
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="无数据"
+            android:visibility="gone" />
+	</LinearLayout>
+    <include layout="@layout/progressbar" />
+</FrameLayout>

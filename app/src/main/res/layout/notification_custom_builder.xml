@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_notification"
+        >
+        <ImageView android:id="@+id/notification_icon"
+            android:padding="10dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true" />
+        
+        <LinearLayout 
+            android:layout_toRightOf="@id/notification_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+             >
+	        <LinearLayout 
+	            android:id="@+id/notification_ll_top"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1.4"
+	            android:orientation="horizontal"
+	            android:gravity="bottom"
+	             >
+	            
+	            <TextView android:id="@+id/notification_title"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:singleLine="true"
+		            android:ellipsize="marquee"
+		            android:fadingEdge="horizontal"
+		            android:textStyle="bold"
+		            android:textSize="18sp"
+		            android:layout_marginTop="2dp"
+		            android:textColor="#ff000000" />
+	            
+	            <TextView 
+		            android:id="@+id/notification_time"
+		            android:layout_marginLeft="4dp"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:singleLine="true"
+		            android:textSize="14sp"
+		            android:textColor="#ff000000" />
+	        </LinearLayout>
+	        
+	        <TextView android:id="@+id/notification_text"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:textColor="#ff000000"
+	            android:singleLine="false"
+	            android:ellipsize="marquee"
+	            android:fadingEdge="horizontal"
+	            android:textSize="14sp"
+	            android:gravity="center_vertical"
+	            />
+        </LinearLayout>
+        
+    </RelativeLayout>

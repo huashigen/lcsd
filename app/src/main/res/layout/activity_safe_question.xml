@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	android:fitsSystemWindows="true"
+    android:background="@color/gray_bg" >
+    
+    <include layout="@layout/fragment_actionbar"/>
+    
+    <LinearLayout 
+        android:id="@+id/safe_question_ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    	android:orientation="vertical"
+    	android:visibility="gone"
+         >
+        <LinearLayout 
+            android:id="@+id/safe_question_ll_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_corner_ll"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            >
+            <ImageView
+             	android:layout_width="wrap_content"
+             	android:layout_height="wrap_content"
+             	android:src="@drawable/img_saft" /> 
+	        <TextView
+	            android:id="@+id/safe_question_tv_question"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="left|center_vertical"
+		        android:text="选择安全保护问题" 
+		        android:textColor="#7E7E7E"
+		        android:paddingLeft="5dp"
+		        android:paddingRight="5dp"
+		        android:textSize="16sp"
+		        android:singleLine="true"
+		        />
+	         <ImageView
+             	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+             	android:src="@drawable/triangle" /> 
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/feedback_text_bg"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical">
+	         
+            <ImageView
+             	android:layout_width="wrap_content"
+             	android:layout_height="wrap_content"
+             	android:src="@drawable/img_saft_edit" />
+	        <EditText
+	            android:id="@+id/safe_question_et_answer"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="left|center_vertical"
+		        android:hint="问题答案" 
+		        android:textColor="#333333"
+		        android:paddingLeft="5dp"
+		        android:paddingRight="5dp"
+		        android:textSize="16sp"
+		        android:background="@null"
+		        android:singleLine="true"
+		        />
+        </LinearLayout>
+		<TextView
+			android:id="@+id/safe_question_bt_submit"
+			style="@style/style_button_submit"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:layout_gravity="center_vertical"
+			android:layout_marginBottom="10dp"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="15dp"
+			android:layout_marginTop="10dp"
+			android:gravity="center"
+			android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

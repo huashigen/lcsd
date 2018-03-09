@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MimeTypes>
+	<type extension="rm"		mimetype="video/rm" />
+	<type extension="rmvb"		mimetype="video/rmvb" />
+	<type extension="apk"		mimetype="application/vnd.android.package-archive" />
+</MimeTypes>

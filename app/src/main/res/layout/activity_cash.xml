@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+	android:fitsSystemWindows="true" >
+    <include android:id="@+id/view_top" layout="@layout/fragment_actionbar" />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFDE"
+        >
+    <TextView
+        android:id="@+id/tv_contentinfo"
+        android:padding="15dp"
+        android:textColor="#888888"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="将您通过理财时代持有的资产（聚优宝-JYB1214909093）作为权益保障发布借款，从而提前变现!"
+        ></TextView>
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+	
+    <LinearLayout 
+        android:padding="15dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF"
+        android:orientation="horizontal">
+    	<TextView 
+    	    android:textColor="#888888"
+    	    android:layout_marginTop="20dp"
+    	    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="变现利率:" />
+    	 <LinearLayout 
+    	     android:layout_width="match_parent"
+    	     android:layout_height="wrap_content"
+    	     android:orientation="vertical"
+    	     >
+          <com.lcshidai.lc.widget.text.CustomEditTextRightUnit
+    	     android:id="@+id/cuse_rateunit"
+    	      android:padding="8dp"
+    	     android:layout_width="match_parent" android:layout_height="wrap_content"
+    	     />   
+    	     <LinearLayout 
+    	         android:layout_width="wrap_content"
+    	         android:layout_height="wrap_content"
+    	         android:orientation="horizontal"
+    	         android:paddingLeft="8dp"
+    	         >
+    	         <ImageView
+    	             android:layout_width="wrap_content"
+    	             android:layout_height="wrap_content"
+    	             android:layout_gravity="center_vertical"
+    	             android:background="@drawable/tip"
+    	             ></ImageView>
+    	         <TextView
+    	             android:id="@+id/tv_rate_info"
+    	             android:textColor="#AEAEAE"
+    	             android:layout_marginLeft="2dp"
+    	             android:layout_width="wrap_content"
+    	             android:layout_height="wrap_content"
+    	             android:text="tips"
+    	             ></TextView>
+    	     </LinearLayout>
+    	     </LinearLayout>
+    </LinearLayout>
+     <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout 
+        android:padding="15dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF"
+        android:orientation="horizontal">
+    	<TextView 
+    	    android:textColor="#888888"
+    	    android:layout_gravity="center_vertical"
+    	    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="可变现资产价值:" />
+    	<TextView 
+    	    android:id="@+id/tv_countchashmoney"
+    	    android:layout_gravity="center_vertical"
+    	    android:textColor="#76D033"
+    	    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1290元" />
+    	<TextView
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="元"
+    	    ></TextView>
+    </LinearLayout>
+     <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout 
+        android:padding="15dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF"
+        android:orientation="horizontal">
+    	<TextView 
+    	    android:textColor="#888888"
+    	    android:layout_marginTop="20dp"
+    	    android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="变现金额:" />
+    	 <LinearLayout 
+    	     android:layout_width="match_parent"
+    	     android:layout_height="wrap_content"
+    	     android:orientation="vertical"
+    	     >
+    	 	<com.lcshidai.lc.widget.text.CustomEditTextRightUnit
+    	     android:id="@+id/cuse_cashunit"
+    	     android:padding="8dp"
+    	     android:layout_width="match_parent" android:layout_height="wrap_content"
+    	     />
+    	     <LinearLayout 
+    	         android:layout_width="wrap_content"
+    	         android:layout_height="wrap_content"
+    	         android:orientation="horizontal"
+    	         android:paddingLeft="8dp"
+    	         >
+    	         <ImageView
+    	             android:layout_width="wrap_content"
+    	             android:layout_height="wrap_content"
+    	             android:layout_gravity="center_vertical"
+    	             android:background="@drawable/tip"
+    	             ></ImageView>
+    	         <TextView
+    	             android:id="@+id/tv_money_info"
+    	             android:layout_marginLeft="2dp"
+    	             android:layout_width="wrap_content"
+    	             android:textColor="#AEAEAE"
+    	             android:layout_height="wrap_content"
+    	             android:text="变现金额应小于等于可变现资产价值!"
+    	             ></TextView>
+    	     </LinearLayout> 
+    	     </LinearLayout>
+    </LinearLayout>
+    <Button 
+        android:layout_margin="10dp"
+        	android:padding="10dp"
+			    android:id="@+id/btn_confirm"
+			    android:paddingTop="6dp" android:paddingBottom="6dp"
+				android:layout_width="match_parent" android:layout_height="wrap_content"
+				android:text="确定" android:textSize="22sp"
+				android:background="@drawable/feedback_submit_bg_xml"
+				android:textColor="@color/white" />
+    
+</LinearLayout>

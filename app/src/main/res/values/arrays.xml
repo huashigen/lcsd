@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="question_title">
+        <item>注册/登陆</item>
+        <item>充值/提现</item>
+        <item>投资/回款</item>
+        <item>变现</item>
+        <item>自动投标</item>
+    </string-array>
+    <string-array name="news_title">
+        <item>平台公告</item>
+        <item>最新动态</item>
+        <item>媒体报道</item>
+    </string-array>
+ <string-array name="manage_finace_title">
+        <item>待回款</item>
+        <item>回款结束</item>
+    </string-array>
+   <string-array name="golden_title">
+        <item>获得记录</item>
+        <item>使用记录</item>  
+    </string-array> 
+     <string-array name="finace_sec">
+        <item>全部</item>
+        <item>稳盈系列</item>  
+          <item>超赚系列</item>  
+    </string-array> 
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/white" >
+
+    <include layout="@layout/fragment_actionbar"/>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_square_border"
+        >
+        <ListView
+            android:id="@+id/select_bank_card_list_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="@color/transparent"
+            android:fadingEdge="none"
+            android:divider="#BBB9B9"
+            android:dividerHeight="1dp"
+            android:scrollbars="none"
+            />
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/select_bank_card_enough_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="#848484"
+        android:textSize="16sp"
+        android:text="目前只支持  3张银行卡"
+        android:visibility="gone"
+        />
+    
+    <Button 
+        android:id="@+id/select_bank_card_add_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/feedback_submit_bg_xml"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:text="添加银行卡"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:visibility="gone"
+        />
+
+</LinearLayout>

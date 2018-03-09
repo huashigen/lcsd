@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main_gray"
+    android:orientation="vertical">
+    <!--姓名-->
+    <RelativeLayout
+        android:id="@+id/rl_manager_name_container"
+        style="@style/style_account_dimension_rl"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_manager_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_manager_name" />
+
+        <TextView
+            style="@style/style_account_dimension_tv"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_manager_name"
+            android:text="姓名"
+            android:textColor="@color/color_75"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_manager_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="李祖义"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+    <!--从业经验-->
+    <RelativeLayout
+        android:id="@+id/rl_manager_experience_container"
+        style="@style/style_account_dimension_rl"
+        android:background="@color/fund_pro_detail_base_gray">
+
+        <ImageView
+            android:id="@+id/iv_manager_experience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_manager_experience" />
+
+        <TextView
+            style="@style/style_account_dimension_tv"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_manager_experience"
+
+            android:text="从业经验"
+            android:textColor="@color/color_75"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_manager_experience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="5年"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+    <!--毕业院校-->
+    <RelativeLayout
+        android:id="@+id/rl_manager_school_container"
+        style="@style/style_account_dimension_rl"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_manager_school"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_manager_school" />
+
+        <TextView
+            style="@style/style_account_dimension_tv"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_manager_school"
+            android:text="毕业院校"
+            android:textColor="@color/color_75"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_manager_school"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="牛津大学"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <!--个人介绍-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <!--个人介绍-->
+        <TextView
+            style="@style/text_label_with_v_divider"
+            android:text="个人介绍" />
+
+        <include layout="@layout/h_divider" />
+
+        <TextView
+            android:id="@+id/tv_manager_desc"
+
+            style="@style/about_purchase_item_content"
+            android:text="融资方国企背景，实力雄厚资金安全，基金开设托管专户，资金由第三方进行托管，保证专款专用。多重还款保障，融资方应收账款信息、交易材料真实且披露透明。债务方还款实力强。多重还款来源给用户切实有力的安全保障。" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="@color/white"
+     android:id="@+id/main"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+    <include android:id="@+id/view_top" layout="@layout/fragment_actionbar" />
+    <Button 
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        	android:padding="10dp"
+			    android:id="@+id/btn_confirm"
+			    android:paddingTop="6dp" android:paddingBottom="6dp"
+				android:layout_width="match_parent" android:layout_height="wrap_content"
+				android:text="提交借款申请" android:textSize="22sp"
+				android:background="@drawable/feedback_submit_bg_xml"
+				android:textColor="@color/white" />
+	<ScrollView 
+	    android:layout_below="@id/view_top"
+	    android:layout_above="@id/btn_confirm"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    >
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        >
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="借款产品名称:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_sdt_show_prj_name"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="回款方式:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_repay_way_name"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="变现利率:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_cash_rate"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#F25500"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="变现金额:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_curr_cash_money"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="到期应付本金:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_cash_money"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="到期应付利息:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_payable_interest"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="平台服务费:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_service_fee"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="实际到账金额:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_real_into_account_money"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="实际收益:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_real_income"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+	
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="17sp"
+            android:text="剩余资产到期价值:"
+            android:textColor="#888888"
+             />
+
+        <TextView
+            android:id="@+id/tv_sdt_left_time_money"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textColor="#464646"
+             />
+    </LinearLayout>
+    
+      </LinearLayout>
+	    
+	</ScrollView>
+    
+</RelativeLayout>

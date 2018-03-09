@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><!--公示材料-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_public_show_material_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--公示材料-->
+    <TextView
+        android:id="@+id/tv_material_name"
+        style="@style/text_label"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:ellipsize="end"
+        android:maxEms="13"
+        android:maxLines="1"
+        android:text="公示材料" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/triangle" />
+
+    <View
+        android:id="@+id/v_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tv_material_name"
+        android:layout_marginLeft="10dp"
+        android:background="#D8D8D8" />
+</RelativeLayout>

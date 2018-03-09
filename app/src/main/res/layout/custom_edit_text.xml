@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/edt_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="#00000000"
+        android:cursorVisible="true"
+        android:gravity="center_vertical"
+        android:inputType="textPassword"
+        android:textCursorDrawable="@drawable/cursor_drawable"
+        android:textSize="18sp"
+        tools:targetApi="honeycomb_mr1" />
+
+    <LinearLayout
+        android:id="@+id/accountLinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="@dimen/icon_del_size"
+            android:layout_height="@dimen/icon_del_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/btn_login_edit_delete"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</RelativeLayout>

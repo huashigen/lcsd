@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_question"
+    android:orientation="vertical" >
+
+    <com.lcshidai.lc.widget.xlvfresh.XListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#FAFAFA"
+        android:listSelector="@color/content_bg"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:scrollbars="none" />
+       <ListView
+                android:id="@+id/balance_payments_list_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@color/transparent"
+                android:divider="@color/transparent"
+                android:dividerHeight="0dp"
+                android:fadingEdge="none"
+                android:listSelector="@color/transparent" 
+                android:visibility="gone"/>
+    <include layout="@layout/rl_empty" />
+
+    <include layout="@layout/progressbar" />
+
+</FrameLayout>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+    android:background="#FAFAFA"
+     >
+    
+    <include layout="@layout/fragment_actionbar" android:id="@+id/recharge_action_bar"/>
+    
+    <LinearLayout 
+        android:layout_below="@id/recharge_action_bar"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" 
+	    android:paddingTop="3dp"
+	    >
+	    <FrameLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        >
+		    <ListView 
+		        android:id="@+id/recharge_list_recodelist_lv"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:fadingEdge="none"
+		        android:divider="@color/transparent"
+		        android:cacheColorHint="@color/transparent"
+		        android:listSelector="@color/transparent"
+		        />
+		    <include layout="@layout/rl_empty"/>
+	    </FrameLayout>
+	</LinearLayout>
+    
+<!--     <View  -->
+<!--         android:id="@+id/recharge_list_gray" -->
+<!--         android:layout_width="match_parent" -->
+<!--        	android:layout_height="match_parent" -->
+<!--        	android:background="@color/half_transparent" -->
+<!--        	android:visibility="gone" -->
+<!--         /> -->
+    
+    <LinearLayout
+        android:id="@+id/recharge_list_ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        >
+        
+        <LinearLayout 
+            android:id="@+id/recharge_list_moneyinfo_ll"
+            android:layout_width="match_parent"
+           	android:layout_height="wrap_content"
+           	android:orientation="vertical"
+           	android:background="@color/white"
+           	android:visibility="gone"
+            >
+		    <LinearLayout 
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+               	android:layout_marginLeft="20dp"
+               	android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+		         >
+		         <TextView 
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textSize="14sp"
+	                android:textColor="#959595"
+	                android:text="账户可用余额（元）"
+                	/>
+		        <TextView 
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:gravity="center_horizontal"
+	                android:textSize="12sp"
+	                android:textColor="#959595"
+		            android:text="@string/str_account_chengbao2"
+		            />
+		    </LinearLayout>
+            
+            <TextView 
+                android:id="@+id/recharge_list_balance_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               	android:layout_marginLeft="20dp"
+               	android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:textSize="26sp"
+                android:textColor="#007DDF"
+                />
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="8dp"
+                android:background="#DADADA"
+                />
+            
+            <LinearLayout 
+                android:id="@+id/recharge_list_ll_bank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+               	android:paddingLeft="20dp"
+               	android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_withdrawals_select_bank"
+                android:clickable="true"
+                android:visibility="visible"
+                >
+                <ImageView 
+               		android:id="@+id/recharge_list_iv_bank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="7dp"
+                    android:visibility="gone"
+                    />
+                <TextView 
+               		android:id="@+id/recharge_list_tv_bank"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFA200"
+               		android:textSize="20sp"
+               		android:text="请选择充值银行"
+                    />
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/wrap_content_right"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#DADADA"
+                android:visibility="visible"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+               	android:layout_marginLeft="20dp"
+               	android:layout_marginRight="5dp"
+           	    android:layout_marginTop="10dp"
+           	    android:layout_marginBottom="10dp"
+           	    android:gravity="center_vertical"
+           	    android:visibility="gone"
+                >
+                <CheckBox 
+                    android:id="@+id/recharge_list_argeement_cb"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/bg_cb_remember_pwd"
+                    android:button="@null"
+                    android:checked="true"
+                    />
+               	<TextView 
+               	    android:id="@+id/recharge_list_argeement_tv"
+               	    android:layout_width="wrap_content"
+               	    android:layout_height="wrap_content"
+               	    android:layout_marginLeft="5dp"
+               	    android:textSize="14sp"
+               	    android:textColor="#464646"
+               	    android:text="@string/str_recharge_list_argee"
+               	    />
+           		</LinearLayout>
+           </LinearLayout>
+	
+			<LinearLayout
+	            android:id="@+id/recharge_list_ll_input"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical" >
+           
+<!--            <View  -->
+<!--                android:layout_width="match_parent" -->
+<!--                android:layout_height="1dp" -->
+<!--                android:background="#DADADA" -->
+<!--                android:visibility="gone" -->
+<!--                /> -->
+	<!--            <LinearLayout  -->
+	<!--                android:layout_width="match_parent" -->
+	<!--                android:layout_height="wrap_content" -->
+	<!--                android:background="#FAFAFA" -->
+	<!--                android:padding="10dp" -->
+	<!--                android:gravity="center_vertical" -->
+	<!--                > -->
+	<!--                <com.trj.hp.widget.CustomEditTextLeftIcon -->
+	<!--                    android:id="@+id/recharge_list_et_money" -->
+	<!-- 				android:layout_width="0dp" -->
+	<!-- 				android:layout_height="wrap_content" -->
+	<!-- 				android:layout_weight="2" -->
+	<!-- 				 /> -->
+	<!--                <Button  -->
+	<!--                    android:id="@+id/recharge_list_bt_submit" -->
+	<!--                    android:layout_width="0dp" -->
+	<!--                    android:layout_height="wrap_content" -->
+	<!--                    android:layout_weight="1" -->
+	<!--                    android:layout_marginLeft="10dp" -->
+	<!--                    android:textSize="20sp" -->
+	<!--                    android:textColor="@color/white" -->
+	<!-- 		    	    android:background="@drawable/feedback_submit_bg_xml" -->
+	<!-- 		    	    android:paddingTop="5dp" -->
+	<!-- 		    	    android:paddingBottom="5dp" -->
+	<!--                    android:text="充值" -->
+	<!--                    /> -->
+	<!--            </LinearLayout> -->
+
+			</LinearLayout>
+        
+        <include layout="@layout/layout_keyboard" android:visibility="gone" />
+    </LinearLayout>
+</RelativeLayout>

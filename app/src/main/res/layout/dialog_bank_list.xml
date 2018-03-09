@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hlep_center_dialog_ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/tv_top_bar_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/feedback_feed_dialog_title"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:textSize="16sp"
+        android:textColor="#464646"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+    
+    <!-- android:layout_height="94dp" -->
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+		<RelativeLayout 
+		    android:id="@+id/rl_edit"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" >
+		    <TextView 
+		        android:id="@+id/tv_edit"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="编辑"
+		        android:paddingTop="12dp"
+		        android:paddingBottom="12dp"
+		        android:paddingLeft="10dp"
+		        android:textColor="#464646"
+		        android:textSize="16sp" />
+		</RelativeLayout>
+		<TextView 
+		    android:layout_width="match_parent"
+		    android:layout_height="1dp"
+		    android:background="@drawable/help_center_dialog_driver"/>
+		<RelativeLayout 
+		    android:id="@+id/rl_delete"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content">
+		    <TextView 
+		        android:id="@+id/tv_delete"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="删除"
+		        android:paddingTop="12dp"
+		        android:paddingBottom="12dp"
+		        android:paddingLeft="10dp"
+		        android:textColor="#464646"
+		        android:textSize="16sp"/>
+		</RelativeLayout>
+		<TextView 
+		    android:layout_width="match_parent"
+		    android:layout_height="1dp"
+		    android:background="@drawable/help_center_dialog_driver"/>
+		<RelativeLayout 
+		    android:id="@+id/rl_cancel"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content">
+		    <TextView 
+		        android:id="@+id/tv_cancel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="取消"
+		        android:paddingTop="12dp"
+		        android:paddingBottom="12dp"
+		        android:paddingLeft="10dp"
+		        android:textColor="#464646"
+		        android:textSize="16sp"/>
+		</RelativeLayout>
+	</LinearLayout>
+</LinearLayout>

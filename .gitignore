@@ -1,0 +1,8 @@
+##ignore these files##
+
+.svn
+.gradle
+.idea
+build
+local.properties
+*.iml

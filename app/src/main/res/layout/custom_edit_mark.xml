@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/accountLinear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_style">
+
+        <TextView
+            android:id="@+id/tv_text_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:textColor="#8E8E8E"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edt_text_input"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/tv_text_account"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:singleLine="true"
+            android:textColorHint="#DBDBDB"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            tools:targetApi="honeycomb_mr1" />
+
+        <ImageView
+            android:id="@+id/btn_text_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_delete_selector"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/ibtn_text_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_delete_selector"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/text_note"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#FFFFDE"
+        android:gravity="center"
+        android:textColor="#FFA644"
+        android:textSize="25sp"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main_gray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.lcshidai.lc.ui.project.AddedIntroActivity">
+
+    <include layout="@layout/top_bar" />
+
+
+    <ListView
+        android:layout_marginTop="10dp"
+        android:id="@+id/lv_public_material"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:divider="@color/transparent"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="没有相关公示材料哦" />
+
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="dimens_home_activity_height">35dp</dimen>
+    <dimen name="dimens_home_top_type">20sp</dimen>
+    <dimen name="dimens_home_top_percent">42sp</dimen>
+    <dimen name="dimens_home_top_percent_right_marginbottom">15dp</dimen>
+    <dimen name="dimens_home_month_padding">14dp</dimen>
+    <dimen name="dimens_home_month_key">14sp</dimen>
+    <dimen name="dimens_home_month_value">18sp</dimen>
+    <dimen name="dimens_home_timer_margin">19dp</dimen>
+    <dimen name="dimens_home_submit_margin">17dp</dimen>
+    <dimen name="dimens_home_submit_margin_top">26dp</dimen>
+    <dimen name="dimens_home_submit_textsize">22sp</dimen>
+    <dimen name="dimens_home_submit_padding">10dp</dimen>
+    <dimen name="dimens_home_bottom_textsize">14sp</dimen>
+    <dimen name="dimens_home_submit_height">47dp</dimen>
+    <dimen name="dimens_home_new_timer_height">100sp</dimen>
+
+    <dimen name="dimens_home_guess_bottom_padding">10dp</dimen>
+    <dimen name="dimens_home_guess_grid_item_text">14sp</dimen>
+
+    <dimen name="dimens_account_bottom_ll">50dp</dimen>
+    <dimen name="dimens_account_bottom_textsize">22sp</dimen>
+    <dimen name="dimens_account_bottom_margin_top_left">7dp</dimen>
+    <dimen name="dimens_account_alert_green_textsize">16sp</dimen>
+    <dimen name="dimens_account_alert_green_margin">5dp</dimen>
+    <dimen name="dimens_account_alert_green_ll_margin">5dp</dimen>
+    <dimen name="dimens_account_middle_value_size">14sp</dimen>
+    <dimen name="dimens_account_middle_margin">10dp</dimen>
+
+    <dimen name="dimens_first_bottom_height">65dp</dimen>
+    <dimen name="dimens_first_bottom_margin">3dp</dimen>
+
+    <dimen name="dimens_newfinance_submit_textsize">20sp</dimen>
+    <dimen name="dimens_newfinance_submit_height">45dp</dimen>
+    <dimen name="dimens_newfinance_submit_toppadding">12dp</dimen>
+
+    <dimen name="dimens_investor_authentication_top_textsize">16sp</dimen>
+    <dimen name="dimens_investor_authentication_middle_textsize">18sp</dimen>
+    <dimen name="dimens_investor_authentication_agree_textsize">14sp</dimen>
+
+    <dimen name="dimens_withdrawals_list_bottom_padding">15sp</dimen>
+    <dimen name="dimens_withdrawals_list_bottom_button_padding">8sp</dimen>
+
+    <dimen name="dimens_withdrawals_item_text_left">16sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_bank">14sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_xiane">12sp</dimen>
+    <dimen name="dimens_withdrawals_item_edit_hint">14sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_free_value">16sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_free">16sp</dimen>
+    <dimen name="dimens_withdrawals_main_padding_top">19dp</dimen>
+    <dimen name="dimens_withdrawals_main_padding_bottom">10dp</dimen>
+
+    <dimen name="dimens_login_hongbao_textsize">22sp</dimen>
+
+    <dimen name="dimens_home_guess_grid_text_margin_top">5dp</dimen>
+    <dimen name="size_defult">14sp</dimen>
+    <dimen name="account_asset_size">30sp</dimen>
+    <dimen name="account_margin">25dp</dimen>
+    <dimen name="account_item_top">2dp</dimen>
+    <dimen name="account_item_margin">30dp</dimen>
+    <dimen name="bottom_menu_height">55dp</dimen>
+    <dimen name="round_progress_size">50dp</dimen>
+
+    <dimen name="dp_home">10dp</dimen>
+    <dimen name="dp_list">18dp</dimen>
+
+    <dimen name="activity_icon_home">16dp</dimen>
+    <dimen name="activity_icon_list">16dp</dimen>
+    <dimen name="activity_icon_record">16dp</dimen>
+
+    <dimen name="activity_img_left">2dp</dimen>
+
+    <dimen name="icon_del_size">20dp</dimen>
+    <dimen name="fund_pro_detail_base_info_v_padding">10dp</dimen>
+    <dimen name="fund_pro_detail_base_info_h_padding">20dp</dimen>
+
+    <dimen name="lv_divider_small">0.5dp</dimen>
+    <dimen name="dimen_base_info_padding">15dp</dimen>
+    <dimen name="dimen_divider_height">1dp</dimen>
+</resources>

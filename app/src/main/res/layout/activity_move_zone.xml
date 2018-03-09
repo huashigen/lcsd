@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:fitsSystemWindows="true" >
+
+    <include
+        android:id="@+id/ll_action_bar"
+        layout="@layout/fragment_actionbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_action_bar"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_bg"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@color/gray_bg"
+            android:dividerHeight="10dp"
+            android:listSelector="@color/content_bg"
+            android:scrollbars="none" />
+
+        <include layout="@layout/rl_empty" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_temp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_list_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ll_list_item_bg"
+        android:clickable="true"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#DADADA" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/icon_red_reward" />
+
+            <TextView
+                style="@style/ll_item_textview"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="您通过活动已获得:"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/triangle" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#DADADA" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/ll_info1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1.0"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/finance_item_textview5"
+                    android:text="现金红包总额度(元)" />
+
+                <TextView
+                    android:id="@+id/tv_text1"
+                    style="@style/finance_item_textview6"
+                    android:text="0.00"
+                    android:textColor="@color/orange" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#DADADA" />
+
+            <LinearLayout
+                android:id="@+id/ll_info2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1.0"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/finance_item_textview5"
+                    android:text="免费提现额度(元)(暂时用这个类)" />
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    style="@style/finance_item_textview6"
+                    android:text="0.00" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#DADADA" />
+
+            <LinearLayout
+                android:id="@+id/ll_info3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1.0"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/finance_item_textview5"
+                    android:text="免手续费次数(次)" />
+
+                <TextView
+                    android:id="@+id/tv_text3"
+                    style="@style/finance_item_textview6"
+                    android:text="0.00" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

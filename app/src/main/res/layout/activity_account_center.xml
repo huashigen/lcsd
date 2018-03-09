@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_new"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/top_bar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/ll_head_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <com.lcshidai.lc.widget.CircularImage
+                            android:id="@+id/iv_head"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/default_user"
+                            android:visibility="visible" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_telephone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black" />
+
+                            <TextView
+                                android:id="@+id/tv_uname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="2dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|right"
+                            android:src="@drawable/account_center_camera" />
+
+                    </FrameLayout>
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/line_1" />
+
+                <LinearLayout
+                    android:id="@+id/ll_safe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/ll_item_textview"
+                        android:text="安全等级" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical">
+
+                        <TextView
+                            android:id="@+id/tv_safe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:id="@+id/iv_photo1"
+                            style="@style/style_safe_star" />
+
+                        <ImageView
+                            android:id="@+id/iv_photo2"
+                            style="@style/style_safe_star" />
+
+                        <ImageView
+                            android:id="@+id/iv_photo3"
+                            style="@style/style_safe_star" />
+
+                        <ImageView
+                            android:id="@+id/iv_photo4"
+                            style="@style/style_safe_star" />
+
+                        <ImageView
+                            android:id="@+id/iv_photo5"
+                            style="@style/style_safe_star" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/triangle" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_mobile_auth_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/ll_item_textview"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/account_center_mobile_auth" />
+
+                    <TextView
+                        android:id="@+id/tv_mobile_auth"
+                        style="@style/ll_item_textview"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/iv_mobile_auth_next"
+                        android:textColor="@color/theme_color" />
+
+                    <ImageView
+                        android:id="@+id/iv_mobile_auth_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/triangle" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/line_1" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_real_name_auth_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/ll_item_textview"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/account_center_real_name_auth" />
+
+                    <TextView
+                        android:id="@+id/tv_real_auth"
+                        style="@style/ll_item_textview"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/iv_real_name_next"
+                        android:textColor="@color/theme_color" />
+
+                    <ImageView
+                        android:id="@+id/iv_real_name_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/triangle" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/line_1" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_mail_auth_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/ll_item_textview"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/account_center_email_auth" />
+
+                    <TextView
+                        android:id="@+id/tv_mail_auth"
+                        style="@style/ll_item_textview"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/iv_mail_auth_next"
+                        android:textColor="@color/theme_color" />
+
+                    <ImageView
+                        android:id="@+id/iv_mail_auth_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/triangle" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pwd_management_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/ll_item_textview"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/account_center_psw_management" />
+
+                    <ImageView
+                        android:id="@+id/iv_pwd_management_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/triangle" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_auto_invest_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/ll_item_textview"
+                        android:paddingRight="5dp"
+                        android:text="自动投标(一键投资)" />
+                        <!--android:paddingLeft="5dp"-->
+
+                    <TextView
+                        android:id="@+id/tv_auto_invest_status"
+                        style="@style/ll_item_textview"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/iv_auto_invest_status_next" />
+
+                    <ImageView
+                        android:id="@+id/iv_auto_invest_status_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/triangle" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_setting_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/ll_item_textview"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/account_center_setting" />
+
+                    <ImageView
+                        android:id="@+id/iv_setting_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/triangle" />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_current_version"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal|bottom"-->
+            <!--android:padding="@dimen/activity_vertical_margin"-->
+            <!--android:textColor="@color/text_color"-->
+            <!--android:textSize="12sp" />-->
+    </LinearLayout>
+
+    <include layout="@layout/progressbar" />
+
+</FrameLayout>

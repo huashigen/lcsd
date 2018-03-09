@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/bg_new"
+    android:orientation="vertical" >
+
+    <include layout="@layout/fragment_actionbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+        <LinearLayout
+            android:id="@+id/ll_login_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                style="@style/ll_item_textview"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="登录密码"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <TextView
+                style="@style/ll_item_textview"
+                android:gravity="left|center_vertical"
+                android:text="修改"
+                android:textColor="@color/saft" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/triangle" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="10dp"
+            android:background="@color/line_1" />
+
+        <LinearLayout
+            android:id="@+id/ll_pay_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                style="@style/ll_item_textview"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="支付密码"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_pay_pwd"
+                style="@style/ll_item_textview"
+                android:gravity="left|center_vertical"
+                android:text=""
+                android:textColor="@color/saft" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/triangle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_gesture_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                style="@style/ll_item_textview"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="手势解锁"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_gesture_pwd"
+                style="@style/ll_item_textview"
+                android:gravity="left|center_vertical"
+                android:text=""
+                android:textColor="@color/saft" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/triangle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_set_sqa"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                style="@style/ll_item_textview"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="安全保护问题"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_question_pwd"
+                style="@style/ll_item_textview"
+                android:gravity="left|center_vertical"
+                android:text=""
+                android:textColor="@color/saft" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/triangle" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

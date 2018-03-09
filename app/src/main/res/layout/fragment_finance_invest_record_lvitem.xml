@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="4dp"
+    android:paddingTop="4dp"
+    android:weightSum="10">
+
+    <RelativeLayout
+        android:id="@+id/rl_bespeak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_invest_history_bespeak" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_pre_sale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_invest_history_pre_sale" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_bidder"
+        style="@style/finance_item_base_item_data"
+        android:layout_weight="2"
+        android:text="李**" />
+
+
+    <TextView
+        android:id="@+id/tv_bid_amount"
+        style="@style/finance_item_base_item_data"
+        android:layout_weight="3"
+        android:text="1,000,000.00"
+        android:textColor="@color/color_finance_child_yellow" />
+
+    <TextView
+        android:id="@+id/tv_bid_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="5"
+        android:text="2016-12-09 16:48:22"
+        android:textColor="#8e8e8e"
+        android:textSize="15sp" />
+
+</LinearLayout>

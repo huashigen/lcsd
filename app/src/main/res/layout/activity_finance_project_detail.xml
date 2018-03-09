@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/main"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/bg_new"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <include layout="@layout/top_bar"/>
+
+    <LinearLayout
+        android:id="@+id/finance_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <com.lcshidai.lc.widget.verticalviewpager.VerticalViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#b0E4EFF4"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/ll_invest_money"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <include layout="@layout/h_divider"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_bottom"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/bottom_menu_height"
+                    android:background="@color/white">
+
+                    <Button
+                        android:id="@+id/btn_invest_status_tips"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/btn_bg_green"
+                        android:gravity="center"
+                        android:text="@string/invest_right_now"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:visibility="invisible"/>
+
+                    <!-- 余额不足提示 -->
+                    <RelativeLayout
+                        android:id="@+id/rl_balance_less_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/balance_less_label"
+                            android:textColor="@color/color_3"
+                            android:textSize="17sp"/>
+
+                        <Button
+                            android:id="@+id/btn_recharge_right_now"
+                            android:layout_width="126dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/theme_color"
+                            android:gravity="center"
+                            android:text="@string/recharge_right_now"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:visibility="visible"/>
+
+                    </RelativeLayout>
+                    <!-- 待开标 -->
+                    <LinearLayout
+                        android:id="@+id/ll_dkb_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/login_orange"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/finance_list_clock"
+                            android:contentDescription="@string/app_name"/>
+
+                        <TextView
+                            android:id="@+id/tv_dkb_left_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0分钟0秒"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"/>
+                    </LinearLayout>
+                    <!-- 新秀标-->
+                    <RelativeLayout
+                        android:id="@+id/rl_xxb_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tv_xxb_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:focusable="false"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"/>
+
+                        <Button
+                            android:id="@+id/btn_xxb_invest_right_now"
+                            android:layout_width="126dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/theme_color"
+                            android:gravity="center"
+                            android:text="@string/invest_right_now"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"/>
+                    </RelativeLayout>
+
+                    <!--投资金额-->
+                    <RelativeLayout
+                        android:id="@+id/rl_invest_amount_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/tv_account_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:text="@string/invest_amount_label"
+                            android:textSize="12sp"/>
+
+                        <View
+                            android:id="@+id/v_divider"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_toRightOf="@+id/tv_account_label"
+                            android:background="#d7d7d7"/>
+
+                        <EditText
+                            android:id="@+id/et_invest_amount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/v_divider"
+                            android:background="@color/white"
+                            android:gravity="center_vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:textColor="@color/black"
+                            android:visibility="visible"/>
+
+                        <TextView
+                            android:id="@+id/tv_edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_toLeftOf="@+id/btn_invest_right_now"
+                            android:text="@string/invest_amount_modify"
+                            android:textSize="12sp"
+                            android:visibility="visible"/>
+
+                        <Button
+                            android:id="@+id/btn_invest_right_now"
+                            android:layout_width="126dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@color/color_my_green"
+                            android:gravity="center"
+                            android:text="@string/invest_right_now"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:visibility="visible"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+            <!--数字键盘-->
+            <include layout="@layout/layout_keyb"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--项目不可见布局-->
+    <LinearLayout
+        android:id="@+id/ll_forbidden_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_project_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_project_detail_huikuan"/>
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <Button
+            android:id="@+id/btn_see_other"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_project_forbidden"
+            android:text="@string/see_other_where"
+            android:textColor="@color/color_my_green_2"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

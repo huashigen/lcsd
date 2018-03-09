@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   	<dimen name="dimens_home_activity_height">31dp</dimen>
+   	<dimen name="dimens_home_top_type">18sp</dimen>
+   	<dimen name="dimens_home_top_percent">38sp</dimen>
+   	<dimen name="dimens_home_top_percent_right_marginbottom">10dp</dimen>
+    <dimen name="dimens_home_month_padding">12dp</dimen>
+    <dimen name="dimens_home_month_key">12sp</dimen>
+    <dimen name="dimens_home_month_value">16sp</dimen>
+    <dimen name="dimens_home_timer_margin">16dp</dimen>
+    <dimen name="dimens_home_submit_margin">14dp</dimen>
+    <dimen name="dimens_home_submit_margin_top">23dp</dimen>
+    <dimen name="dimens_home_submit_textsize">20sp</dimen>
+    <dimen name="dimens_home_submit_padding">9dp</dimen>
+    <dimen name="dimens_home_bottom_textsize">14sp</dimen>
+    <dimen name="dimens_home_submit_height">42dp</dimen>
+    <dimen name="dimens_home_new_timer_height">90sp</dimen>
+    
+    <dimen name="dimens_home_guess_bottom_padding">7dp</dimen>
+    <dimen name="dimens_home_guess_grid_item_text">14sp</dimen>
+    
+    <dimen name="dimens_account_bottom_ll">50dp</dimen>
+    <dimen name="dimens_account_bottom_textsize">18sp</dimen>
+    <dimen name="dimens_account_margin_top_left">5dp</dimen>
+    <dimen name="dimens_account_alert_green_textsize">14sp</dimen>
+    <dimen name="dimens_account_alert_green_margin">5dp</dimen>
+    <dimen name="dimens_account_alert_green_ll_margin">2dp</dimen>
+    <dimen name="dimens_account_middle_value_size">12sp</dimen>
+    <dimen name="dimens_account_middle_margin">8dp</dimen>
+    
+    <dimen name="dimens_account_pay_pwd_margin">5dp</dimen>
+    
+    <dimen name="dimens_move_zone_textsize">12sp</dimen>
+    <dimen name="dimens_move_zone_value_textsize">12sp</dimen>
+    
+    <dimen name="dimens_first_bottom_height">62dp</dimen>
+    <dimen name="dimens_first_bottom_margin">3dp</dimen>
+
+    <dimen name="dimens_newfinance_submit_textsize">18sp</dimen>
+    <dimen name="dimens_newfinance_submit_height">42dp</dimen>
+    <dimen name="dimens_newfinance_submit_toppadding">10dp</dimen>
+    
+    <dimen name="dimens_investor_authentication_top_textsize">14sp</dimen>
+    <dimen name="dimens_investor_authentication_middle_textsize">16sp</dimen>
+    <dimen name="dimens_investor_authentication_agree_textsize">12sp</dimen>
+    
+    <dimen name="dimens_withdrawals_list_bottom_padding">10sp</dimen>
+    <dimen name="dimens_withdrawals_list_bottom_button_padding">6sp</dimen>
+    
+    <dimen name="dimens_withdrawals_item_text_left">14sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_bank">12sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_xiane">10sp</dimen>
+    <dimen name="dimens_withdrawals_item_edit_hint">12sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_free_value">12sp</dimen>
+    <dimen name="dimens_withdrawals_item_text_free">14sp</dimen>
+    <dimen name="dimens_withdrawals_main_padding_top">9dp</dimen>
+    <dimen name="dimens_withdrawals_main_padding_bottom">0dp</dimen>
+    
+    <dimen name="dimens_login_hongbao_textsize">18sp</dimen>
+    
+    <dimen name="dimens_home_guess_grid_text_margin_top">2dp</dimen>
+    
+</resources>

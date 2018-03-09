@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include layout="@layout/top_bar" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line" />
+
+        <!-- 银行卡 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_bank_icon"
+                style="@style/style_withdrawals_item_iv_icon" />
+
+            <TextView
+                android:id="@+id/tv_bank_name"
+                style="@style/style_withdrawals_item_tv_left"
+                android:layout_width="0dp"
+                android:layout_weight="3" />
+
+        </LinearLayout>
+
+        <!-- 可提现金额 -->
+        <LinearLayout
+            style="@style/style_withdrawals_item_angle"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/style_withdrawals_item_tv_left"
+                android:layout_width="wrap_content"
+                android:text="可提现金额" />
+
+            <TextView
+                android:id="@+id/tv_most_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimens_withdrawals_item_text_left" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="当天充值的金额需下一个工作日提现"
+                android:textSize="12sp"/>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tv_recharge_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="充值明细"
+                android:textColor="@color/color_text_green"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line" />
+
+        <!-- 提现金额 -->
+        <LinearLayout
+            style="@style/style_withdrawals_item_angle"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/style_withdrawals_item_tv_left"
+                android:layout_width="wrap_content"
+                android:text="提现金额" />
+
+            <EditText
+                android:id="@+id/et_cashout_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:background="@color/transparent"
+                android:textColor="@color/text_default"
+                android:textSize="@dimen/dimens_withdrawals_item_text_left"
+                android:hint="请输入提现金额"
+                android:textCursorDrawable="@drawable/cursor_drawable"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="5万以上的大额提现建议工作日发起"
+            android:textSize="12sp"/>
+
+        <!-- 支付密码 -->
+        <LinearLayout
+            style="@style/style_withdrawals_item_angle"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/style_withdrawals_item_tv_left"
+                android:layout_width="wrap_content"
+                android:text="支付密码" />
+
+            <EditText
+                android:id="@+id/et_pay_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:inputType="numberPassword"
+                android:background="@color/transparent"
+                android:hint="请输入支付密码"
+                android:textSize="@dimen/dimens_withdrawals_item_text_left"
+                android:textColor="@color/text_default"
+                android:textCursorDrawable="@drawable/cursor_drawable"/>
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/tv_forget_psw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="right"
+            android:textColor="@color/help_phone"
+            android:text="忘记密码？"/>
+
+        <Button
+            android:id="@+id/btn_cashout_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="@dimen/dimens_withdrawals_list_bottom_button_padding"
+            android:background="@drawable/bg_button_clickable_false"
+            android:clickable="false"
+            android:text="免费提现"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <include layout="@layout/picc"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/withdrawals_fl_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone" >
+
+        <include layout="@layout/layout_keyboard" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/password_fl_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone" >
+
+        <include layout="@layout/layout_password_keyboard" />
+    </FrameLayout>
+
+    <include layout="@layout/progressbar" />
+
+</FrameLayout>

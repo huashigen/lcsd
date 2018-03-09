@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_left_label"
+        style="@style/cun_guan_rl_left_text"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="证券基金"
+        android:textColor="@color/color_login" />
+
+    <TextView
+        android:id="@+id/tv_right_value"
+        style="@style/cun_guan_rl_right_text"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="￥0.00"
+        android:textColor="@color/color_login" />
+
+    <View
+        android:id="@+id/v_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lv_divider_small"
+        android:layout_below="@id/tv_left_label"
+        android:layout_marginLeft="10dp"
+        android:background="#D8D8D8" />
+</RelativeLayout>

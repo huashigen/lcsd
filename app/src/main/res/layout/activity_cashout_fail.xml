@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+	android:background="@color/gray_bg"
+	android:orientation="vertical">
+
+	<include layout="@layout/top_bar"/>
+
+	<ImageView
+		android:layout_width="70dp"
+		android:layout_height="70dp"
+		android:layout_marginTop="40dp"
+		android:layout_marginBottom="20dp"
+		android:layout_gravity="center_horizontal"
+		android:src="@drawable/img_withdraw_fail" />
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:text="提现申请失败"
+		android:textColor="@color/color_finance_base_blue"
+		android:textSize="18sp" />
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1px"
+		android:layout_marginTop="40dp"
+		android:background="@color/line"/>
+
+	<TextView
+		android:id="@+id/tv_error_msg"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:text=""
+		android:textColor="@color/text_color"
+		android:textSize="14sp" />
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1px"
+		android:layout_marginTop="10dp"
+		android:background="@color/line"/>
+
+	<TextView
+		android:id="@+id/tv_invest"
+        android:padding="13dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:gravity="center"
+		android:text="立即投资，赚取收益"
+		android:textColor="@color/white"
+		android:background="@drawable/bg_invite"/>
+
+	<TextView
+		android:id="@+id/tv_account"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:layout_marginLeft="15dp"
+		android:layout_marginRight="15dp"
+		android:gravity="center"
+		android:padding="13dp"
+		android:text="账户概况"
+		android:textColor="@color/color_text_green"
+		android:background="@drawable/shape_my_invite"/>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="10dp"/>
+
+	<!--<include layout="@layout/picc"/>-->
+
+</LinearLayout>

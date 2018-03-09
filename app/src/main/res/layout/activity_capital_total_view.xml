@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_bg"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--净资产-->
+            <RelativeLayout
+                android:id="@+id/rl_net_assets_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_with_top_bottom_white_border_no_padding">
+
+                <RelativeLayout
+                    android:id="@+id/rl_net_assets_label_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <View
+                        android:id="@+id/v_net_assets_label_divider"
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/color_text_green" />
+
+                    <TextView
+                        android:id="@+id/tv_net_assets_label"
+                        style="@style/cun_guan_lable_text"
+                        android:layout_toRightOf="@+id/v_net_assets_label_divider"
+                        android:text="@string/capital_total_net_assert_with_space" />
+
+                    <TextView
+                        android:id="@+id/tv_net_assets_num"
+                        style="@style/cun_guan_lable_text"
+                        android:layout_toRightOf="@+id/tv_net_assets_label" />
+
+                    <TextView
+                        android:id="@+id/tv_cun_guan_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@drawable/triangle"
+                        android:visibility="gone"
+                        android:text="@string/cun_guan_account" />
+
+                </RelativeLayout>
+
+
+                <!--当前投资中-->
+                <RelativeLayout
+                    android:id="@+id/rl_under_invest_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_net_assets_label_container"
+                    android:background="@drawable/bg_gray_with_top_bottom_light_gray_border">
+
+                    <TextView
+                        android:id="@+id/tv_under_invest_label"
+                        style="@style/cun_guan_rl_left_text"
+                        android:text="@string/capital_total_under_invest" />
+
+                    <TextView
+                        android:id="@+id/tv_under_invest"
+                        style="@style/cun_guan_rl_right_text" />
+
+                </RelativeLayout>
+
+                <!--可用余额-->
+                <RelativeLayout
+                    android:id="@+id/rl_available_balance_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_under_invest_container"
+                    android:background="@drawable/bg_gray_with_bottom_light_gray_border">
+
+                    <TextView
+                        android:id="@+id/tv_available_balance_label"
+                        style="@style/cun_guan_rl_left_text"
+                        android:text="@string/capital_total_available_balance" />
+
+                    <TextView
+                        android:id="@+id/tv_available_balance"
+                        style="@style/cun_guan_rl_right_text" />
+
+                </RelativeLayout>
+
+                <!--银行处理中-->
+                <RelativeLayout
+                    android:id="@+id/rl_under_bank_apply_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_available_balance_container"
+                    android:background="@drawable/bg_gray_with_bottom_light_gray_border"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_under_bank_apply_label"
+                        style="@style/cun_guan_rl_left_text"
+                        android:text="@string/capital_total_under_bank_apply"
+                        android:textColor="@color/deep_green" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_del_size"
+                        android:layout_height="@dimen/icon_del_size"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/tv_under_bank_apply_label"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_under_bank_apply" />
+
+                    <TextView
+                        android:id="@+id/tv_under_bank_apply"
+                        style="@style/cun_guan_rl_right_text"
+                        android:textColor="@color/deep_green" />
+
+                </RelativeLayout>
+
+                <!--银行还款处理中-->
+                <RelativeLayout
+                    android:id="@+id/rl_bank_return_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_under_bank_apply_container"
+                    android:background="@drawable/bg_gray_with_bottom_light_gray_border"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_bank_return_label"
+                        style="@style/cun_guan_rl_left_text"
+                        android:text="@string/capital_total_bank_return"
+                        android:textColor="@color/color_text_green" />
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_del_size"
+                        android:layout_height="@dimen/icon_del_size"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/tv_bank_return_label"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_under_bank_apply" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_return"
+                        style="@style/cun_guan_rl_right_text"
+                        android:textColor="@color/color_text_green" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <!--说明-->
+            <LinearLayout
+                android:id="@+id/ll_instruction_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_with_top_bottom_white_border_no_padding"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/capital_total_preview_total_with_unit"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_instruction_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/symbol_equal"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/capital_total_net_assert_with_unit"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_instruction_net_asserts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/symbol_plus"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/capital_total_accumulated_to_collect_interest_with_unit"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_instruction_to_collect_profit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--累计收益-->
+            <RelativeLayout
+                android:id="@+id/rl_accumulated_income_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_with_top_bottom_white_border_no_padding">
+
+                <RelativeLayout
+                    android:id="@+id/rl_accumulated_income_label_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <View
+                        android:id="@+id/v_accumulated_income_label_divider"
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@color/theme_color" />
+
+                    <TextView
+                        android:id="@+id/tv_accumulated_income_label"
+                        style="@style/cun_guan_lable_text"
+                        android:layout_toRightOf="@+id/v_accumulated_income_label_divider"
+                        android:text="@string/capital_total_accumulated_income_with_unit" />
+
+                    <TextView
+                        android:id="@+id/tv_accumulated_income_num"
+                        style="@style/cun_guan_lable_text"
+                        android:layout_toRightOf="@+id/tv_accumulated_income_label" />
+                </RelativeLayout>
+
+
+                <!--预期待收益-->
+                <RelativeLayout
+                    android:id="@+id/rl_accumulated_to_collect_interest_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_accumulated_income_label_container"
+                    android:background="@drawable/bg_gray_with_top_bottom_light_gray_border">
+
+                    <TextView
+                        android:id="@+id/tv_accumulated_to_collect_interest_label"
+                        style="@style/cun_guan_rl_left_text"
+                        android:text="@string/capital_total_accumulated_to_collect_interest" />
+
+                    <TextView
+                        android:id="@+id/tv_accumulated_to_collect_interest"
+                        style="@style/cun_guan_rl_right_text" />
+
+                </RelativeLayout>
+
+                <!--已赚收益-->
+                <RelativeLayout
+                    android:id="@+id/rl_accumulated_collected_interest_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_accumulated_to_collect_interest_container"
+                    android:background="@drawable/bg_gray_with_bottom_light_gray_border">
+
+                    <TextView
+                        android:id="@+id/tv_collected_interest_label"
+                        style="@style/cun_guan_rl_left_text"
+                        android:text="@string/capital_total_collected_interest" />
+
+                    <TextView
+                        android:id="@+id/tv_accumulated_collected_interest"
+                        style="@style/cun_guan_rl_right_text" />
+
+                </RelativeLayout>
+
+                <!--已用奖励(券/红包/理财金)-->
+                <RelativeLayout
+                    android:id="@+id/rl_collected_reward_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rl_accumulated_collected_interest_container"
+                    android:background="@drawable/bg_gray_with_bottom_light_gray_border">
+
+                    <TextView
+                        android:id="@+id/tv_collected_reward_label"
+                        style="@style/cun_guan_rl_left_text"
+                        android:text="@string/capital_total_collected_reward" />
+
+                    <TextView
+                        android:id="@+id/tv_collected_reward"
+                        style="@style/cun_guan_rl_right_text" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <!--存管单位说明-->
+            <!--<include layout="@layout/picc" />-->
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

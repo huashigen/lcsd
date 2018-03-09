@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_full"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/activity_group_container"
+        style="@style/layout_vertical"
+        android:layout_weight="1.0"
+        android:orientation="vertical" >
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" >
+
+        <RadioGroup
+            android:id="@+id/activity_group_radioGroup"
+            style="@style/bottombar_radioGroup"
+            android:layout_height="@dimen/bottom_menu_height"
+            android:checkedButton="@+id/activity_group_radioButton1" >
+
+            <RadioButton
+                android:id="@+id/activity_group_radioButton1"
+                style="@style/bottombar_radioButton"
+                android:textColor="@color/bottom_tvcolor"
+                android:textSize="11sp" />
+
+            <RadioButton
+                android:id="@+id/activity_group_radioButton0"
+                style="@style/bottombar_radioButton"
+                android:textColor="@color/bottom_tvcolor"
+                android:textSize="11sp" />
+
+            <RadioButton
+                android:id="@+id/activity_group_radioButton2"
+                style="@style/bottombar_radioButton"
+                android:textColor="@color/bottom_tvcolor"
+                android:textSize="11sp" />
+
+            <RadioButton
+                android:id="@+id/activity_group_radioButton3"
+                style="@style/bottombar_radioButton"
+                android:textColor="@color/bottom_tvcolor"
+                android:textSize="11sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="3dp" >
+
+            <LinearLayout
+                android:id="@+id/ll_msg_finance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_msg_finance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="3dp"
+                    android:text="99"
+                    android:background="@drawable/shape_menu_msg_bg"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_msg_project"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_msg_project"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="3dp"
+                    android:text="99"
+                    android:background="@drawable/shape_menu_msg_bg"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_msg_account"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_msg_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="3dp"
+                    android:text="99"
+                    android:background="@drawable/shape_menu_msg_bg"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_msg_discovery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_msg_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="3dp"
+                    android:text="99"
+                    android:gravity="center"
+                    android:background="@drawable/shape_menu_msg_bg"
+                    android:textColor="@color/white"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

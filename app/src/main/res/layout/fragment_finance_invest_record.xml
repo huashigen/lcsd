@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical" >
+
+            <com.lcshidai.lc.widget.xlvfresh.XListView
+                android:id="@+id/lv_record"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:clickable="false"
+                android:footerDividersEnabled="true"
+                android:dividerHeight="1px"
+                android:divider="@color/line" />
+
+            <include 
+                android:id="@+id/iv_state"
+                layout="@layout/rl_empty" />
+        </FrameLayout>
+    </LinearLayout>
+
+</FrameLayout>

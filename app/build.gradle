@@ -1,0 +1,236 @@
+apply plugin: 'com.android.application'
+
+def debugTime(boolean isDirTime) {
+    if (isDirTime) {
+        return new Date().format("yyyy_MM_dd")
+    } else {
+        return new Date().format("HH_mm_ss")
+    }
+}
+
+def releaseTime(boolean isDirTime) {
+    if (isDirTime) {
+        return new Date().format("yyyy_MM_dd")
+    } else {
+        return new Date().format("HH_mm_ss")
+    }
+}
+
+// 默认版本号
+ext.appVersionCode = 32
+// 默认版本名
+ext.appVersionName = "1.0.2"
+// 默认release apk输出路径
+ext.appReleaseDir = "D:/Users/Documents/Lc/releaseApk"
+// 默认debug apk输出路径
+ext.appDebugDir = "D:/Users/Documents/Lc/debugApk"
+// 默认正式包后缀名
+ext.appReleaseSuffixName = "_release.apk"
+// 默认debug包后缀名
+ext.appDebugSuffixName = "_debug.apk"
+// 默认的名称
+ext.appName = "LcAndroid"
+
+def loadProperties() {
+    def proFile = file("release.properties")
+    Properties pro = new Properties()
+    proFile.withInputStream { stream ->
+        pro.load(stream)
+    }
+    appReleaseDir = pro.appReleaseDir + File.separator + releaseTime(true)
+    appDebugDir = pro.appDebugDir + File.separator + debugTime(true)
+    appVersionCode = Integer.valueOf(pro.appVersionCode)
+    appVersionName = pro.appVersionName
+    appReleaseSuffixName = pro.appReleaseSuffixName
+    appDebugSuffixName = pro.appDebugSuffixName
+    appName = pro.appName
+}
+
+//加载信息
+loadProperties()
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        applicationId "com.lcshidai.lc"
+        minSdkVersion 11
+        targetSdkVersion 21
+        versionCode appVersionCode
+        versionName appVersionName
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
+        multiDexEnabled = true  //突破方法数65535的限制
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "zhsKH7WGqw68SXXqWuYc9A",
+                GETUI_APP_KEY   : "DMEQ08fZ3TAaRIhprbVLA7",
+                GETUI_APP_SECRET: "y7DeJaJizlAHXUzdOEzQI4"
+        ]
+        flavorDimensions "${appVersionCode}"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+    }
+
+    //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+    lintOptions {
+        abortOnError false
+        ignoreWarnings true
+        //后添加
+        checkReleaseBuilds false
+    }
+
+    //渠道Flavors，配置不同风格的app,友盟渠道统计时用到
+    productFlavors {
+        lcshidai {}
+//        baidu {}
+//        uc {}
+//        yunos {}
+//        qq {}
+//        huawei {}
+//        lcsd_360 {}
+//        meizu {}
+//        xiaomi {}
+//        sogou {}
+//        oppo {}
+//        vivo {}
+//        letv {}
+//        chuizi {}
+//        anzhi {}
+//        jinli {}
+//        nduo {}
+//        samsung {}
+//        lcsd_51vapp {}
+//        jifeng {}
+//        coolchuan {}
+//        eoe {}
+//        yyjia {}
+//        liqu {}
+//        mumayi {}
+//        lenovo {}
+
+        productFlavors.all { flavors ->
+            flavors.manifestPlaceholders = [TALKING_DATA_CHANNEL_VALUE: name]
+        }
+    }
+//    签名
+    signingConfigs {
+        debug {
+            storeFile file('lcsd.jks')
+            storePassword 'lcsd123456'
+            keyAlias 'lcshidai'
+            keyPassword 'lcsd123456'
+        }
+        release {
+            storeFile file('lcsd.jks')
+            storePassword "lcsd123456"
+            keyAlias "lcshidai"
+            keyPassword "lcsd123456"
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示log
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources false
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('debug.apk')) {
+                        def fileName = appName + "_V${defaultConfig.versionName}" + appDebugSuffixName
+//                        output.outputFile = new File(appDebugDir, fileName)
+                        outputFileName = fileName
+                    }
+                }
+            }
+            signingConfig signingConfigs.debug
+        }
+        release {
+            // 不显示log
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            // 控制是否进行混淆
+            minifyEnabled false
+            //Zipalign优化
+            zipAlignEnabled false
+            // 移除无用的资源文件
+            shrinkResources false
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明，后一个文件是自己的定义混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+//            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+                        if (variant.productFlavors[0] != null) {
+                            def productFlavorsName = variant.productFlavors[0].name;
+                            def fileName = appName + "_V${defaultConfig.versionName}_${releaseTime(false)}_" + productFlavorsName + appReleaseSuffixName;
+//                            output.outputFile = new File(appReleaseDir, fileName)
+                            outputFileName = fileName
+                        } else {
+                            def fileName = appName + "_V${defaultConfig.versionName}_${releaseTime(false)}_" + appReleaseSuffixName;
+//                            output.outputFile = new File(appReleaseDir, fileName);
+                            outputFileName = fileName
+                        }
+                    }
+
+                }
+            }
+            signingConfig signingConfigs.release
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+        // as noted by @Vishnuvathsan you may also need to include
+        // variations on the file name. It depends on your dependencies.
+        // Some other common variations on notice and license file names
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
+    }
+    dexOptions {
+        javaMaxHeapSize "2048m"
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/GetuiSDK2.9.5.0.jar')
+    compile files('libs/httpmime-4.2.5.jar')
+    compile files('libs/jackson-annotations-2.5.1.jar')
+    compile files('libs/jackson-core-2.5.1.jar')
+    compile files('libs/jackson-databind-2.5.1.jar')
+    compile files('libs/mframework.jar')
+    compile files('libs/ShareSDK-Core-2.3.8.jar')
+    compile files('libs/ShareSDK-QQ-2.3.8.jar')
+    compile files('libs/ShareSDK-ShortMessage-2.3.8.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.3.8.jar')
+    compile files('libs/ShareSDK-TencentWeibo-2.3.8.jar')
+    compile files('libs/ShareSDK-Wechat-2.3.8.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.3.8.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.3.8.jar')
+    compile files('libs/TalkingData_Analytics_Android_SDK.jar')
+    compile files('libs/zsBank1.0.0.jar')
+    compile project(':MPChartLib')
+    compile project(':magicindicator')
+    compile project(':android-pdf-viewer')
+    compile project(':UdeskSDKUI')
+    // KLog
+    compile project(':android-pdf-viewer')
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.linsea:universalvideoview:1.1.0@aar'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    compile 'com.github.zhaokaiqiang.klog:library:1.5.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.bm.photoview:library:1.4.1'
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}

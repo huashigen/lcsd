@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main_gray"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--认购起点-->
+            <LinearLayout
+                android:id="@+id/ll_purchase_start_point_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase" />
+
+                <include layout="@layout/h_divider" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_purchase_start_point_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/about_purchase_start_buy_point_label"
+                        android:textColor="@color/color_75" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_start_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:text="100万"
+                        android:textColor="@color/color_75" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_purchase_increment_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/fund_pro_detail_base_gray"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/about_purchase_start_buy_point_asc_label"
+                        android:textColor="@color/color_75" />
+
+                    <TextView
+                        android:id="@+id/tv_purchase_increment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:text="1万"
+                        android:textColor="@color/color_75" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_open_date_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_open_date_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/about_purchase_open_date_label"
+                        android:textColor="@color/color_75" />
+
+                    <TextView
+                        android:id="@+id/tv_open_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="130dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="left"
+                        android:text="2016-10-27"
+                        android:textColor="@color/color_75" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--认购费-->
+            <LinearLayout
+                android:id="@+id/ll_sub_fee_rule_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--认购费-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase_confirm_buy_fee_label" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_sub_fee_rule"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--申购费-->
+            <LinearLayout
+                android:id="@+id/ll_apply_fee_rule_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase_apply_buy_fee_label" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_apply_fee_rule"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--管理费-->
+            <LinearLayout
+                android:id="@+id/ll_manage_fee_rule_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase_management_fee_label" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_manage_fee_rule"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--赎回费-->
+            <LinearLayout
+                android:id="@+id/ll_redeem_fee_rule_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase_buy_back_fee_label" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_redeem_fee_rule"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--业绩管理报酬-->
+            <LinearLayout
+                android:id="@+id/ll_reward_rule_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase_business_reward_label" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_reward_rule"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_other_instruction_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase_other_instruction_label" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_other_instruction"
+                    style="@style/about_purchase_item_content" />
+
+
+            </LinearLayout>
+
+            <!--募集账户-->
+            <LinearLayout
+                android:id="@+id/ll_collect_account_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="@string/about_purchase_collect_account" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_account_holder"
+                    style="@style/about_purchase_item_content" />
+
+                <TextView
+                    android:id="@+id/tv_bank_account"
+                    style="@style/about_purchase_item_content" />
+
+                <TextView
+                    android:id="@+id/tv_bank"
+                    style="@style/about_purchase_item_content" />
+
+                <TextView
+                    android:id="@+id/tv_remark"
+                    style="@style/about_purchase_item_content" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/icon_copy_account" />
+
+                    <TextView
+
+                        android:id="@+id/tv_copy_account_info"
+                        style="@style/about_purchase_item_content"
+                        android:layout_gravity="right"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/about_purchase_copy_account_info"
+                        android:textColor="@color/RED" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

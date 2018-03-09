@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.lcshidai.lc.ui.project.InvestAboutActivity">
+
+    <include layout="@layout/top_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_main_gray"
+        android:scrollbars="none">
+        <!--投资标的-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_invest_target_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--投资标的-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="投资标的" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_invest_target"
+                    style="@style/about_purchase_item_content"
+                    android:text="投资标的" />
+
+            </LinearLayout>
+            <!--发行机构介绍-->
+            <LinearLayout
+                android:id="@+id/ll_issuer_introduce_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--投资范围-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="发行机构介绍" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_issuer_introduce"
+                    style="@style/about_purchase_item_content"
+                    android:text="发行机构介绍" />
+
+            </LinearLayout>
+
+
+            <!--投资范围-->
+            <LinearLayout
+                android:id="@+id/ll_invest_scope_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--投资范围-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="投资范围" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_invest_scope"
+                    style="@style/about_purchase_item_content"
+                    android:text="投资范围" />
+
+            </LinearLayout>
+
+            <!--管理团队-->
+            <LinearLayout
+                android:id="@+id/ll_manage_team_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--管理团队-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="管理团队" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_invest_manage_team"
+                    style="@style/about_purchase_item_content"
+                    android:text="管理团队" />
+
+            </LinearLayout>
+
+            <!--投资理念-->
+            <LinearLayout
+                android:id="@+id/ll_invest_philosophy_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--投资理念-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="投资理念" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_invest_philosophy"
+                    style="@style/about_purchase_item_content"
+                    android:text="投资理念" />
+
+            </LinearLayout>
+            <!--基金公司-->
+            <LinearLayout
+                android:id="@+id/ll_fund_company_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--投资理念-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="基金公司" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_fund_company"
+                    style="@style/about_purchase_item_content"
+                    android:text="基金公司" />
+
+            </LinearLayout>
+
+            <!--抵/质押率（%）-->
+            <LinearLayout
+                android:id="@+id/ll_ltv_ratio_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--抵/质押率（%）-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="抵/质押率" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_ltv_ratio"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--融资主体-->
+            <LinearLayout
+                android:id="@+id/ll_ltv_body_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--抵/质押率（%）-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="融资主体" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_ltv_body"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--投资用途-->
+            <LinearLayout
+                android:id="@+id/ll_fund_invest_at_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--投资用途-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="投资用途" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_fund_invest_at"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--还款来源-->
+            <LinearLayout
+                android:id="@+id/ll_return_source_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--还款来源-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="还款来源" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_return_source_at"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <!--补充说明-->
+            <LinearLayout
+                android:id="@+id/ll_added_intro_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <!--补充说明-->
+                <TextView
+                    style="@style/text_label_with_v_divider"
+                    android:text="补充说明" />
+
+                <include layout="@layout/h_divider" />
+
+                <TextView
+                    android:id="@+id/tv_added_intro"
+                    style="@style/about_purchase_item_content" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

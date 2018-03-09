@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout android:layout_marginTop="2dp"
+		android:layout_weight="1" android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="match_parent">
+		<TextView android:layout_width="fill_parent"
+			android:layout_margin="4dp" android:layout_height="wrap_content"
+			android:text="应收本息(元)" />
+
+
+		<TextView android:id="@+id/tv_sum_pri_interest"
+			android:textColor="@color/black" android:layout_width="fill_parent"
+			android:layout_margin="4dp" android:text="20.00" android:textSize="16sp"
+			android:layout_height="wrap_content" />
+
+	</LinearLayout>
+
+	<ImageView android:layout_width="3dp" android:layout_height="fill_parent"
+		android:visibility="gone"
+		android:layout_marginTop="2dp" android:layout_marginBottom="10dp"
+		android:background="#E7E7E7" />
+
+	<LinearLayout android:layout_marginTop="2dp"
+		android:layout_weight="1" android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="match_parent">
+		<TextView android:layout_width="fill_parent"
+			android:layout_margin="4dp" android:layout_height="wrap_content"
+			android:text="应收本金(元)" />
+
+
+		<TextView android:id="@+id/tv_sum_principal"
+			android:textColor="@color/black" android:layout_width="fill_parent"
+			android:layout_margin="4dp" android:text="10.00" android:textSize="16sp"
+			android:layout_height="wrap_content" />
+
+	</LinearLayout>
+
+	<ImageView android:layout_width="3dp" android:layout_height="fill_parent"
+		android:layout_marginTop="2dp" android:layout_marginBottom="10dp"
+		android:visibility="gone"
+		android:background="#E7E7E7" />
+
+	<LinearLayout android:layout_marginTop="2dp"
+		android:layout_weight="1" android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="match_parent">
+		<TextView android:layout_width="fill_parent"
+			android:layout_margin="4dp" android:layout_height="wrap_content"
+			android:text="应收利息(元)" />
+
+
+		<TextView android:id="@+id/tv_sum_yield" android:textColor="@color/black"
+			android:layout_width="fill_parent" android:layout_margin="4dp"
+			android:text="10.00" android:textSize="16sp" android:layout_height="wrap_content" />
+
+	</LinearLayout>
+</LinearLayout>

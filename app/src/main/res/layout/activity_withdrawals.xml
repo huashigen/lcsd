@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include layout="@layout/fragment_actionbar" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line" />
+
+        <RelativeLayout
+            style="@style/style_withdrawals_item_angle"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <ImageView
+                style="@style/style_withdrawals_item_iv_icon"
+                android:src="@drawable/icon_item_yue"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/style_withdrawals_item_tv_left"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="账户余额" />
+
+            <TextView
+                android:id="@+id/withdrawals_item_tv_value_yue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="@color/black_gray"
+                android:textSize="@dimen/dimens_withdrawals_item_text_left" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/line" />
+
+        <ScrollView
+            android:id="@+id/withdrawals_main_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dimens_withdrawals_main_padding_bottom"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp" >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" />
+
+                <LinearLayout
+                    android:id="@+id/withdrawals_ll_scroll_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        style="@style/style_withdrawals_item_angle"
+                        android:orientation="vertical"
+                        android:background="@color/white" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                style="@style/style_withdrawals_item_iv_icon"
+                                android:src="@drawable/icon_bank_hollow" />
+
+                            <TextView
+                                style="@style/style_withdrawals_item_tv_left"
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:text="银行" />
+
+                            <LinearLayout
+                                android:id="@+id/withdrawals_ll_bank"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="9"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal" >
+
+                                <TextView
+                                    android:id="@+id/withdrawals_item_tv_value_bank"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_weight="1"
+                                    android:ellipsize="marquee"
+                                    android:singleLine="true"
+                                    android:text="请选择银行卡"
+                                    android:textColor="@color/login_orange"
+                                    android:textSize="@dimen/dimens_withdrawals_item_text_bank" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/triangle" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/withdrawals_line_bank1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#DADADA"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/withdrawwals_ll_bank_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:visibility="gone" >
+
+                            <ImageView
+                                style="@style/style_withdrawals_item_iv_icon"
+                                android:src="@drawable/icon_card" />
+
+                            <TextView
+                                style="@style/style_withdrawals_item_tv_left"
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:text="卡号" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="9"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal" >
+
+                                <com.lcshidai.lc.widget.text.CustomEditTextLeftIcon
+                                    android:id="@+id/withdrawals_et_bankcard_number"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:text="法兰克福支行"
+                                    android:textColor="#1572BD"
+                                    android:textSize="@dimen/dimens_withdrawals_item_text_bank" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/withdrawwals_line_bank2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#DADADA" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                style="@style/style_withdrawals_item_iv_icon"
+                                android:src="@drawable/icon_gps_hollow" />
+
+                            <TextView
+                                style="@style/style_withdrawals_item_tv_left"
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:text="开户行" />
+
+                            <LinearLayout
+                                android:id="@+id/withdrawals_ll_kaihuhang"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="9"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal" >
+
+                                <TextView
+                                    android:id="@+id/withdrawals_item_tv_value_kaihuhang"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_weight="1"
+                                    android:ellipsize="marquee"
+                                    android:singleLine="true"
+                                    android:text="请选择开户行"
+                                    android:textColor="#999999"
+                                    android:textSize="@dimen/dimens_withdrawals_item_text_bank" />
+
+                                <ImageView
+                                    android:id="@+id/withdrawals_item_iv_toright_kaihuhang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/triangle"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_alert_orange" />
+
+                    <TextView
+                        android:id="@+id/withdrawals_tv_bankcard_xiane"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="#A8A8A8"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_xiane" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/style_withdrawals_item_angle"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:background="@color/white" >
+
+                    <ImageView
+                        style="@style/style_withdrawals_item_iv_icon"
+                        android:src="@drawable/icon_money_hollow" />
+
+                    <TextView
+                        style="@style/style_withdrawals_item_tv_left"
+                        android:layout_width="wrap_content"
+                        android:text="提现金额" />
+
+                    <com.lcshidai.lc.widget.text.UserKeyboardEditText
+                        android:id="@+id/withdrawals_et_money"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_alert" />
+
+                    <TextView
+                        android:id="@+id/tv_samecard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:text="为确保资金安全，最大提现金额按同卡进出原则设定。"
+                        android:textColor="#888888"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_xiane" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="此卡本次最多可提现"
+                        android:textColor="#888888"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_xiane" />
+
+                    <TextView
+                        android:id="@+id/tv_samecardaccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF811C"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_xiane" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="3dp"
+                    android:text="提现申请成功后1-2个工作日到账，节假日顺延"
+                    android:textColor="#A8A8A8"
+                    android:textSize="@dimen/dimens_withdrawals_item_text_xiane"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_square_border_blue"
+                    android:padding="10dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="marquee"
+                        android:singleLine="true"
+                        android:textColor="#0C84E7"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_free_value"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:background="#1C8CE9" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="已获得免费提现额度(已处理)"
+                        android:textColor="#0C84E7"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_free"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_square_border_orange"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/withdrawals_tv_free_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:ellipsize="marquee"
+                        android:singleLine="true"
+                        android:textColor="#FF6600"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_free_value"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/vid"
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#FF9F60" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/vid"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:singleLine="true"
+                            android:text="已获得免手续费次数"
+                            android:textColor="#FF9A57"
+                            android:textSize="@dimen/dimens_withdrawals_item_text_free"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_square_border_blue"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/withdrawals_tv_free_edu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:ellipsize="marquee"
+                        android:singleLine="true"
+                        android:textColor="#228CFF"
+                        android:textSize="@dimen/dimens_withdrawals_item_text_free_value"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/vvid"
+                        android:layout_width="1dp"
+                        android:layout_height="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#228CFF" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/vvid"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:singleLine="true"
+                            android:text="可免费提现金额"
+                            android:textColor="#228CFF"
+                            android:textSize="@dimen/dimens_withdrawals_item_text_free"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+                
+                <!--<include layout="@layout/picc"/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="6dp"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:visibility="invisible"
+                    android:text="@string/str_account_chengbao2"
+                    android:textSize="11sp" />
+                    <!--android:drawableStart="@drawable/security"-->
+                    <!--android:drawableLeft="@drawable/security"-->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"/>
+
+                <View
+                    android:id="@+id/withdrawals_bottom_invisible_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/withdrawals_bottom_invisible_keyboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
+
+                <FrameLayout
+                    android:id="@+id/withdrawals_fl_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"                   
+                     >
+                    <Button
+                        android:id="@+id/withdrawals_bt_submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/feedback_submit_bg_xml"
+                        android:padding="@dimen/dimens_withdrawals_list_bottom_button_padding"
+                        android:text="免费提现"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/l1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_cs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="0dp"
+                        android:text="联系客服"
+                        android:textColor="#666666" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/withdrawals_fl_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone" >
+
+        <include layout="@layout/layout_keyboard" />
+    </FrameLayout>
+
+</FrameLayout>

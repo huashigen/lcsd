@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/bg_question"
+    android:orientation="vertical" >
+     <include layout="@layout/fragment_actionbar" />
+    <LinearLayout
+        android:id="@+id/rlQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+               android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/help_1"
+            android:textColor="@color/help_tv" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:id="@+id/linear_phone"
+              android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+              android:layout_gravity="left"
+              android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                  android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/help_phone"
+                android:textColor="@color/help_phone"
+                android:textSize="18sp" />
+
+            <TextView
+                  android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/help_phone_time"
+                android:textColor="@color/help_tv"
+                android:textSize="12sp" />
+        </LinearLayout>
+          </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CBCBCB" />
+
+      <LinearLayout
+        android:id="@+id/rlQuestion1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+               android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/help_2"
+            android:textColor="@color/help_tv" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+              android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+
+            <TextView  android:layout_marginLeft="10dp"
+                  android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="@string/help_email"
+                android:textColor="@color/help_tv"
+                android:textSize="18sp" />
+
+            
+        </LinearLayout>
+    </LinearLayout>
+   <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CBCBCB" />
+
+      <LinearLayout
+        android:id="@+id/rlQuestion2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+               android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/help_3"
+            android:textColor="@color/help_tv" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+              android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+
+            <TextView  android:layout_marginLeft="10dp"
+                  android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="@string/help_qq"
+                android:textColor="@color/help_tv"
+                android:textSize="18sp" />
+
+            
+        </LinearLayout>
+    </LinearLayout>
+     <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CBCBCB" />
+</LinearLayout>

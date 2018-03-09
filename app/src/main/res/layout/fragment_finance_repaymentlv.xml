@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_bg"
+            android:padding="8dp" >
+
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="3dp"
+                android:textColor="@color/text_color"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:id="@+id/repayment_ll_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/tv_info_un"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="10dp"
+                    android:text="单位:元"
+                    android:textColor="@color/color_finance_haikuan_1"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp" >
+
+                <TextView
+                    style="@style/repayment_title_style"
+                    android:layout_weight="1"
+                    android:text="应收回款"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/repayment_title_style"
+                    android:layout_weight="1"
+                    android:text="应收本金"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/repayment_title_style"
+                    android:layout_weight="1"
+                    android:text="应收利息"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/repayment_title_style"
+                    android:layout_weight="1"
+                    android:text="剩余本金"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line" />
+
+            <TextView
+                style="@style/repayment_title_style1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                android:text=" 共计"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp" >
+
+                <TextView
+                    android:id="@+id/tv_sum_pri_interest"
+                    style="@style/repayment_title_style"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.3"
+                    android:textColor="@color/color_finance_haikuan_1" />
+
+                <TextView
+                    android:id="@+id/tv_sum_principal"
+                    style="@style/repayment_title_style"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.3"
+                    android:textColor="@color/color_finance_haikuan_1" />
+
+                <TextView
+                    android:id="@+id/tv_sum_yield"
+                    style="@style/repayment_title_style"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.3"
+                    android:textColor="@color/color_finance_haikuan_1" />
+
+                <TextView
+                    android:id="@+id/tv_sum_rest_principal"
+                    style="@style/repayment_title_style"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.3"
+                    android:textColor="@color/color_finance_haikuan_1" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line" />
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_bg"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@color/line"
+                android:dividerHeight="1px"
+                android:fadingEdge="none"
+                android:listSelector="@color/transparent"
+                android:scrollbars="none" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/rl_empty" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/iv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="20dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <!--  -->
+
+    <include
+        layout="@layout/progressbar"
+        android:visibility="gone" />
+
+</FrameLayout>

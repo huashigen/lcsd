@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.lcshidai.lc.ui.project.FundAccountActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF811C">
+
+        <ImageButton
+            android:id="@+id/ib_top_bar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/icon_white_back" />
+
+        <TextView
+            android:id="@+id/tv_top_bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLength="13"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_top_bar_right_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/text_default" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_main_gray">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:background="@drawable/fund_related_gradient_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="6dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_total_preview_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_total_preview_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/white"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="累计预约金额(万)"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/ll_total_deal_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_total_deal_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="累计成交金额(万)"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_my_special_financial_planner_container"
+                style="@style/style_account_dimension_rl"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_white_with_top_bottom_white_border_no_padding">
+
+
+                <TextView
+                    android:id="@+id/tv_financial_planner_label"
+                    style="@style/cun_guan_rl_left_text"
+                    android:drawableLeft="@drawable/icon_fcp"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="我的专属理财师" />
+
+                <TextView
+                    android:id="@+id/tv_financial_planner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/triangle" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_property_config_container"
+                style="@style/style_account_dimension_rl"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_property_config"
+                    style="@style/cun_guan_rl_left_text"
+                    android:drawableLeft="@drawable/icon_proper_conf"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="资产配置" />
+
+
+                <TextView
+                    android:id="@+id/tv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/triangle"
+                    android:text="单位：万" />
+
+            </RelativeLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_my_appointment_container"
+                style="@style/style_account_dimension_rl"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_my_appointment_label"
+                    style="@style/cun_guan_rl_left_text"
+                    android:drawableLeft="@drawable/icon_invest_appoint"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="我的预约" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:drawablePadding="10dp"
+                    android:src="@drawable/triangle" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_qualified_investor_container"
+                style="@style/style_account_dimension_rl"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_qualified_investor_label"
+                    style="@style/cun_guan_rl_left_text"
+                    android:drawableLeft="@drawable/icon_certify"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="合格投资者认证" />
+
+                <TextView
+                    android:id="@+id/tv_qualified_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/iv_qualified_investor_next"
+                    android:text="已认证" />
+
+
+                <ImageView
+                    android:id="@+id/iv_qualified_investor_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:drawablePadding="10dp"
+                    android:src="@drawable/triangle" />
+
+            </RelativeLayout>
+
+            <include layout="@layout/line_horizontal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_risk_test_container"
+                style="@style/style_account_dimension_rl"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_risk_test_label"
+                    style="@style/cun_guan_rl_left_text"
+                    android:drawableLeft="@drawable/icon_risk_control"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="风险测试" />
+
+
+                <TextView
+                    android:id="@+id/tv_risk_test_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/tv_risk_deadline" />
+
+                <TextView
+                    android:id="@+id/tv_risk_deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/iv_risk_triangle"
+                    android:textColor="@color/theme_color" />
+
+                <ImageView
+                    android:id="@+id/iv_risk_triangle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/triangle" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="20dp"
+        android:text="设置手势密码"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="4dp" >
+
+            <View
+                android:id="@+id/gesture_preview_item_0"
+                style="@style/style_gesture_preview_view" />
+
+            <View
+                android:id="@+id/gesture_preview_item_1"
+                style="@style/style_gesture_preview_view" />
+
+            <View
+                android:id="@+id/gesture_preview_item_2"
+                style="@style/style_gesture_preview_view"
+                android:layout_marginRight="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="4dp" >
+
+            <View
+                android:id="@+id/gesture_preview_item_3"
+                style="@style/style_gesture_preview_view" />
+
+            <View
+                android:id="@+id/gesture_preview_item_4"
+                style="@style/style_gesture_preview_view" />
+
+            <View
+                android:id="@+id/gesture_preview_item_5"
+                style="@style/style_gesture_preview_view"
+                android:layout_marginRight="4dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp" >
+
+            <View
+                android:id="@+id/gesture_preview_item_6"
+                style="@style/style_gesture_preview_view" />
+
+            <View
+                android:id="@+id/gesture_preview_item_7"
+                style="@style/style_gesture_preview_view" />
+
+            <View
+                android:id="@+id/gesture_preview_item_8"
+                style="@style/style_gesture_preview_view"
+                android:layout_marginRight="4dp" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/gesture_preview_tv_infomation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/theme_color"
+        android:paddingTop="10dp"
+        android:textSize="14sp" />
+
+    <com.lcshidai.lc.widget.LockPatternView
+        android:id="@+id/gesture_setting_lockview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/gesture_setting_tv_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="重新设置手势密码"
+        android:textSize="16sp"
+        android:textColor="@color/theme_color"
+        android:visibility="invisible" />
+
+</LinearLayout>

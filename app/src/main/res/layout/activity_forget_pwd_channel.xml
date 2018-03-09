@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FAFAFA"
+                android:fitsSystemWindows="true"
+    >
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/fragment_actionbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_bar"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+
+        <!-- 实名信息校验 -->
+        <LinearLayout
+            android:id="@+id/forget_pwd_channel_ll_userauth"
+            style="@style/style_forget_pwd_channel_ll"
+            >
+
+            <TextView
+                style="@style/style_forget_pwd_channel_tv"
+                android:text="实名信息校验"
+                />
+
+            <ImageView
+                style="@style/style_forget_pwd_channel_iv"
+                />
+        </LinearLayout>
+
+        <!-- 绑定银行卡信息校验 -->
+        <LinearLayout
+            android:id="@+id/forget_pwd_channel_ll_bankcard"
+            style="@style/style_forget_pwd_channel_ll"
+            >
+
+            <TextView
+                style="@style/style_forget_pwd_channel_tv"
+                android:text="绑定银行卡信息校验"
+                />
+
+            <ImageView
+                style="@style/style_forget_pwd_channel_iv"
+                />
+        </LinearLayout>
+
+        <!-- 安保问题校验 -->
+        <LinearLayout
+            android:id="@+id/forget_pwd_channel_ll_safe"
+            style="@style/style_forget_pwd_channel_ll"
+            >
+
+            <TextView
+                style="@style/style_forget_pwd_channel_tv"
+                android:text="安保问题校验"
+                />
+
+            <ImageView
+                style="@style/style_forget_pwd_channel_iv"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 联系客服 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/forget_pwd_channel_ll_tele"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/phone_number_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:visibility="gone"
+            >
+
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/icon_tele"-->
+                <!--/>-->
+
+            <TextView
+                android:id="@+id/forget_pwd_channel_telenumber_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="联系客服"
+                android:textColor="@color/theme_color"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/forget_pwd_channel_telenumber_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

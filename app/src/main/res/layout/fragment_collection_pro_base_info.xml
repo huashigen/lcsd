@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.lcshidai.lc.widget.xlvfresh.XListView
+        android:id="@+id/lv_collection_project"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="false"
+        android:divider="@color/line"
+        android:dividerHeight="1px"
+        android:footerDividersEnabled="true" />
+
+    <include
+        android:id="@+id/iv_state"
+        layout="@layout/rl_empty" />
+
+</FrameLayout>

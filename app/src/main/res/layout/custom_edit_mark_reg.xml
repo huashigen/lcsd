@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/accountLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/icon_mobile"
+            android:paddingLeft="0dp"
+            android:scaleType="center" />
+
+        <TextView
+            android:id="@+id/tv_text_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textColor="#8E8E8E"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/edt_text_input"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/img_icon"
+            android:background="@null"
+            android:singleLine="true"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@drawable/cursor_drawable"
+            tools:targetApi="honeycomb_mr1"
+            android:textColorHint="#DBDBDB" />
+
+        <ImageView
+            android:id="@+id/btn_text_delete"
+            style="@android:style/TextAppearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_delete_selector"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ibtn_text_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/btn_delete_selector"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/text_note"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="#FFFFDE"
+            android:gravity="center"
+            android:textColor="#FFA644"
+            android:textSize="25sp" />
+
+        <ViewSwitcher
+            android:id="@+id/vs_box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_submit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/bg_button_submit"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/regist_fir_tv_submit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="下一步"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tologin"
+                        style="@style/ll_item_textview"
+                        android:drawablePadding="0dp"
+                        android:gravity="left|center_vertical"
+                        android:text="已有账号,请登录"
+                        android:textColor="@color/color_3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimens_account_alert_green_ll_margin"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/security"
+                        android:visibility="gone" />
+
+                    <!--<TextView-->
+                        <!--style="@style/ll_item_textview"-->
+                        <!--android:drawableLeft="@drawable/icon_account_cunguan"-->
+                        <!--android:drawablePadding="5dp"-->
+                        <!--android:gravity="left|center_vertical"-->
+                        <!--android:text="@string/str_account_chengbao"-->
+                        <!--android:textColor="@color/tv_default" />-->
+                </LinearLayout>
+            </LinearLayout>
+        </ViewSwitcher>
+    </FrameLayout>
+
+</LinearLayout>

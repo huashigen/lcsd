@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <integer name="left_size">32</integer>
+   <integer name="left_size_re">48</integer>
+   <string name="url">url_s300</string>
+   <!--  <style name="repay_backtext_size">
+       <item name="android:textSize">18sp</item>
+   </style>
+   -->
+    <style name="rp_ts">
+       <item name="android:textSize">44sp</item>
+   </style>
+</resources>

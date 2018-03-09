@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    >
+   <RelativeLayout
+       android:background="@drawable/web_redmoney_que"
+       android:layout_width="300dp"
+       android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/rl_showquestion"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+       >
+       <LinearLayout 
+           android:paddingTop="160dp" 
+           android:layout_width="match_parent"  android:layout_height="300dp" android:orientation="horizontal">
+           <View 
+               android:id="@+id/view_left"
+               android:layout_width="0dp" android:layout_height="100dp" android:layout_marginLeft="10dp" android:layout_weight="1"/>  
+           <View 
+               android:id="@+id/view_right"
+               android:layout_width="0dp" android:layout_height="100dp" android:layout_marginRight="10dp" android:layout_weight="1"/>
+           </LinearLayout>
+       </RelativeLayout>
+</RelativeLayout>

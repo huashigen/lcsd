@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.lcshidai.lc.widget.ViewFlow
+            android:id="@+id/first_viewflow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+            <!--android:background="@drawable/start_c"-->
+
+        <LinearLayout
+            android:id="@+id/first_bottom_data"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_first_bottom_height"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#90ffffff"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="累计收益（元）"
+                    android:textColor="#1C1213" />
+
+                <TextView
+                    android:id="@+id/first_data_tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_first_bottom_margin"
+                    android:text="36255150.07"
+                    android:textColor="#FB8613" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#90ffffff"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="总注册用户数（人）"
+                    android:textColor="#1C1213" />
+
+                <TextView
+                    android:id="@+id/first_data_tv_people"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_first_bottom_margin"
+                    android:text="631285"
+                    android:textColor="#FB8613" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/first_bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+
+            <TextView
+                android:id="@+id/first_bottom_button_reg"
+                android:layout_width="205dp"
+                android:layout_height="38dp"
+                android:background="@drawable/feedback_submit_bg_xml"
+                android:gravity="center"
+                android:text="立即注册"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/first_bottom_button_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="280dp"
+                android:background="@drawable/img_btn_trans_border"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/first_bottom_button_2"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="56dp"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="25dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/welcome_start_btn"
+        android:visibility="gone" />
+
+</FrameLayout>

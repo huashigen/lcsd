@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lcshidai.lc.widget.InnerScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                        xmlns:custom="http://schemas.android.com/apk/res-auto"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_bg"
+                                        android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_title_wdtz"
+            android:orientation="vertical">
+
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_series"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="top|left"-->
+            <!--android:contentDescription="@string/app_name"-->
+            <!--android:src="@drawable/icon_detail_series_bo" />-->
+
+            <com.lcshidai.lc.widget.ArcTextProgressBar
+                android:id="@+id/pb_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                custom:arc_text_progress_circle_text_bg_color="@color/color_my_text_orange"
+                custom:arc_text_progress_circle_text_color="#8F8F8F"
+                custom:arc_text_progress_current_arc_color="@color/color_my_text_orange"
+                custom:arc_text_progress_stroke_width="10"
+                custom:arc_text_progress_text_string_prefix="已投资"
+                custom:arc_text_progress_total_arc_color="#54B481"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="40dp">
+
+                <TextView
+                    android:id="@+id/tv_preview_profit_rate_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/finance_project_detail_preview_profit_rate"
+                    android:textColor="@color/color_my_text_orange"
+                    android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_rate_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|bottom"
+                    android:orientation="horizontal">
+
+                    <!--年华收益率-->
+                    <TextView
+                        android:id="@+id/tv_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:textColor="@color/color_my_text_orange"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_rate_symbol1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="@string/symbol_percentage"
+                        android:textColor="@color/color_my_text_orange"
+                        android:textSize="24sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_is_float_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:text="@string/symbol_plus"
+                        android:textColor="@color/color_my_text_orange"
+                        android:textSize="14sp"
+                        android:visibility="gone"/>
+
+                    <!--平台奖励收益百分比-->
+                    <LinearLayout
+                        android:id="@+id/ll_platform_reward_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center_horizontal|bottom"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tv_platform_reward_plus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:text="@string/symbol_plus_with_space"
+                            android:textColor="@color/color_my_text_orange"
+                            android:textSize="20sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_platform_reward_rate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:textColor="@color/color_my_text_orange"
+                            android:textSize="20sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_platform_reward_rate_symbol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:text="@string/symbol_percentage"
+                            android:textColor="@color/color_my_text_orange"
+                            android:textSize="20sp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_rate_question_symbol"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/question_drawable"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <!--剩余可投-->
+                <TextView
+                    android:id="@+id/tv_remaining_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="#6c6a6a"
+                    android:textSize="14sp"/>
+                <!--投资回款-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_ten_thousand_profit_left_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/finance_project_detail_10000_profit_label"
+                        android:textColor="#B7FFDC"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_wanyuan_profit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/tv_default"
+                        android:textSize="12sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/tv_ten_thousand_profit_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#B7FFDC"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_profit_right_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="#B7FFDC"
+                        android:text="元"
+                        android:textSize="12sp"/>
+
+                    <!--奖励收益-->
+                    <LinearLayout
+                        android:id="@+id/ll_float_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/symbol_plus_with_space"
+                            android:textColor="@color/theme_color"
+                            android:textSize="16sp"
+                            android:visibility="invisible"/>
+
+                        <TextView
+                            android:id="@+id/tv_reward_float"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/reward_circle_bg"
+                            android:gravity="center"
+                            android:text="@string/symbol_reward"
+                            android:textColor="@color/color_my_text_orange"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!--财产保障-->
+        <LinearLayout
+            android:id="@+id/ll_guarantee_icons_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_white_with_top_bottom_border"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/finance_project_detail_min_invest_label"
+                android:textColor="@color/tv_default"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_min_invest_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/finance_project_detail_invest_time_limit_label"
+                android:textColor="@color/tv_default"
+                android:textSize="14sp"/>
+
+            <!--投资期限-->
+            <TextView
+                android:id="@+id/tv_time_limit_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_time_limit_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/finance_project_detail_max_invest_mount_label"
+                android:textColor="@color/tv_default"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_max_invest_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/finance_project_detail_deadline_label"
+                android:textColor="@color/tv_default"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_invest_deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/finance_project_detail_payback_way_label"
+                android:textColor="@color/tv_default"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tv_payback_way"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:id="@+id/ll_detail_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_detail_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/finance_project_detail_detail_label"
+                android:textColor="@color/tv_default"
+                android:textSize="14sp"/>
+
+            <ImageView
+                android:id="@+id/iv_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_indicator_down"
+                android:textColor="@color/text_color"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.lcshidai.lc.widget.InnerScrollView>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_answer_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:id="@+id/tv_answer_number"
+        style="@style/risk_test_answer_number"
+        android:text="A" />
+
+    <TextView
+        android:id="@+id/tv_answer_content"
+        style="@style/risk_test_answer_content"
+        android:layout_toRightOf="@+id/tv_answer_number"
+        android:text="答案" />
+</RelativeLayout>

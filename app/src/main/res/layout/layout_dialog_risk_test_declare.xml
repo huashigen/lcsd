@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_with_radius"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/risk_test_declare_label"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <include layout="@layout/h_divider" />
+
+    <TextView
+        android:id="@+id/tv_open_account_content_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:lineSpacingExtra="5dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:gravity="left"
+        android:text="@string/risk_test_declare_content_first"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_test_right_now"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_theme_color_theme_border_radius_5"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/risk_test_test_right_now"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_not_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_color_theme_border_radius_5"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/risk_test_not_test"
+            android:textColor="@color/color_finance_child_yellow" />
+    </LinearLayout>
+</LinearLayout>
