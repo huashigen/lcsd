@@ -348,7 +348,8 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
     };
 
     public void setViews() {
-        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_next);
+//        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_next);
+        tvLogin.setText("下一步");
         etUserName.setTextSize(16);
         etUserName.setHint("请输入手机号登录或注册");
         etUserName.setTextColor(Color.BLACK);
@@ -527,7 +528,8 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
      */
     private void showPwd() {
         step = Step.PWD;
-        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_next);
+//        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_next);
+        tvLogin.setText("登录");
         llUsernameContainer.setVisibility(View.GONE);
         llPwdContainer.setVisibility(View.VISIBLE);
 //		etPwd.setText("");
@@ -549,7 +551,8 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
         mLoginCount = 0;
 //        etUserName.showBtn();
         etUserName.setHint("请输入手机号登录或注册");
-        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_next);
+//        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_next);
+        tvLogin.setText("下一步");
         etUserName.setFocusable(true);
         rlDynamicCodeContainer.setVisibility(View.GONE);
         llUsernameContainer.setVisibility(View.VISIBLE);
@@ -570,7 +573,8 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
         String user_name = etUserName.getText().toString();
         etUserName.setSelection(user_name.length());
         etUserName.setHint("用户名/手机号码/邮箱");
-        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_login);
+//        tvLogin.setBackgroundResource(R.drawable.login_btn_bg_login);
+        tvLogin.setText("登录");
 //		etUserName.setFocusable(false);
         llUsernameContainer.setVisibility(View.VISIBLE);
         llPwdContainer.setVisibility(View.VISIBLE);

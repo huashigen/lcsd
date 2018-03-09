@@ -192,7 +192,7 @@ public class MainWebActivity extends TRJActivity implements OnClickListener,
                 // 充值
                 mSaveBtn.setBackgroundColor(Color.TRANSPARENT);
                 mSaveBtn.setPadding(0, 0, DensityUtil.dip2px(mContext, 10), 0);
-                loadActionBtnName = "明细";
+                loadActionBtnName = "";//去掉明细
                 mSaveBtn.setTextColor(getResources().getColor(R.color.black));
                 mSaveBtn.setOnClickListener(new OnClickListener() {
                     @Override

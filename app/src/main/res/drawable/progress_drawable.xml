@@ -4,8 +4,8 @@
     <!-- 滑竿背景 -->
     <item
         android:id="@android:id/background"
-        android:drawable="@drawable/seek_bar_background"/>
-
+        android:drawable="@drawable/seek_bar_background"
+        />
     <!--&lt;!&ndash; 第二进度条式样 &ndash;&gt;-->
     <!--<item-->
         <!--android:id="@android:id/secondaryProgress"-->

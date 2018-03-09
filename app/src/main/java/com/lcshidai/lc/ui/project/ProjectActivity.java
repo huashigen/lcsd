@@ -112,13 +112,13 @@ public class ProjectActivity extends AbsSubActivity implements View.OnClickListe
             case R.id.btn_invest:
                 currentType = Type.Invest;
                 switchFragment(currentType);
-                tvFinanceFilter.setVisibility(View.VISIBLE);
+//                tvFinanceFilter.setVisibility(View.VISIBLE);
                 ivFundCenter.setVisibility(View.GONE);
                 break;
             case R.id.btn_licai:
                 currentType = Type.Licai;
                 switchFragment(currentType);
-                tvFinanceFilter.setVisibility(View.GONE);
+//                tvFinanceFilter.setVisibility(View.GONE);
                 ivFundCenter.setVisibility(View.VISIBLE);
                 break;
             default:
@@ -167,7 +167,7 @@ public class ProjectActivity extends AbsSubActivity implements View.OnClickListe
                 } else {
                     transaction.show(mProLicaiFragment).commitAllowingStateLoss();
                 }
-                tvFinanceFilter.setVisibility(View.GONE);
+//                tvFinanceFilter.setVisibility(View.GONE);
                 ivFundCenter.setVisibility(View.VISIBLE);
                 break;
             default:
@@ -204,7 +204,7 @@ public class ProjectActivity extends AbsSubActivity implements View.OnClickListe
                     topTitleText.setVisibility(View.VISIBLE);
                 }
                 if (currentType == Type.Invest) {
-                    tvFinanceFilter.setVisibility(View.VISIBLE);
+//                    tvFinanceFilter.setVisibility(View.VISIBLE);
                 }
                 flFragment.setVisibility(View.VISIBLE);
             }
@@ -215,7 +215,7 @@ public class ProjectActivity extends AbsSubActivity implements View.OnClickListe
     public void isShowCfyFailed(BaseJson errorResponse) {
         // 不显示
         radioGroupProject.setVisibility(View.GONE);
-        tvFinanceFilter.setVisibility(View.VISIBLE);
+//        tvFinanceFilter.setVisibility(View.VISIBLE);
         topTitleText.setVisibility(View.VISIBLE);
         flFragment.setVisibility(View.VISIBLE);
     }

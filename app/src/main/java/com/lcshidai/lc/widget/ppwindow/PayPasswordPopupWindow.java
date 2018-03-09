@@ -684,7 +684,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
         rlPayInfoContainer.setVisibility(View.VISIBLE);
         if (flag == 0) {
             ll_option_btn.setVisibility(View.GONE);
-            ib_hidden.setVisibility(View.INVISIBLE);
+//            ib_hidden.setVisibility(View.INVISIBLE);
             tvInvestMoney.setText(money + "元");
             _invest_amount = money;
             llFinancePayContainer.setVisibility(View.VISIBLE);

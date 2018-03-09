@@ -31,6 +31,10 @@ public class LCHttpClient {
 
     private static AsyncHttpClient ANOTHER_ASYNC_HTTP_CLIENT = new AsyncHttpClient();
 
+    static {
+        ASYNC_HTTP_CLIENT.setTimeout(200000);
+    }
+
     public static void getWithFullUrl(String absoluteUrl, RequestParams params,
                                       AsyncHttpResponseHandler responseHandler) {
         KLog.d("request", String.format("%s&%s", absoluteUrl, params));
