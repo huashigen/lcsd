@@ -20,8 +20,7 @@ import com.bumptech.glide.Glide;
 import com.igexin.sdk.PushManager;
 import com.lcshidai.lc.AppConfig;
 import com.lcshidai.lc.R;
-import com.lcshidai.lc.getui.DemoIntentService;
-import com.lcshidai.lc.getui.DemoPushService;
+import com.lcshidai.lc.getui.GtPushService;
 import com.lcshidai.lc.impl.LoadingImpl;
 import com.lcshidai.lc.impl.MessageImpl;
 import com.lcshidai.lc.impl.account.AppStatsImpl;
@@ -117,8 +116,6 @@ public class LoadingActivity extends TRJActivity implements CacheDeleteCallback,
         spVersionName = SpUtils.getString(SpUtils.Table.CONFIG, SpUtils.Config.VERSION_NAME);
         spVersionCode = SpUtils.getInt(SpUtils.Table.CONFIG, SpUtils.Config.VERSION_CODE, 0);
 
-        PushManager.getInstance().initialize(getApplicationContext(), DemoPushService.class);
-        PushManager.getInstance().registerPushIntentService(getApplicationContext(), DemoIntentService.class);
 //        String cid = PushManager.getInstance().getClientid(getApplicationContext());
         // 判断推送消息开关是否开启
         int isPushOpen = SpUtils.getInt(SpUtils.Table.CONFIG, SpUtils.Config.IS_PUSH_OPEN, 1);

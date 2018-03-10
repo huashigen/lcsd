@@ -683,12 +683,6 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name="com.lcshidai.lc.getui.DemoPushService"
-            android:exported="true"
-            android:label="PushService"
-            android:process=":pushservice" />
-        <service android:name="com.lcshidai.lc.getui.DemoIntentService" />
         <!-- 个推SDK配置结束 -->
 
         <activity
@@ -764,6 +758,14 @@
         <activity
             android:name=".ui.finance.FinanceProjectBorrowerActivity"
             android:screenOrientation="portrait"/>
+
+        <!-- 配置个推SDK核心服务 -->
+        <service
+            android:name=".getui.GtPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice">
+        </service>
     </application>
 
 </manifest>

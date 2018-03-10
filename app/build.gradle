@@ -63,12 +63,15 @@ android {
         aaptOptions.useNewCruncher = false
         multiDexEnabled = true  //突破方法数65535的限制
         manifestPlaceholders = [
-                GETUI_APP_ID    : "zhsKH7WGqw68SXXqWuYc9A",
-                GETUI_APP_KEY   : "DMEQ08fZ3TAaRIhprbVLA7",
-                GETUI_APP_SECRET: "y7DeJaJizlAHXUzdOEzQI4"
+                GETUI_APP_ID    : "wnQgi6kv3E9HLcLNCsAe22",
+                GETUI_APP_KEY   : "IOJ7bkB2Ik6AQeoOaXCe77",
+                GETUI_APP_SECRET: "OPSiF34snMAkOolJZ0hmQ2"
         ]
         flavorDimensions "${appVersionCode}"
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+        ndk {
+            abiFilters "arm64-v8a", "armeabi", "armeabi-v7a", "mips", "mips64", "x86", "x86_64"
+        }
     }
 
     //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
@@ -200,7 +203,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile files('libs/GetuiSDK2.9.5.0.jar')
     compile files('libs/httpmime-4.2.5.jar')
     compile files('libs/jackson-annotations-2.5.1.jar')
     compile files('libs/jackson-core-2.5.1.jar')
@@ -233,4 +235,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //个推依赖
+    compile 'com.getui:sdk:2.12.2.0'
 }

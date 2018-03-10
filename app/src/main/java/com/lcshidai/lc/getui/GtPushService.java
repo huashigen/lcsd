@@ -7,11 +7,15 @@ import android.os.IBinder;
 import com.igexin.sdk.GTServiceManager;
 
 /**
- * DemoPushService 个推DemoPushService
- * Created by RandyZhang on 2016/12/22.
+ * 核心服务, 继承 android.app.Service, 必须实现以下几个接口, 并在 AndroidManifest 声明该服务并配置成
+ * android:process=":pushservice", 具体参考 {@link com.getui.demo.GetuiSdkDemoActivity}
+ * PushManager.getInstance().initialize(this.getApplicationContext(), userPushService), 其中
+ * userPushService 为 用户自定义服务 即 GtPushService.
  */
+public class GtPushService extends Service {
 
-public class DemoPushService extends Service {
+    public static final String TAG = GtPushService.class.getName();
+
     @Override
     public void onCreate() {
         super.onCreate();
