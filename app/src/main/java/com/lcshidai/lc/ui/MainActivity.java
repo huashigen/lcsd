@@ -120,6 +120,8 @@ public class MainActivity extends AbsActivityGroup {
             } else {
                 setCount(1, account_data.getCount());
             }
+        } else {
+            setCount(1, 0);
         }
 
         if (dis_data != null) {
