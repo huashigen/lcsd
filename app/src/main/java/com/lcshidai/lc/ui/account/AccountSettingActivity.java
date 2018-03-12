@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.apptalkingdata.push.PushManager;
 import com.lcshidai.lc.utils.MsgUtil;
 import com.socks.library.KLog;
 import com.lcshidai.lc.R;
@@ -63,10 +64,12 @@ public class AccountSettingActivity extends TRJActivity implements OnClickListen
                 if (isChecked) {
                     // 替换成个推开关设置
                     SpUtils.setInt(SpUtils.Table.CONFIG, SpUtils.Config.IS_PUSH_OPEN, 1);
-                    com.igexin.sdk.PushManager.getInstance().turnOnPush(mContext);
+//                     PushManager.getInstance().turnOnPush(mContext);
+                    PushManager.setIgnorePush(false);
                 } else {
                     SpUtils.setInt(SpUtils.Table.CONFIG, SpUtils.Config.IS_PUSH_OPEN, 0);
-                    com.igexin.sdk.PushManager.getInstance().turnOffPush(mContext);
+//                    PushManager.getInstance().turnOffPush(mContext);
+                    PushManager.setIgnorePush(true);
                 }
             }
         });

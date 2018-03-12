@@ -1275,6 +1275,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             btnInvestStatusTips.setVisibility(View.VISIBLE);
 //            btnInvestStatusTips.setBackgroundResource(R.color.color_6);
             btnInvestStatusTips.setText(pi.bid_status_display);
+            btnInvestStatusTips.setEnabled(false);
         }
     }
 
@@ -1324,7 +1325,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
 //                        etInvestAmount.setEnabled(false);
 //                        etInvestAmount.setTextColor(getResources().getColor(R.color.color_3));
                     } else {
-                        ToastUtil.showToast(this, result.getMessage());
+//                        ToastUtil.showToast(this, result.getMessage());
                     }
                 }
             }

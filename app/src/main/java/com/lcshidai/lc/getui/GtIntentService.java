@@ -271,6 +271,6 @@ public class GtIntentService extends GTIntentService {
         Message msg = Message.obtain();
         msg.what = what;
         msg.obj = data;
-        DemoApplication.sendMessage(msg);
+//        DemoApplication.sendMessage(msg);
     }
 }
