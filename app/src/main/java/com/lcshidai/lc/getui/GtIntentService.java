@@ -108,6 +108,7 @@ public class GtIntentService extends GTIntentService {
         Log.d(TAG, "onNotificationMessageArrived -> " + "appid = " + message.getAppid() + "\ntaskid = " + message.getTaskId() + "\nmessageid = "
                         + message.getMessageId() + "\npkg = " + message.getPkgName() + "\ncid = " + message.getClientId() + "\ntitle = "
                         + message.getTitle() + "\ncontent = " + message.getContent());
+
     }
 
     @Override

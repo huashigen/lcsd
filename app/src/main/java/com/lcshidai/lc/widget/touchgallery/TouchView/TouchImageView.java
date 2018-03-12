@@ -38,7 +38,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 @SuppressLint("NewApi")
-public class TouchImageView extends ImageView {
+public class TouchImageView extends android.support.v7.widget.AppCompatImageView {
 
 //    private static final String TAG = "Touch";
     // These matrices will be used to move and zoom image
@@ -412,7 +412,7 @@ public class TouchImageView extends ImageView {
         // ...
         float x = event.getX(0) - event.getX(1);
         float y = event.getY(0) - event.getY(1);
-        return FloatMath.sqrt(x * x + y * y);
+        return (float) Math.sqrt(x * x + y * y);
     }
 
     /** Calculate the mid point of the first two fingers */

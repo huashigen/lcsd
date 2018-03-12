@@ -2,6 +2,9 @@ package com.lcshidai.lc;
 
 import android.support.multidex.MultiDexApplication;
 
+import com.igexin.sdk.GTIntentService;
+import com.igexin.sdk.PushManager;
+import com.lcshidai.lc.getui.GtPushService;
 import com.socks.library.KLog;
 import com.tendcloud.tenddata.TCAgent;
 import com.lcshidai.lc.db.UserInfo;

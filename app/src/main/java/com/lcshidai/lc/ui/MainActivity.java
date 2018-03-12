@@ -1,20 +1,29 @@
 package com.lcshidai.lc.ui;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.igexin.sdk.GTIntentService;
+import com.igexin.sdk.PushManager;
 import com.lcshidai.lc.R;
+import com.lcshidai.lc.getui.GtIntentService;
+import com.lcshidai.lc.getui.GtPushService;
 import com.lcshidai.lc.impl.BroadCastImpl;
 import com.lcshidai.lc.model.MessageLocalData;
 import com.lcshidai.lc.model.MessageTypeNew;
@@ -124,6 +133,41 @@ public class MainActivity extends AbsActivityGroup {
         int index = getIntent().getIntExtra("tempId", -1);
         if (index != -1) {
             switchTab(index);
+        }
+
+        //个推权限获取
+        // 读写 sd card 权限非常重要, android6.0默认禁止的, 建议初始化之前就弹窗让用户赋予该权限
+        boolean sdCardWritePermission =
+                getPackageManager().checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, getPackageName()) == PackageManager.PERMISSION_GRANTED;
+
+        // read phone state用于获取 imei 设备信息
+        boolean phoneSatePermission =
+                getPackageManager().checkPermission(Manifest.permission.READ_PHONE_STATE, getPackageName()) == PackageManager.PERMISSION_GRANTED;
+
+        if (Build.VERSION.SDK_INT >= 23 && !sdCardWritePermission || !phoneSatePermission) {
+            requestPermission();
+        } else {
+            //个推服务初始化
+            PushManager.getInstance().initialize(this.getApplicationContext(), GtPushService.class);
+        }
+        PushManager.getInstance().registerPushIntentService(this.getApplicationContext(), GtIntentService.class);
+    }
+
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE}, 1);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == 1) {
+            if ((grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED)) {
+                PushManager.getInstance().initialize(this.getApplicationContext(), GtPushService.class);
+            } else {
+                PushManager.getInstance().initialize(this.getApplicationContext(), GtPushService.class);
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 

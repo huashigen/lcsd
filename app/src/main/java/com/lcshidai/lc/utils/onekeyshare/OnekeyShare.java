@@ -695,9 +695,17 @@ public class OnekeyShare extends FakeActivity implements
 			nm.cancel(id);
 
 			long when = System.currentTimeMillis();
-			Notification notification = new Notification(notifyIcon, text, when);
+
+			Notification.Builder builder = new Notification.Builder(app);
+			builder.setSmallIcon(notifyIcon);
+			builder.setTicker(text);
+			builder.setWhen(when); //发送时间
+
+			builder.setContentTitle(notifyTitle);
+			builder.setContentText(text);
 			PendingIntent pi = PendingIntent.getActivity(app, 0, new Intent(), 0);
-			notification.setLatestEventInfo(app, notifyTitle, text, pi);
+			builder.setContentIntent(pi);
+			Notification notification = builder.build();
 			notification.flags = Notification.FLAG_AUTO_CANCEL;
 			nm.notify(id, notification);
 
