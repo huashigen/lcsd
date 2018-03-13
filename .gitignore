@@ -6,3 +6,6 @@
 build
 local.properties
 *.iml
+*.apk
+app/lcshidai/release/output.json
+app/lcshidai/release/output.json

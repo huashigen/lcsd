@@ -19,13 +19,13 @@ import java.util.List;
 public class LCHttpClient {
 
     //    测试
-    public static String BASE_API_HEAD = "http://uatweb.lcshidai.com/";
-    public static String BASE_WAP_HEAD = "http://uatwap.lcshidai.com/";
+//    public static String BASE_API_HEAD = "http://uatweb.lcshidai.com/";
+//    public static String BASE_WAP_HEAD = "http://uatwap.lcshidai.com/";
 //    public static String BASE_API_HEAD = "http://192.168.1.102:9393/";
 //    public static String BASE_WAP_HEAD = "http://192.168.1.102:9393";
 //  生产
-//    public static String BASE_API_HEAD = "https://www.lcshidai.com/";
-//    public static String BASE_WAP_HEAD = "https://m.lcshidai.com/";
+    public static String BASE_API_HEAD = "https://www.lcshidai.com/";
+    public static String BASE_WAP_HEAD = "https://m.lcshidai.com/";
 
     private static AsyncHttpClient ASYNC_HTTP_CLIENT = new AsyncHttpClient();
 

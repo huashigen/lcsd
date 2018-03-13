@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -59,6 +60,7 @@ import com.lcshidai.lc.utils.NetUtils;
 import com.lcshidai.lc.utils.SpUtils;
 import com.lcshidai.lc.utils.StringUtils;
 import com.lcshidai.lc.utils.ToastUtil;
+import com.lcshidai.lc.utils.ViewUtils;
 import com.loopj.android.http.BinaryHttpResponseHandler;
 import com.socks.library.KLog;
 import com.tendcloud.tenddata.TCAgent;
@@ -144,6 +146,19 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
         setViews();
         initNetConnectedDialog();
         initGesturePwdSettingDialog();
+        showKeyboard();
+    }
+
+    /**
+     * 显示键盘
+     */
+    private void showKeyboard() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                ViewUtils.showInputSoft(LoginActivity.this, etUserName);
+            }
+        }, 200);
     }
 
     @Override
@@ -401,6 +416,7 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
                 break;
             case R.id.tv_register_right_now:
                 showUsername();
+                showKeyboard();
                 break;
             case R.id.tv_login:
                 performLoginBtnClick();
@@ -523,6 +539,7 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
         super.onPause();
         DataBuriedManager.onEventTag(mContext, SpUtils.getString(SpUtils.Table.CONFIG,
                 SpUtils.Config.REG_FLOW), Constants.DataBuried.REG_START_OUT);
+        ViewUtils.hideInputSoft(this, etUserName);
     }
 
     /**
