@@ -64,7 +64,7 @@ public class AccountSettingActivity extends TRJActivity implements OnClickListen
                 if (isChecked) {
                     // 替换成个推开关设置
                     SpUtils.setInt(SpUtils.Table.CONFIG, SpUtils.Config.IS_PUSH_OPEN, 1);
-                     PushManager.getInstance().turnOnPush(mContext);
+                    PushManager.getInstance().turnOnPush(mContext);
                 } else {
                     SpUtils.setInt(SpUtils.Table.CONFIG, SpUtils.Config.IS_PUSH_OPEN, 0);
                     PushManager.getInstance().turnOffPush(mContext);
@@ -136,6 +136,7 @@ public class AccountSettingActivity extends TRJActivity implements OnClickListen
                     sendBroadcast(MY_RESON_LOGIN_STATUS);
                     //去掉账户消息红点
                     MsgUtil.remove(this, MsgUtil.ACCOUNT);
+//                    MsgUtil.setInt(this, MsgUtil.ACCOUNT_SEQUENCE, 0);
                     AlarmXmlManager.clearAllAlarm(this);
                     Intent intent = new Intent(this, MainActivity.class);
                     MemorySave.MS.mIsGoFinanceHome = true;
