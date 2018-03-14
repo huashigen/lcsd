@@ -227,6 +227,11 @@ public class GoLoginUtil {
                 content.sendBroadcast(intent);
                 MemorySave.MS.mIsLogining = false;
                 LoginStatusHelper.LoginStatusChange = true;
+                try {
+                    content.finish();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -240,6 +245,11 @@ public class GoLoginUtil {
                 MemorySave.MS.mIsLogining = false;
 
                 clearInfoToLoginCookieState(content);
+                try {
+                    content.finish();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
         });

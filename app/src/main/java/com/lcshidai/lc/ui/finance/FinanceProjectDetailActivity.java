@@ -1498,12 +1498,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                isLogin();
-            }
-        }, 100);
+        isLogin();
         if (resultCode != Activity.RESULT_OK)
             return;
         if (requestCode == 1) {

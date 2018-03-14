@@ -334,7 +334,6 @@ public class GestureLoginActivity extends TRJActivity implements LockPatternView
             getIntent().removeExtra("goClass");
 //			GoClassUtil.goClass = null;
             MemorySave.MS.isGestureEnd = true;
-            GestureLoginActivity.this.finish();
         } else {
             lockPatternView.setDisplayMode(DisplayMode.Wrong);
             postClearPatternRunnable();
