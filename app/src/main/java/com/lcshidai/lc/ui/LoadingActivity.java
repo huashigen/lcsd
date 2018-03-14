@@ -186,9 +186,6 @@ public class LoadingActivity extends TRJActivity implements CacheDeleteCallback,
         if (spVersionCode < nowVersionCode) {
             SpUtils.setInt(SpUtils.Table.CONFIG, SpUtils.Config.VERSION_CODE, nowVersionCode);
         }
-        // 获取保存的手势登陆次数信息
-        int gestureTimes = SpUtils.getInt(SpUtils.Table.CONFIG, SpUtils.Config.TOTAL_TRY_TIMES, 5);
-
         Intent intent = new Intent();
         int status = isShowWelcomeGuideActivityWithCode();
         if (status > 0) {
@@ -199,27 +196,8 @@ public class LoadingActivity extends TRJActivity implements CacheDeleteCallback,
             intent.putExtra("totalMembers", totalMembers);
             intent.putExtra("status", status);
         } else {
-            if (GoLoginUtil.isShowGestureLogin(mContext) && gestureTimes > 0) {
-                // 如果手势登陆开关打开且手势登陆密码输入次数小于5，则进入手势登陆页面
-                intent.setClass(mContext, GestureLoginActivity.class);
-                intent.putExtra("message_centre", message_centre);
-                intent.putExtra("md_title", md_title);
-                intent.putExtra("md_content", md_content);
-                intent.putExtra("md_ctime", md_ctime);
-            } else {
-                if (gestureTimes == 0) {
-                    // 如果手势密码输入错了5次，则要重新登录
-                    ToastUtil.showLongToast(mContext, "您已输错5次手势密码，请重新登陆。");
-                    SpUtils.setInt(SpUtils.Table.CONFIG, SpUtils.Config.TOTAL_TRY_TIMES, -1);
-                    intent.setClass(mContext, LoginActivity.class);
-                    intent.putExtra("goClass", MainActivity.class.getName());
-                    intent.putExtra("is_back_to_main", true);
-                } else {
-                    // 否则直接进入主界面
-                    intent.setClass(mContext, MainActivity.class);
-
-                }
-            }
+            // 否则直接进入主界面
+            intent.setClass(mContext, MainActivity.class);
         }
         startActivity(intent);
         finish();

@@ -406,7 +406,7 @@ public class GestureLoginActivity extends TRJActivity implements LockPatternView
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return keyCode == KeyEvent.KEYCODE_BACK || super.onKeyDown(keyCode, event);
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
@@ -459,4 +459,5 @@ public class GestureLoginActivity extends TRJActivity implements LockPatternView
     public void bindUidCidFailed() {
 
     }
+
 }

@@ -73,6 +73,7 @@ import com.lcshidai.lc.service.account.HttpIsZheshangCardService;
 import com.lcshidai.lc.service.account.HttpSetEscrowRemindService;
 import com.lcshidai.lc.service.finance.HttpFinanceInvestCheckService;
 import com.lcshidai.lc.service.oneKeyInvest.IsOpenAutoInvestService;
+import com.lcshidai.lc.ui.GestureLoginActivity;
 import com.lcshidai.lc.ui.LoginActivity;
 import com.lcshidai.lc.ui.MainActivity;
 import com.lcshidai.lc.ui.MainWebActivity;
@@ -85,6 +86,7 @@ import com.lcshidai.lc.utils.CommonUtil;
 import com.lcshidai.lc.utils.Constants;
 import com.lcshidai.lc.utils.GoLoginUtil;
 import com.lcshidai.lc.utils.MemorySave;
+import com.lcshidai.lc.utils.SpUtils;
 import com.lcshidai.lc.utils.StringUtils;
 import com.lcshidai.lc.utils.ToastUtil;
 import com.lcshidai.lc.widget.ppwindow.PayPasswordPopupWindow;
@@ -158,7 +160,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
 
     int plusValue = 1000;
     TimeCount mTimeCount;// 针对尚未开始的项目显示倒计时
-//    项目信息
+    //    项目信息
     FinanceProjectDetailFirstFragment mFirstFragment = new FinanceProjectDetailFirstFragment();
     FinanceProjectDetailSecondFragment mSecondFragment = new FinanceProjectDetailSecondFragment();
 
@@ -185,6 +187,8 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     private boolean isOldRechargeFlow = false;
     private boolean isEcwAccount = false;
     private String openEscrowUrl;                   // wap开通存管的地址
+
+    private static final String TAG = "FinanceProjectDetailAct";
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -221,6 +225,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         ApiService.isLogin(new ProJsonHandler<>(new BaseCallback<BaseJson>() {
             @Override
             protected void onRightData(BaseJson response) {
+                Log.e(TAG, "isLogin: 已登录");
                 isLogin = true;
                 loadIsEscrowAccount();
                 loadSettingData();
@@ -232,6 +237,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             @Override
             protected void onWrongData(BaseJson response) {
                 super.onWrongData(response);
+                Log.e(TAG, "onWrongData: 未登录");
                 isLogin = false;
                 getProjectDetail();
             }
@@ -1240,12 +1246,21 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             mTvTitle.setText(String.format("%s%s", title, name));
         }
         if (!isLogin) {
+            Log.e(TAG, "dealWithPrjDetailData: 未登录");
             btnInvestStatusTips.setVisibility(View.VISIBLE);
             btnInvestStatusTips.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext, LoginActivity.class);
-                    startActivityForResult(intent, 10000);
+                    int gestureTimes = SpUtils.getInt(SpUtils.Table.CONFIG, SpUtils.Config.TOTAL_TRY_TIMES, 5);
+                    Intent intent = new Intent();
+                    if (GoLoginUtil.isShowGestureLogin(mContext) && gestureTimes > 0) {
+                        // 如果手势登陆开关打开且手势登陆密码输入次数小于5，则进入手势登陆页面
+                        intent.setClass(mContext, GestureLoginActivity.class);
+                        startActivityForResult(intent, 1);
+                    } else {
+                        intent = new Intent(mContext, LoginActivity.class);
+                        startActivityForResult(intent, 10000);
+                    }
                 }
             });
             return;
@@ -1267,11 +1282,14 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         btnKeyboardPlusNum.setText(R.string.number_1000);
 
         if (!CommonUtil.isNullOrEmpty(pi.bid_status) && pi.bid_status.equals("1")) {
+            Log.e(TAG, "dealWithPrjDetailData: dealWithPreSale");
             dealWithPreSale(financeInfoData);
             return;
         } else if (pi.bid_status.equals("2")) {// #FFA200
+            Log.e(TAG, "dealWithPrjDetailData: dealWithOnSale");
             dealWithOnSale(pi);
         } else {
+            Log.e(TAG, "dealWithPrjDetailData: 其他");
             btnInvestStatusTips.setVisibility(View.VISIBLE);
 //            btnInvestStatusTips.setBackgroundResource(R.color.color_6);
             btnInvestStatusTips.setText(pi.bid_status_display);
@@ -1480,12 +1498,12 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == LoginActivity.LOGIN_SUCCESS) {
-            if (requestCode == 10000) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
                 isLogin();
-                return;
             }
-        }
+        }, 100);
         if (resultCode != Activity.RESULT_OK)
             return;
         if (requestCode == 1) {

@@ -15,6 +15,9 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.lcshidai.lc.R;
 import com.lcshidai.lc.ui.DiscoveryActivity;
+import com.lcshidai.lc.ui.GestureLoginActivity;
+import com.lcshidai.lc.ui.LoginActivity;
+import com.lcshidai.lc.ui.MainActivity;
 import com.lcshidai.lc.ui.account.AccountActivity;
 import com.lcshidai.lc.ui.finance.ManageFinanceActivity;
 import com.lcshidai.lc.ui.newfinan.NewFinanceActivity;
@@ -22,6 +25,8 @@ import com.lcshidai.lc.ui.project.ProjectActivity;
 import com.lcshidai.lc.utils.Constants;
 import com.lcshidai.lc.utils.GoLoginUtil;
 import com.lcshidai.lc.utils.MemorySave;
+import com.lcshidai.lc.utils.SpUtils;
+import com.lcshidai.lc.utils.ToastUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -138,7 +143,6 @@ public abstract class AbsActivityGroup extends ActivityGroup {
 
         // 给选项卡设定监听
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 changedFlag = true;
@@ -148,8 +152,22 @@ public abstract class AbsActivityGroup extends ActivityGroup {
 //                    账户页
                     if (name.equals(AccountActivity.class.getName())) {
                         if (!MemorySave.MS.mIsLogin) {
-                            boolean isTrue = GoLoginUtil.ToLoginActivityForResultBase((TRJActivity) AbsActivityGroup.this.getCurrentActivity(), Constants.REQUEST_CODE, "");
-                            tempId = radioGroupCheckId;
+                            boolean isTrue = false;
+                            // 获取保存的手势登陆次数信息
+                            int gestureTimes = SpUtils.getInt(SpUtils.Table.CONFIG, SpUtils.Config.TOTAL_TRY_TIMES, 5);
+                            Intent intent = new Intent();
+                            if (GoLoginUtil.isShowGestureLogin(AbsActivityGroup.this) && gestureTimes > 0) {
+                                // 如果手势登陆开关打开且手势登陆密码输入次数小于5，则进入手势登陆页面
+                                intent.setClass(AbsActivityGroup.this, GestureLoginActivity.class);
+//                                intent.putExtra("message_centre", message_centre);
+//                                intent.putExtra("md_title", md_title);
+//                                intent.putExtra("md_content", md_content);
+//                                intent.putExtra("md_ctime", md_ctime);
+                                startActivity(intent);
+                            } else {
+                                isTrue = GoLoginUtil.ToLoginActivityForResultBase((TRJActivity) AbsActivityGroup.this.getCurrentActivity(), Constants.REQUEST_CODE, "");
+                                tempId = radioGroupCheckId;
+                            }
                             switch (radioGroupCheckId) {
                                 case R.id.activity_group_radioButton0:
                                     switchTab(1);
