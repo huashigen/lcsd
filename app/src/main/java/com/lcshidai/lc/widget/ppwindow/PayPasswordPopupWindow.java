@@ -477,7 +477,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
         originalFloatRate = Float.valueOf(model.getYearrate().replace("%", ""));
         tvYearRate.setText(model.getYearrate());
 
-        tvHbMjLabel.setText(" 红包与券");
+        tvHbMjLabel.setText("红包与券");
         tvHbMjNum.setVisibility(View.INVISIBLE);
 
         _prj_id = model.getPrjid();
