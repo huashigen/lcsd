@@ -624,6 +624,13 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             if (investAmountFloat > maxMoney) {
                 //弹出充值框
                 ChargeDialogFragment dialogFragment = new ChargeDialogFragment();
+                dialogFragment.setOnActionBtnClickListener(new ChargeDialogFragment.OnActionBtnClickListener() {
+                    @Override
+                    public void onLick(String content) {
+//                        rechargeFlow();
+                        doRecharge(true);
+                    }
+                });
                 dialogFragment.show(getSupportFragmentManager(),"charge");
                 return;
             }

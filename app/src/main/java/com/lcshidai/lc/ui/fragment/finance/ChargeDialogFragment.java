@@ -34,11 +34,14 @@ public class ChargeDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.dialog_fragment_charge, container, false);
-        Button btnOk = (Button) rootView.findViewById(R.id.btnCharge);
-        Button btnCancel = (Button) rootView.findViewById(R.id.btnCancel);
+        Button btnOk = rootView.findViewById(R.id.btnCharge);
+        Button btnCancel = rootView.findViewById(R.id.btnCancel);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (onActionBtnClickListener != null) {
+                    onActionBtnClickListener.onLick("");
+                }
                 dismiss();
             }
         });

@@ -5,5 +5,5 @@ package com.lcshidai.lc;
  */
 
 public class AppConfig {
-    public static final boolean PRODUCT = true;
+    public static final boolean PRODUCT = false;
 }
