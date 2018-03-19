@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="充值成功后系统自动进行实名认证！"
+        android:text="您的账户资金不足，请先进\n行资金充值！"
         android:textColor="@color/warm_gray"
         android:textSize="15sp"
         />

@@ -559,7 +559,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
             tvJxqReward.setText("0");
             tvYearRate.setText(model.getYearrate());
         }
-        tvJxqReward.setText(model.getAddInterestAmount());
+        tvJxqReward.setText(model.getAddInterestAmount() + "元");
     }
 
     /**

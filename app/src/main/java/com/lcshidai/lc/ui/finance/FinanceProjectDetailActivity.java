@@ -80,6 +80,7 @@ import com.lcshidai.lc.ui.MainWebActivity;
 import com.lcshidai.lc.ui.account.UserPayPwdFirstSetActivity;
 import com.lcshidai.lc.ui.base.TRJActivity;
 import com.lcshidai.lc.ui.base.TRJFragment;
+import com.lcshidai.lc.ui.fragment.finance.ChargeDialogFragment;
 import com.lcshidai.lc.ui.fragment.finance.FinanceProjectDetailFirstFragment;
 import com.lcshidai.lc.ui.fragment.finance.FinanceProjectDetailSecondFragment;
 import com.lcshidai.lc.utils.CommonUtil;
@@ -619,6 +620,13 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         } catch (Exception e) {
             investAmountFloat = 0;
         }
+        if (maxMoney != 0)
+            if (investAmountFloat > maxMoney) {
+                //弹出充值框
+                ChargeDialogFragment dialogFragment = new ChargeDialogFragment();
+                dialogFragment.show(getSupportFragmentManager(),"charge");
+                return;
+            }
         if (null != financeInfoData) {
             if (CommonUtil.isNullOrEmpty(financeInfoData.getIs_pre_sale())) {
                 financeInfoData.setIs_pre_sale("0");
@@ -1103,17 +1111,6 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
                         str = "0";
                         break;
                 }
-                float ve = 0;
-                if (StringUtils.isFloat(str)) {
-                    ve = Float.parseFloat(str);
-                } else {
-                    str = "0";
-                }
-                if (maxMoney != 0)
-                    if (ve > maxMoney) {
-                        str = maxMoney + "";
-                        ToastUtil.showToast(FinanceProjectDetailActivity.this, "余额不足或超过投资上限");
-                    }
             } catch (Exception e) {
                 str = "0";
             }
