@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.lcshidai.lc">
+<manifest package="com.lcshidai.lc"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
 
     <!-- 使用网络功能所需权限 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <!-- 添加可以向外拨打电话的权限 -->
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <!-- 使用联系人权限 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <!-- Push service 运行需要的权限 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
-    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
     <!-- Push service 运行需要的权限 -->
-    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
     <!-- 短信读写权限 -->
-    <uses-permission android:name="android.permission.WRITE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <!-- TalkingData 所需权限 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <!-- 个推SDK权限配置开始 -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- 支持iBeancon 需要蓝牙权限 -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <!-- 支持个推3.0 电子围栏功能 -->
     <!-- 自定义权限 -->
-    <uses-permission android:name="getui.permission.GetuiService.${applicationId}" />
+    <uses-permission android:name="getui.permission.GetuiService.${applicationId}"/>
 
     <permission
         android:name="getui.permission.GetuiService.${applicationId}"
-        android:protectionLevel="normal" />
+        android:protectionLevel="normal"/>
 
     <application
-        android:name="com.lcshidai.lc.AtrApplication"
+        android:name=".AtrApplication"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
@@ -61,54 +61,59 @@
         android:theme="@style/AppBaseTheme"
         tools:replace="android:allowBackup">
         <activity
-            android:name="com.lcshidai.lc.ui.LoadingActivity"
+            android:name=".ui.LoadingActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeStartPage">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
             <intent-filter>
 
                 <!-- or you can use deep linking like -->
                 <data
                     android:host="lcshidai.finance"
-                    android:scheme="lcshidaiapp" />
+                    android:scheme="lcshidaiapp"/>
 
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ConfigActivity">
 
-        <activity android:name="com.lcshidai.lc.ConfigActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
 
-            <!--<intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
 
-                <!--&lt;!&ndash; or you can use deep linking like &ndash;&gt;-->
-                <!--<data-->
-                    <!--android:host="lcshidai.finance"-->
-                    <!--android:scheme="lcshidaiapp" />-->
 
-                <!--<action android:name="android.intent.action.VIEW" />-->
+            <!-- <intent-filter> -->
 
-                <!--<category android:name="android.intent.category.BROWSABLE" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-            <!--</intent-filter>-->
+
+            <!-- &lt;!&ndash; or you can use deep linking like &ndash;&gt; -->
+            <!-- <data -->
+            <!-- android:host="lcshidai.finance" -->
+            <!-- android:scheme="lcshidaiapp" /> -->
+
+
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+
+
+            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name="com.lcshidai.lc.ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name="cn.sharesdk.framework.ShareSDKUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -145,15 +150,15 @@
 
         <!-- 微信回调activity -->
         <activity
-            android:name="com.lcshidai.lc.wxapi.WXEntryActivity"
+            android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
-            android:name="com.lcshidai.lc.ui.WelcomeGuideActivity"
+            android:name=".ui.WelcomeGuideActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <!--
              <activity
             android:name=".ui.MainActivity"
@@ -163,452 +168,452 @@
         -->
 
         <activity
-            android:name="com.lcshidai.lc.ui.AgreementActivity"
+            android:name=".ui.AgreementActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <!-- 客服 -->
         <activity
-            android:name="com.lcshidai.lc.ui.more.HelpActivity"
+            android:name=".ui.more.HelpActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <!-- 常见问题 -->
         <!-- 广告展示的web页面 -->
         <activity
-            android:name="com.lcshidai.lc.ui.MainWebActivity"
+            android:name=".ui.MainWebActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <!-- 理财 -->
         <activity
-            android:name="com.lcshidai.lc.ui.finance.ManageFinaceInfoListReActivity"
+            android:name=".ui.finance.ManageFinaceInfoListReActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.ManageFinanceActivity"
+            android:name=".ui.finance.ManageFinanceActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.InvestSuccessActivity"
+            android:name=".ui.finance.InvestSuccessActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.FinaceMovementActivity"
+            android:name=".ui.finance.FinaceMovementActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.FinanceFilterActivity"
+            android:name=".ui.finance.FinanceFilterActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.FinanceFilterResultActivity"
+            android:name=".ui.finance.FinanceFilterResultActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         //
         <!-- 转让市场 -->
 
 
         <!-- 项目 -->
         <activity
-            android:name="com.lcshidai.lc.ui.project.ProjectActivity"
+            android:name=".ui.project.ProjectActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 账户 -->
         <activity
-            android:name="com.lcshidai.lc.ui.account.AccountActivity"
+            android:name=".ui.account.AccountActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <!-- 理财yu -->
         <activity
-            android:name="com.lcshidai.lc.ui.account.FinancialCashActivity"
+            android:name=".ui.account.FinancialCashActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.GoldFinanceRecordActivity"
+            android:name=".ui.account.GoldFinanceRecordActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.ManageFinanceListInfoActivity"
+            android:name=".ui.account.ManageFinanceListInfoActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.ManageFinanceListDetailsActivity"
+            android:name=".ui.account.ManageFinanceListDetailsActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserNameAuthActivity"
+            android:name=".ui.account.UserNameAuthActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserMailAuthActivity"
+            android:name=".ui.account.UserMailAuthActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserMailUpdaterActivity"
+            android:name=".ui.account.UserMailUpdaterActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserMobileAuthActivity"
+            android:name=".ui.account.UserMobileAuthActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserMobileUpdaterActivity"
+            android:name=".ui.account.UserMobileUpdaterActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.pwdmanage.UserPwdManageActivity"
+            android:name=".ui.account.pwdmanage.UserPwdManageActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserPwdUpdaterActivity"
+            android:name=".ui.account.UserPwdUpdaterActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserBankListActivity"
+            android:name=".ui.account.UserBankListActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserBankAddActivity"
+            android:name=".ui.account.UserBankAddActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.BankListActivity"
+            android:name=".ui.account.BankListActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserCancelBindingActivity"
+            android:name=".ui.account.UserCancelBindingActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.RepaymentListActivity"
+            android:name=".ui.account.RepaymentListActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.RechargeListActivity"
+            android:name=".ui.account.RechargeListActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.RechargeInfoActivity"
+            android:name=".ui.account.RechargeInfoActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.WithdrawalsListActivity"
+            android:name=".ui.account.WithdrawalsListActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.WithdrawalsInfoActivity"
+            android:name=".ui.account.WithdrawalsInfoActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.WithdrawalsActivity"
+            android:name=".ui.account.WithdrawalsActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.BalancePaymentsActivity"
+            android:name=".ui.account.BalancePaymentsActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.SelectBankCardActivity"
+            android:name=".ui.account.SelectBankCardActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.AccountBankSearchActivity"
+            android:name=".ui.account.AccountBankSearchActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.CityListActivity"
+            android:name=".ui.account.CityListActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.SafeQuestionActivity"
+            android:name=".ui.account.SafeQuestionActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.SafeQuestionSelectActivity"
+            android:name=".ui.account.SafeQuestionSelectActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.AccountCenterActivity"
+            android:name=".ui.account.AccountCenterActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.AccountSettingActivity"
+            android:name=".ui.account.AccountSettingActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserPayPwdSetActivity"
+            android:name=".ui.account.UserPayPwdSetActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.pwdmanage.GesturePwdActivity"
+            android:name=".ui.account.pwdmanage.GesturePwdActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.pwdmanage.UserMobilePayPwdActivity"
+            android:name=".ui.account.pwdmanage.UserMobilePayPwdActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.pwdmanage.UserMobileCodeActivity"
+            android:name=".ui.account.pwdmanage.UserMobileCodeActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.pwdmanage.PayPwdChannelVerifyActivity"
+            android:name=".ui.account.pwdmanage.PayPwdChannelVerifyActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.pwdmanage.PayPwdGeneralActivity"
+            android:name=".ui.account.pwdmanage.PayPwdGeneralActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.pwdmanage.PayPwdResetShowActivity"
+            android:name=".ui.account.pwdmanage.PayPwdResetShowActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserPayPwdFirstSetActivity"
+            android:name=".ui.account.UserPayPwdFirstSetActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.UserPayPwdSecondSetActivity"
+            android:name=".ui.account.UserPayPwdSecondSetActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.MyRewardActivity"
+            android:name=".ui.account.MyRewardActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.cashout.EcwSmsActivity"
+            android:name=".ui.account.cashout.EcwSmsActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.cashout.CashOutActivity"
+            android:name=".ui.account.cashout.CashOutActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 更多 -->
         <activity
-            android:name="com.lcshidai.lc.ui.DiscoveryActivity"
+            android:name=".ui.DiscoveryActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.more.DynamicInfoActivity"
+            android:name=".ui.more.DynamicInfoActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.more.InviteActivity"
+            android:name=".ui.more.InviteActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 手势密码 -->
         <activity
-            android:name="com.lcshidai.lc.ui.SettingGestureLockActivity"
+            android:name=".ui.SettingGestureLockActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 手势登陆 -->
         <activity
-            android:name="com.lcshidai.lc.ui.GestureLoginActivity"
+            android:name=".ui.GestureLoginActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 登录 -->
         <activity
-            android:name="com.lcshidai.lc.ui.LoginActivity"
+            android:name=".ui.LoginActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 註冊忘記密碼 -->
         <activity
-            android:name="com.lcshidai.lc.ui.account.user.ForgetPasswordFirstActivity"
+            android:name=".ui.account.user.ForgetPasswordFirstActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.user.ForgetPasswordGeneralActivity"
+            android:name=".ui.account.user.ForgetPasswordGeneralActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.user.ForgetPasswordChannelActivity"
+            android:name=".ui.account.user.ForgetPasswordChannelActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.user.ForgetPasswordChannelVerifyActivity"
+            android:name=".ui.account.user.ForgetPasswordChannelVerifyActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.UserRegisterFirActivity"
+            android:name=".ui.UserRegisterFirActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.bdpush.AlarmDialogActivity"
+            android:name=".bdpush.AlarmDialogActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/style_loading_dialog" />
+            android:theme="@style/style_loading_dialog"/>
         <!-- 变现 -->
         <activity
-            android:name="com.lcshidai.lc.ui.transfer.CashActivity"
+            android:name=".ui.transfer.CashActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.transfer.CashConfirmActivity"
+            android:name=".ui.transfer.CashConfirmActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.transfer.CashSuccessActivity"
+            android:name=".ui.transfer.CashSuccessActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <!-- 预约功能 -->
         <activity
-            android:name="com.lcshidai.lc.ui.account.bespeak.BespeakInfoActivity"
+            android:name=".ui.account.bespeak.BespeakInfoActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.bespeak.BespeakApplyActivity"
+            android:name=".ui.account.bespeak.BespeakApplyActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.bespeak.BespeakAreaActivity"
+            android:name=".ui.account.bespeak.BespeakAreaActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.bespeak.BespeakApplySuccessActivity"
+            android:name=".ui.account.bespeak.BespeakApplySuccessActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.MessageCentreActivity"
+            android:name=".ui.account.MessageCentreActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.ManageFinanceListProtocol"
+            android:name=".ui.account.ManageFinanceListProtocol"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.ManageFinanceXXDSActivity"
+            android:name=".ui.finance.ManageFinanceXXDSActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.ManageFinaceInfoCountActivity"
+            android:name=".ui.finance.ManageFinaceInfoCountActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.FinanceHongBaoActivity"
+            android:name=".ui.finance.FinanceHongBaoActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.JxqActivity"
+            android:name=".ui.finance.JxqActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.MessageDetailActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.lcshidai.lc.ui.account.ChangeUsernameActivity"
+            android:name=".ui.account.MessageDetailActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.FinanceProjectDetailActivity"
+            android:name=".ui.account.ChangeUsernameActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.WithdrawSuccessActivity"
+            android:name=".ui.finance.FinanceProjectDetailActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.cashout.CashOutSuccessActivity"
+            android:name=".ui.account.WithdrawSuccessActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.cashout.CashOutFailActivity"
+            android:name=".ui.account.cashout.CashOutSuccessActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.MaterialActivity"
+            android:name=".ui.account.cashout.CashOutFailActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.RegisterSuccessActivity"
+            android:name=".ui.finance.MaterialActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.account.RegisterSuccessActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
         <!-- yq付 -->
 
 
         <!-- 消息理财 -->
         <activity
-            android:name="com.lcshidai.lc.ui.newfinan.NewFinanceActivity"
+            android:name=".ui.newfinan.NewFinanceActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.newfinan.QualificationsAuthenticationActivity"
+            android:name=".ui.newfinan.QualificationsAuthenticationActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.newfinan.InvestorAuthenticationActivity"
+            android:name=".ui.newfinan.InvestorAuthenticationActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.UserRegisterSecActivity"
+            android:name=".ui.UserRegisterSecActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity
-            android:name="com.lcshidai.lc.ui.ImageVerifyCodeRegisterActivity"
+            android:name=".ui.ImageVerifyCodeRegisterActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
 
         <!-- 点击推送通知的广播 -->
         <!-- 注册更新包下载完后点击通知的广播 -->
         <receiver
-            android:name="com.lcshidai.lc.bdpush.UpdateDownloadReceiver"
+            android:name=".bdpush.UpdateDownloadReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.yrz.trj.action.UpdateDownloadNotificationClickReciever" />
+                <action android:name="com.yrz.trj.action.UpdateDownloadNotificationClickReciever"/>
             </intent-filter>
         </receiver>
 
         <!-- 测试环境 -->
         <meta-data
             android:name="api_key"
-            android:value="Xic5PiRGaZvahhp0XYGo25IA" />
+            android:value="Xic5PiRGaZvahhp0XYGo25IA"/>
         <!-- 友盟统计 -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="598438d6717c19314800039e" />
+            android:value="598438d6717c19314800039e"/>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="UMENG_CHANNEL_VALUE" />
+            android:value="UMENG_CHANNEL_VALUE"/>
         <!-- TalkingData 统计 -->
         <meta-data
             android:name="TD_APP_ID"
-            android:value="7B62D57B68F143369B6E6F6CA40888BB" />
+            android:value="7B62D57B68F143369B6E6F6CA40888BB"/>
         <meta-data
             android:name="TD_CHANNEL_ID"
-            android:value="${TALKING_DATA_CHANNEL_VALUE}" />
+            android:value="${TALKING_DATA_CHANNEL_VALUE}"/>
         <!-- 显示FirstActivity -->
         <meta-data
             android:name="show_first_version"
-            android:value="30" />
+            android:value="30"/>
 
         <!-- 个推SDK配置开始 -->
         <!-- 配置的第三方参数属性 -->
         <meta-data
             android:name="PUSH_APPID"
-            android:value="${GETUI_APP_ID}" />
+            android:value="${GETUI_APP_ID}"/>
         <meta-data
             android:name="PUSH_APPKEY"
-            android:value="${GETUI_APP_KEY}" />
+            android:value="${GETUI_APP_KEY}"/>
         <meta-data
             android:name="PUSH_APPSECRET"
-            android:value="${GETUI_APP_SECRET}" />
+            android:value="${GETUI_APP_SECRET}"/>
 
         <!-- 配置SDK核心服务 -->
         <service
@@ -617,20 +622,20 @@
             android:label="NotificationCenter"
             android:process=":pushservice">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.service.message" />
+                <action android:name="com.igexin.sdk.action.service.message"/>
             </intent-filter>
         </service>
 
         <receiver android:name="com.igexin.sdk.PushReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="com.igexin.sdk.action.refreshls" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.igexin.sdk.action.refreshls"/>
                 <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
-                <action android:name="android.intent.action.MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
             </intent-filter>
         </receiver>
 
@@ -640,15 +645,15 @@
             android:exported="false"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <service
             android:name="com.igexin.download.DownloadService"
-            android:process=":pushservice" />
+            android:process=":pushservice"/>
 
         <receiver android:name="com.igexin.download.DownloadReceiver">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
 
@@ -656,7 +661,7 @@
             android:name="com.igexin.download.DownloadProvider"
             android:authorities="downloads.${applicationId}"
             android:exported="true"
-            android:process=":pushservice" />
+            android:process=":pushservice"/>
 
         <activity
             android:name="com.igexin.sdk.GActivity"
@@ -664,97 +669,97 @@
             android:exported="true"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <!-- 个推配置第三方Receiver -->
         <!-- 配置第三方Receiver -->
         <receiver
-            android:name="com.lcshidai.lc.getui.PushNotificationReceiver"
+            android:name=".getui.PushNotificationReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}" />
+                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}"/>
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.lcshidai.lc.getui.NotificationClickReceiver"
+            android:name=".getui.NotificationClickReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.yrz.trj.action.PushNotificationClickAction" />
+                <action android:name="com.yrz.trj.action.PushNotificationClickAction"/>
             </intent-filter>
         </receiver>
 
         <!-- 个推SDK配置结束 -->
 
         <activity
-            android:name="com.lcshidai.lc.ui.ModifyPreLeftPhoneNumberActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.ModifyPreLeftPhoneNumberActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.CunGuanAccountActivity"
+            android:name=".ui.CunGuanAccountActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.CapitalTotalViewActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.CapitalTotalViewActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.finance.InvestSmsConfirmActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.finance.InvestSmsConfirmActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.account.MyScoreActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.account.MyScoreActivity"
+            android:screenOrientation="portrait"/>
 
         <!-- 浙商 -->
-        <receiver android:name="com.lcshidai.lc.getui.ZheShangBroadcastReceiver">
+        <receiver android:name=".getui.ZheShangBroadcastReceiver">
             <intent-filter>
-                <action android:name="com.zsBank.czfinancial.broadcastReceiver" />
+                <action android:name="com.zsBank.czfinancial.broadcastReceiver"/>
             </intent-filter>
         </receiver>
 
         <activity
-            android:name="com.lcshidai.lc.ui.project.RiskTestActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.RiskTestActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.PurchaseNeedKnowActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.PurchaseNeedKnowActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.FundAccountActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.FundAccountActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.FundManagerActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.FundManagerActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.InvestAboutActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.InvestAboutActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.FundProjectDetailActivity"
+            android:name=".ui.project.FundProjectDetailActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.RiskControlActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.RiskControlActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.PropertyConfigActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.PropertyConfigActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.MyInvestAppointmentListActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.MyInvestAppointmentListActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.InvestAppointmentActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.InvestAppointmentActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.AddedIntroActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.AddedIntroActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.FundInnerDetailActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.FundInnerDetailActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.PublicShowMaterialActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.PublicShowMaterialActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.project.PdfViewActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.project.PdfViewActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="com.lcshidai.lc.ui.PublicImageViewActivity"
-            android:screenOrientation="portrait" />
+            android:name=".ui.PublicImageViewActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.finance.FinanceProjectBorrowerActivity"
             android:screenOrientation="portrait"/>
@@ -766,8 +771,13 @@
             android:label="PushService"
             android:process=":pushservice">
         </service>
-        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复-->
+        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复 -->
         <service android:name=".getui.GtIntentService"/>
+
+        <activity
+            android:name=".ui.AgreementTextActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

@@ -27,6 +27,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.lcshidai.lc.http.LCHttpClient;
+import com.lcshidai.lc.ui.AgreementTextActivity;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.tendcloud.tenddata.TCAgent;
@@ -89,7 +90,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
     private TextView agree_tv;// , agree_tv_cash;// ,
     // bespeak_agree_tv,bespeak_agree_tv_x;
     private TextView tv_loan_prjname, tv_repay_way, tv_cash_money,
-            tv_loan_rate, pay_pwd_tv_agree_and, tv_cfd_protocol, pay_pwd_tv_agree_repay;
+            tv_loan_rate, pay_pwd_tv_agree_and, tv_cfd_protocol, pay_pwd_tv_agree_repay, pay_pwd_tv_note1, pay_pwd_tv_note2;
     private TextView withdrawals_tv;
     PIPWCallBack mCallBack;
 
@@ -265,6 +266,8 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
         tv_loan_rate = (TextView) mMenuView.findViewById(R.id.tv_loan_rate);
         pay_pwd_tv_agree_and = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_agree_and);
         tv_cfd_protocol = (TextView) mMenuView.findViewById(R.id.tv_cfd_protocol);
+        pay_pwd_tv_note1 = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_note1);
+        pay_pwd_tv_note2 = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_note2);
         pay_pwd_tv_agree_repay = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_agree_repay);
         withdrawals_tv = (TextView) mMenuView.findViewById(R.id.withdrawals_money_tv);
         tvYearRate = (TextView) mMenuView.findViewById(R.id.tv_yearrate);
@@ -280,6 +283,8 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
 
         tvForgetPsw = (TextView) mMenuView.findViewById(R.id.tv_foregive_psw);
         tvForgetPsw.setOnClickListener(this);
+        pay_pwd_tv_note1.setOnClickListener(this);
+        pay_pwd_tv_note2.setOnClickListener(this);
 
         initKeyboardAndPsw(dm);
     }
@@ -1358,7 +1363,18 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
                 Intent intent = new Intent(context, UserMobilePayPwdActivity.class);
                 context.startActivity(intent);
                 break;
-
+            case R.id.pay_pwd_tv_note1:
+                Intent intent1 = new Intent(context, AgreementTextActivity.class);
+                intent1.putExtra("title", "出借风险提示及禁止性行为说明书");
+                intent1.putExtra("txtId", context.getResources().getString(R.string.agreement_1));
+                context.startActivity(intent1);
+                break;
+            case R.id.pay_pwd_tv_note2:
+                Intent intent2 = new Intent(context, AgreementTextActivity.class);
+                intent2.putExtra("title", "资金来源合法承诺书");
+                intent2.putExtra("txtId", context.getResources().getString(R.string.agreement_2));
+                context.startActivity(intent2);
+                break;
             default:
                 break;
         }
