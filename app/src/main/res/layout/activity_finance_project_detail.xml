@@ -76,7 +76,7 @@
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="10dp"
                             android:text="@string/balance_less_label"
-                            android:textColor="@color/color_3"
+                            android:textColor="@color/color_finance_child_yellow"
                             android:textSize="17sp"/>
 
                         <Button

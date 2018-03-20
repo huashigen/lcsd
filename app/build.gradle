@@ -63,9 +63,9 @@ android {
         aaptOptions.useNewCruncher = false
         multiDexEnabled = true  //突破方法数65535的限制
         manifestPlaceholders = [
-                GETUI_APP_ID    : "wnQgi6kv3E9HLcLNCsAe22",
-                GETUI_APP_KEY   : "IOJ7bkB2Ik6AQeoOaXCe77",
-                GETUI_APP_SECRET: "OPSiF34snMAkOolJZ0hmQ2"
+                GETUI_APP_ID    : "1upn2fIkcX8PSYH8mJTVD4",
+                GETUI_APP_KEY   : "6xOv1PiUwB7SO5R0gnqBE1",
+                GETUI_APP_SECRET: "hSoZoQ14lx5MriNEBUPbd9"
         ]
         flavorDimensions "${appVersionCode}"
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }

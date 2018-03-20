@@ -397,6 +397,8 @@ public class LoginActivity extends TRJActivity implements LoginImpl, MessageImpl
 //                    startActivity(new Intent(mContext, MainActivity.class));
 //                }
                 else {
+                    MemorySave.MS.mIsGoHome = true;
+                    MemorySave.MS.mIsLogined = false;
                     finish();
                 }
                 break;

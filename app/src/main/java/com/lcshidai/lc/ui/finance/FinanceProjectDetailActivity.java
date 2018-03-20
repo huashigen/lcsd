@@ -627,8 +627,13 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
                 dialogFragment.setOnActionBtnClickListener(new ChargeDialogFragment.OnActionBtnClickListener() {
                     @Override
                     public void onLick(String content) {
-//                        rechargeFlow();
-                        doRecharge(true);
+                        isInvestFlag = false;
+                        // 充值流程
+                        if (isEcwAccount) {// 是存管账户
+                            rechargeFlow();
+                        } else {// 不是存管账户
+                            oldRechargeFlow();
+                        }
                     }
                 });
                 dialogFragment.show(getSupportFragmentManager(),"charge");
@@ -1206,6 +1211,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     private void dealWithBalanceLess(FinanceInfoData financeInfoData) {
         rlBalanceLessContainer.setVisibility(View.VISIBLE);
         btnRechargeRightNow.setText("立即充值");
+        btnRechargeRightNow.setBackgroundColor(getResources().getColor(R.color.color_finance_child_yellow));
         btnRechargeRightNow.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -1271,10 +1277,10 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         }
 
         // 是否余额不足
-//        if (pi.is_balance_less.equals("1")) {
-//            dealWithBalanceLess(financeInfoData);
-//            return;
-//        }
+        if (pi.is_balance_less.equals("1")) {
+            dealWithBalanceLess(financeInfoData);
+            return;
+        }
 
         // 处理新秀标
         if (isXXB) {
@@ -1339,13 +1345,13 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             } else {
                 if (result.getMessage() != null) {
                     if (result.getMessage().contains("余额不足")) {
-//                        etInvestAmount.setText("余额不足");
-                        etInvestAmount.setText(CommonUtil.customFormat("0.00", 0));
-//                        tvAmountLabel.setVisibility(View.GONE);
-//                        vDivider.setVisibility(View.GONE);
-//                        tvEdit.setVisibility(View.GONE);
-//                        etInvestAmount.setEnabled(false);
-//                        etInvestAmount.setTextColor(getResources().getColor(R.color.color_3));
+                        etInvestAmount.setText("余额不足");
+//                        etInvestAmount.setText(CommonUtil.customFormat("0.00", 0));
+                        tvAmountLabel.setVisibility(View.GONE);
+                        vDivider.setVisibility(View.GONE);
+                        tvEdit.setVisibility(View.GONE);
+                        etInvestAmount.setEnabled(false);
+                        etInvestAmount.setTextColor(getResources().getColor(R.color.color_finance_child_yellow));
                     } else {
 //                        ToastUtil.showToast(this, result.getMessage());
                     }

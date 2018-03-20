@@ -1,7 +1,12 @@
 package com.lcshidai.lc.getui;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.igexin.sdk.GTIntentService;
@@ -15,6 +20,13 @@ import com.igexin.sdk.message.GTTransmitMessage;
 import com.igexin.sdk.message.SetTagCmdMessage;
 import com.igexin.sdk.message.UnBindAliasCmdMessage;
 import com.lcshidai.lc.R;
+import com.lcshidai.lc.ui.LoadingActivity;
+import com.lcshidai.lc.ui.MainWebActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cn.udesk.JsonUtils;
 
 /**
  * 继承 GTIntentService 接收来自个推的消息, 所有消息在线程中回调, 如果注册了该服务, 则务必要在 AndroidManifest中声明, 否则无法接受消息<br>
@@ -26,11 +38,8 @@ import com.lcshidai.lc.R;
 public class GtIntentService extends GTIntentService {
 
     private static final String TAG = "GetuiSdkDemo";
-
-    /**
-     * 为了观察透传数据变化.
-     */
-    private static int cnt;
+    private Notification.Builder dloadPgsNtftBuilder;
+    private NotificationManager ntftManager;
 
     public GtIntentService() {
 
@@ -61,14 +70,10 @@ public class GtIntentService extends GTIntentService {
             Log.e(TAG, "receiver payload = null");
         } else {
             String data = new String(payload);
+            //title content url
             Log.d(TAG, "receiver payload = " + data);
 
-            // 测试消息为了观察数据变化
-            if (data.equals(getResources().getString(R.string.push_transmission_data))) {
-                data = data + "-" + cnt;
-                cnt++;
-            }
-            sendMessage(data, 0);
+            handleMessage(data, 0);
         }
 
         Log.d(TAG, "----------------------------------------------------------------------------------------------");
@@ -78,7 +83,7 @@ public class GtIntentService extends GTIntentService {
     public void onReceiveClientId(Context context, String clientid) {
         Log.e(TAG, "onReceiveClientId -> " + "clientid = " + clientid);
 
-        sendMessage(clientid, 1);
+//        handleMessage(clientid, 1);
     }
 
     @Override
@@ -94,7 +99,7 @@ public class GtIntentService extends GTIntentService {
 
         if (action == PushConsts.SET_TAG_RESULT) {
             setTagResult((SetTagCmdMessage) cmdMessage);
-        } else if(action == PushConsts.BIND_ALIAS_RESULT) {
+        } else if (action == PushConsts.BIND_ALIAS_RESULT) {
             bindAliasResult((BindAliasCmdMessage) cmdMessage);
         } else if (action == PushConsts.UNBIND_ALIAS_RESULT) {
             unbindAliasResult((UnBindAliasCmdMessage) cmdMessage);
@@ -106,8 +111,8 @@ public class GtIntentService extends GTIntentService {
     @Override
     public void onNotificationMessageArrived(Context context, GTNotificationMessage message) {
         Log.d(TAG, "onNotificationMessageArrived -> " + "appid = " + message.getAppid() + "\ntaskid = " + message.getTaskId() + "\nmessageid = "
-                        + message.getMessageId() + "\npkg = " + message.getPkgName() + "\ncid = " + message.getClientId() + "\ntitle = "
-                        + message.getTitle() + "\ncontent = " + message.getContent());
+                + message.getMessageId() + "\npkg = " + message.getPkgName() + "\ncid = " + message.getClientId() + "\ntitle = "
+                + message.getTitle() + "\ncontent = " + message.getContent());
 
     }
 
@@ -268,10 +273,45 @@ public class GtIntentService extends GTIntentService {
                 + "\ncid = " + cid + "\ntimestamp = " + timestamp);
     }
 
-    private void sendMessage(String data, int what) {
-        Message msg = Message.obtain();
-        msg.what = what;
-        msg.obj = data;
-//        DemoApplication.sendMessage(msg);
+    /**
+     * 处理透传消息
+     *
+     * @param data
+     * @param what
+     */
+    private void handleMessage(String data, int what) {
+        JSONObject jsonData = null;
+        try {
+            jsonData = new JSONObject(data);
+            String title = jsonData.getString("title");
+            String content = jsonData.getString("content");
+            String url = jsonData.getString("url");
+            if (TextUtils.isEmpty(title)) {
+                title = "理财时代";
+            }
+            if (TextUtils.isEmpty(content)) {
+                content = "理财时代";
+            }
+            Intent intent = null;
+            if (!TextUtils.isEmpty(url)) {
+                intent = new Intent(this, MainWebActivity.class);
+                intent.putExtra("title", title);
+                intent.putExtra("web_url", url);
+            } else {
+                intent = new Intent(this, LoadingActivity.class);
+            }
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
+            dloadPgsNtftBuilder = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.icon)
+                    .setContentTitle(title)
+                    .setContentText(content)
+                    .setContentIntent(pi)
+            ;
+            ntftManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            ntftManager.notify(1, dloadPgsNtftBuilder.build());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
