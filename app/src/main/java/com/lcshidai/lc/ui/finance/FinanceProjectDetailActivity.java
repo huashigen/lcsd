@@ -636,7 +636,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
                         }
                     }
                 });
-                dialogFragment.show(getSupportFragmentManager(),"charge");
+                dialogFragment.show(getSupportFragmentManager(), "charge");
                 return;
             }
         if (null != financeInfoData) {
@@ -841,7 +841,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
                             Intent intent = new Intent(mContext, UserPayPwdFirstSetActivity.class);
                             intent.putExtra("from_activity", 1);// 显示返回按钮
                             intent.putExtra("intent_from_withdrawals", 1);
-                            startActivity(intent);
+                            startActivityForResult(intent, 2);
                         }
                     },
                     new OnClickListener() {
@@ -1516,6 +1516,14 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             MemorySave.MS.mIsGoFinanceHome = true;
             startActivity(intent);
             this.finish();
+        } else if (requestCode == 2) {//设置完成支付密码后回来进入充值页面
+            isInvestFlag = false;
+            // 充值流程
+            if (isEcwAccount) {// 是存管账户
+                rechargeFlow();
+            } else {// 不是存管账户
+                oldRechargeFlow();
+            }
         }
     }
 
