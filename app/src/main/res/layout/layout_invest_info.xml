@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_pay_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+        <!--android:layout_marginRight="5dp"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <!--预期年化利率-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="预期年化利率: "
+                    android:textColor="#888888"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_yearrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="#FE8032"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+            <!--回款本兮-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="回款本息: "
+                    android:textColor="#888888"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_benxi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="#FE8032"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <!--加息券收益-->
+    <RelativeLayout
+        android:id="@+id/rl_jxq_reward_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/tv_jxq_reward_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="加息券收益："
+            android:textColor="#888888"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_jxq_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_jxq_reward_label"
+            android:text="82.19"
+            android:textColor="#FE8032"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+</merge>
