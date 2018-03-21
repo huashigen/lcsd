@@ -307,6 +307,7 @@ public class GtIntentService extends GTIntentService {
                     .setContentTitle(title)
                     .setContentText(content)
                     .setContentIntent(pi)
+                    .setAutoCancel(true)
             ;
             ntftManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             ntftManager.notify(1, dloadPgsNtftBuilder.build());
