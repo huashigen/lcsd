@@ -297,6 +297,7 @@ public class GtIntentService extends GTIntentService {
                 intent = new Intent(this, MainWebActivity.class);
                 intent.putExtra("title", title);
                 intent.putExtra("web_url", url);
+                intent.putExtra("backToMain",true);
             } else {
                 intent = new Intent(this, LoadingActivity.class);
             }
