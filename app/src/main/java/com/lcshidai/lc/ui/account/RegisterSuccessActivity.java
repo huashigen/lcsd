@@ -12,6 +12,7 @@ import com.lcshidai.lc.ui.MainActivity;
 import com.lcshidai.lc.ui.base.TRJActivity;
 import com.lcshidai.lc.utils.Constants;
 import com.lcshidai.lc.utils.DataBuriedManager;
+import com.lcshidai.lc.utils.MemorySave;
 import com.lcshidai.lc.utils.SpUtils;
 
 /**
@@ -82,6 +83,8 @@ public class RegisterSuccessActivity extends TRJActivity implements OnClickListe
 //                i.putExtra("flag", true);
 //                i.setClass(mContext, FinancialCashActivity.class);
                 i.putExtra("tempId", 1);
+                //跳转到投资页面
+                MemorySave.MS.mIsGoFinance = true;
                 i.setClass(mContext, MainActivity.class);
                 startActivity(i);
                 finish();
