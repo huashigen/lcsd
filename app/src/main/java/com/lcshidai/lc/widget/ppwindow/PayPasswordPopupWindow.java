@@ -717,7 +717,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
             String str = sbred.toString();
             sbred.append("《" + protocolName + "》");
             SpannableString ss = new SpannableString(sbred);
-            ss.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.color_3)),
+            ss.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.color_protocol)),
                     str.length(), sbred.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             agree_tv.setText(ss);
             agree_tv.setOnClickListener(new OnClickListener() {
@@ -1366,13 +1366,13 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
             case R.id.pay_pwd_tv_note1:
                 Intent intent1 = new Intent(context, MainWebActivity.class);
                 intent1.putExtra("title", "出借风险提示及禁止性行为说明书");
-                intent1.putExtra("web_url", LCHttpClient.BASE_WAP_HEAD + "#/lendProtocol");
+                intent1.putExtra("web_url", LCHttpClient.BASE_WAP_HEAD + "/#/lendProtocol");
                 context.startActivity(intent1);
                 break;
             case R.id.pay_pwd_tv_note2:
-                Intent intent2 = new Intent(context, AgreementActivity.class);
+                Intent intent2 = new Intent(context, MainWebActivity.class);
                 intent2.putExtra("title", "资金来源合法承诺书");
-                intent2.putExtra("web_url", LCHttpClient.BASE_WAP_HEAD + "#/capitalProtocol");
+                intent2.putExtra("web_url", LCHttpClient.BASE_WAP_HEAD + "/#/capitalProtocol");
                 context.startActivity(intent2);
                 break;
             default:

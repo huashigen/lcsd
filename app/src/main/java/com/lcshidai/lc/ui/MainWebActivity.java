@@ -118,7 +118,7 @@ public class MainWebActivity extends TRJActivity implements OnClickListener,
     private String need_header = "1";
     private boolean showHead;
     private boolean goBack;//是否返回投资标的页面
-    private boolean backToMain;//是否返回投资标的页面
+    private boolean backToMain;//是否返回主页面
 
     private String down = null;
 
@@ -806,16 +806,20 @@ public class MainWebActivity extends TRJActivity implements OnClickListener,
         // 理财列表
         @JavascriptInterface
         public void goFinance() {
-            if (loadUrl.equals(LCHttpClient.BASE_WAP_HEAD + "/#/addBank"))
-                MemorySave.MS.isRechargeSuccessToFinance = true;
-            Intent intent = new Intent(mContext, MainActivity.class);
-            MemorySave.MS.mIsGoFinance = true;
-            MemorySave.MS.mIsGoFinanceHome = true;
-            // hayb筛选
-            MemorySave.MS.mGoFinancetype = 0;
+            if (goBack) {
+                finish();
+            } else {
+                if (loadUrl.equals(LCHttpClient.BASE_WAP_HEAD + "/#/addBank"))
+                    MemorySave.MS.isRechargeSuccessToFinance = true;
+                Intent intent = new Intent(mContext, MainActivity.class);
+                MemorySave.MS.mIsGoFinance = true;
+                MemorySave.MS.mIsGoFinanceHome = true;
+                // hayb筛选
+                MemorySave.MS.mGoFinancetype = 0;
 
-            startActivity(intent);
-            MainWebActivity.this.finish();
+                startActivity(intent);
+                MainWebActivity.this.finish();
+            }
         }
 
         // 投资记录
