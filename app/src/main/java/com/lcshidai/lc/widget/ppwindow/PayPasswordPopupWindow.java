@@ -575,7 +575,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
     private void dealWithHbOrMjq(FinanceInvestPBuyCheckData model) {
         if (model.getRewardInfo() != null) {
             // 实际使用金额与红包满减券有关
-            tvActuallyUsed.setText(model.getUsemoney() + "元");
+            tvActuallyUsed.setText(model.getUsemoney());
             _reward_type = model.getRewardInfo().getReward_type();
             _bonus_rate = model.getRewardInfo().getBouns_rate();
             _bonus_prj_term = model.getRewardInfo().getBouns_prj_term();
@@ -690,7 +690,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
         if (flag == 0) {
             ll_option_btn.setVisibility(View.GONE);
 //            ib_hidden.setVisibility(View.INVISIBLE);
-            tvInvestMoney.setText(money + "元");
+            tvInvestMoney.setText(money);
             _invest_amount = money;
             llFinancePayContainer.setVisibility(View.VISIBLE);
             llActuallyUsedContainer.setVisibility(View.VISIBLE);
