@@ -118,6 +118,7 @@ public class MainWebActivity extends TRJActivity implements OnClickListener,
     private String need_header = "1";
     private boolean showHead;
     private boolean goBack;//是否返回投资标的页面
+    private boolean backToMain;//是否返回投资标的页面
 
     private String down = null;
 
@@ -140,6 +141,7 @@ public class MainWebActivity extends TRJActivity implements OnClickListener,
         isRedShow = getIntent().getBooleanExtra("isRedShow", false);
         isMyReword = getIntent().getBooleanExtra("isMyReword", false);
         goBack = getIntent().getBooleanExtra("goBack", false);
+        backToMain = getIntent().getBooleanExtra("backToMain", false);
         if (null != loadUrl) {
             if (loadUrl.indexOf("http") == -1) {
                 final_url = LCHttpClient.BASE_WAP_HEAD + web_url + loadUrl;
@@ -303,7 +305,13 @@ public class MainWebActivity extends TRJActivity implements OnClickListener,
                 if (isRedShow) {
                     redMoneyPw.show(findViewById(R.id.main));
                 } else {
-                    MainWebActivity.this.finish();
+                    if (backToMain) {
+                        Intent intent = new Intent(MainWebActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        MainWebActivity.this.finish();
+                    } else {
+                        MainWebActivity.this.finish();
+                    }
                 }
             }
         } catch (Exception e) {

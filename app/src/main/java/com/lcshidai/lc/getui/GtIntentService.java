@@ -297,16 +297,18 @@ public class GtIntentService extends GTIntentService {
                 intent = new Intent(this, MainWebActivity.class);
                 intent.putExtra("title", title);
                 intent.putExtra("web_url", url);
+                intent.putExtra("backToMain",true);
             } else {
                 intent = new Intent(this, LoadingActivity.class);
             }
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
+            PendingIntent pi = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             dloadPgsNtftBuilder = new Notification.Builder(this)
                     .setSmallIcon(R.drawable.icon)
                     .setContentTitle(title)
                     .setContentText(content)
                     .setContentIntent(pi)
+                    .setAutoCancel(true)
             ;
             ntftManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             ntftManager.notify(1, dloadPgsNtftBuilder.build());
