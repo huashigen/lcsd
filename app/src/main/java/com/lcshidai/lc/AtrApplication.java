@@ -25,8 +25,6 @@ public class AtrApplication extends MultiDexApplication {
         TCAgent.init(this.getApplicationContext());
         TCAgent.setReportUncaughtExceptions(true);
         KLog.init(false);
-
-        CrashReport.initCrashReport(getApplicationContext(), "e820650418", false);
     }
 
     public static AtrApplication getInstance() {
