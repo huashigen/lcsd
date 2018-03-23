@@ -46,6 +46,7 @@ import com.lcshidai.lc.utils.SpUtils;
 import com.lcshidai.lc.utils.StringUtils;
 import com.lcshidai.lc.utils.ToastUtil;
 import com.lcshidai.lc.utils.UpdateManager;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.List;
 
@@ -153,6 +154,8 @@ public class LoadingActivity extends TRJActivity implements CacheDeleteCallback,
             discovery_sequence = 0;
         }
         hms.getAllMsg("0", invest_sequence, discovery_sequence, 0);
+
+        CrashReport.testJavaCrash();
     }
 
     @Override
