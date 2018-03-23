@@ -76,6 +76,11 @@ public class FinanceProjectDetailSecondFragment extends TRJFragment implements F
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_manage_finance_detail_1, container, false);

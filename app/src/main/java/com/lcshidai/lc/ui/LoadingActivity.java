@@ -154,8 +154,6 @@ public class LoadingActivity extends TRJActivity implements CacheDeleteCallback,
             discovery_sequence = 0;
         }
         hms.getAllMsg("0", invest_sequence, discovery_sequence, 0);
-
-        CrashReport.testJavaCrash();
     }
 
     @Override

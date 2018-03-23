@@ -75,7 +75,7 @@ public class LCHttpClient {
         String absoluteUrl = getAbsoluteUrl(url, context);
         KLog.d("request", String.format("%s&%s", absoluteUrl, params));
         ASYNC_HTTP_CLIENT.getHttpClient().getParams().setParameter(ClientPNames.ALLOW_CIRCULAR_REDIRECTS, true);
-        ASYNC_HTTP_CLIENT.post(absoluteUrl, params, responseHandler);
+        ASYNC_HTTP_CLIENT.post(context, absoluteUrl, params, responseHandler);
     }
 
     public static void post(AsyncHttpResponseHandler responseHandler, RequestParams params,
@@ -86,7 +86,7 @@ public class LCHttpClient {
     public static void postWithFullUrl(Context context, String absoluteUrl, RequestParams params,
                                        AsyncHttpResponseHandler responseHandler) {
         KLog.d("request", String.format("%s&%s", absoluteUrl, params));
-        ANOTHER_ASYNC_HTTP_CLIENT.post(absoluteUrl, params, responseHandler);
+        ANOTHER_ASYNC_HTTP_CLIENT.post(context, absoluteUrl, params, responseHandler);
     }
 
     public static void postWithFullUrl(AsyncHttpResponseHandler responseHandler,
@@ -123,5 +123,17 @@ public class LCHttpClient {
         String deviceId = CommonUtil.getDeviceId(activity);
         String and = relativeUrl.contains("?") ? "&" : "?";
         return BASE_API_HEAD + relativeUrl + and + "app_version=" + version + "&deviceId=" + deviceId;
+    }
+
+    /**
+     * 取消所有请求
+     */
+    public static void cancelRequest() {
+        if (ASYNC_HTTP_CLIENT != null) {
+            ASYNC_HTTP_CLIENT.cancelAllRequests(true);
+        }
+        if (ANOTHER_ASYNC_HTTP_CLIENT != null) {
+            ANOTHER_ASYNC_HTTP_CLIENT.cancelAllRequests(true);
+        }
     }
 }

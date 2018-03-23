@@ -812,4 +812,11 @@ public abstract class TRJActivity extends FragmentActivity implements BroadCastI
         UpdateManager.reset();
         UpdateManager.getInstance(this).checkUpdateInfo(this, 0);
     }
+
+    /**
+     * 取消Activity的所有请求
+     */
+    public void cancelAllRequest() {
+        LCHttpClient.cancelRequest();
+    }
 }

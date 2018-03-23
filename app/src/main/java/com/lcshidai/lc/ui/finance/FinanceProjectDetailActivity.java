@@ -1329,6 +1329,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             mTimeCount.isFinish = true;
             mTimeCount.cancel();
         }
+        cancelAllRequest();
         super.onDestroy();
     }
 
