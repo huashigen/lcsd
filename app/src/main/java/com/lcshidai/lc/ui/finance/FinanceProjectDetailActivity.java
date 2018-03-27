@@ -46,6 +46,7 @@ import com.lcshidai.lc.impl.account.AccountSettingImpl;
 import com.lcshidai.lc.impl.account.GetEscrowRemindImpl;
 import com.lcshidai.lc.impl.account.SetEscrowRemindImpl;
 import com.lcshidai.lc.impl.finance.FinanceInvestPBuyCheckImpl;
+import com.lcshidai.lc.impl.finance.GetRiskEnvaluationStateImpl;
 import com.lcshidai.lc.impl.onKeyInvest.IsOpenAutoInvestImpl;
 import com.lcshidai.lc.model.BaseJson;
 import com.lcshidai.lc.model.OpenAccountData;
@@ -61,16 +62,19 @@ import com.lcshidai.lc.model.account.GetEscrowRemindJson;
 import com.lcshidai.lc.model.finance.FinanceInfoData;
 import com.lcshidai.lc.model.finance.FinanceInfoJson;
 import com.lcshidai.lc.model.finance.FinanceMaxInvestMoneyJson;
+import com.lcshidai.lc.model.finance.RiskEnvaluationStateJson;
 import com.lcshidai.lc.model.finance.reward.FinanceInvestPBuyCheckData;
 import com.lcshidai.lc.model.finance.reward.FinanceInvestPBuyCheckJson;
 import com.lcshidai.lc.model.oneKeyInvest.IsOpenAutoInvestJson;
 import com.lcshidai.lc.service.ApiService;
 import com.lcshidai.lc.service.HttpGainOpenAccountService;
+import com.lcshidai.lc.service.HttpServiceURL;
 import com.lcshidai.lc.service.account.HttpAccountSettingService;
 import com.lcshidai.lc.service.account.HttpGetEscrowRemindService;
 import com.lcshidai.lc.service.account.HttpHasEscrowedService;
 import com.lcshidai.lc.service.account.HttpIsZheshangCardService;
 import com.lcshidai.lc.service.account.HttpSetEscrowRemindService;
+import com.lcshidai.lc.service.finance.GetRiskEnvaluationStateService;
 import com.lcshidai.lc.service.finance.HttpFinanceInvestCheckService;
 import com.lcshidai.lc.service.oneKeyInvest.IsOpenAutoInvestService;
 import com.lcshidai.lc.ui.GestureLoginActivity;
@@ -102,7 +106,7 @@ import java.util.List;
 @SuppressLint("HandlerLeak")
 public class FinanceProjectDetailActivity extends TRJActivity implements FinanceInvestPBuyCheckImpl,
         PIPWCallBack, GetEscrowRemindImpl, SetEscrowRemindImpl, AccountSettingImpl,
-        AccountHasEscrowedImp, AccountIsZheshangCardImp, GainOpenAccountImpl, IsOpenAutoInvestImpl {
+        AccountHasEscrowedImp, AccountIsZheshangCardImp, GainOpenAccountImpl, IsOpenAutoInvestImpl, GetRiskEnvaluationStateImpl {
     private TextView mTvTitle;
     private ImageButton mBackBtn;
     private VerticalViewPager viewPager;
@@ -123,6 +127,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     private TextView tvEdit, tvAmountLabel;// 修改按钮，投资金额标签
     private View vDivider;
     private Button btnInvestRightNow;// 投资按钮
+    private Button btnEnvaluateRightNow;// 立即评估按钮
 
     // 新秀表投资
     private RelativeLayout rlXxbContainer;
@@ -134,6 +139,8 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     // 待开标
     private LinearLayout llDkbContainer;// 待开标容器
     private TextView tvDkbLeftTime;// 待开标剩余时间
+    //待风险评估
+    private LinearLayout llRiskEnvaluation;
 
     // 自定义键盘布局
     private LinearLayout keyboard_main;
@@ -157,6 +164,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     private float maxMoney;
     public String limitMoney;
     public String canInvest;
+    private String riskEnvaluationState;
     private MyPageAdapter mAdapter;
 
     int plusValue = 1000;
@@ -173,6 +181,8 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     private HttpGetEscrowRemindService mHttpGetEscrowRemindService;
     private HttpSetEscrowRemindService mHttpSetEscrowRemindService;
     private IsOpenAutoInvestService isOpenAutoInvestService;
+    //获取风险评估状态
+    private GetRiskEnvaluationStateService getRiskEnvaluationStateService;
 
     private HttpFinanceInvestCheckService investCheckService;
     private int mHasEscrowedFlag = 0;// 是否开户
@@ -181,6 +191,12 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     private Dialog setPayPswDialog = null;// 设置支付密码
     private Dialog openEcwDialog = null;
     private Dialog remindDialog = null;
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 
     private boolean isInvestFlag = true;// 为解决（投资和充值）公用判断是否开户接口而设置的flag
     private String isSetPayPsw = "1";                // 是否设置支付密码
@@ -202,6 +218,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         mHttpSetEscrowRemindService = new HttpSetEscrowRemindService(this, this);
         isOpenAutoInvestService = new IsOpenAutoInvestService(this, this);
         investCheckService = new HttpFinanceInvestCheckService(this, this);
+        getRiskEnvaluationStateService = new GetRiskEnvaluationStateService(this, this);
         Bundle args = getIntent().getExtras();
         if (args != null) {
             mPrjId = args.getString(Constants.Project.PROJECT_ID);
@@ -232,7 +249,9 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
                 loadSettingData();
 //                loadIsShowOpenEcwDialog();
                 getMaxAvaInvestAmount(mPrjId, isCollection);
-                getProjectDetail();
+                //获取用户风险评估等级
+                getGetRiskEnvaluationState();
+
             }
 
             @Override
@@ -244,6 +263,13 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             }
         }, mContext), mContext);
 
+    }
+
+    /**
+     * 获取用户风险评估等级
+     */
+    private void getGetRiskEnvaluationState() {
+        getRiskEnvaluationStateService.getRiskEnvaluationState();
     }
 
     /**
@@ -364,6 +390,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         btnInvestStatusTips = (Button) findViewById(R.id.btn_invest_status_tips);
 
         rlInvestAmountContainer = (RelativeLayout) findViewById(R.id.rl_invest_amount_container);
+        llRiskEnvaluation = findViewById(R.id.ll_risk_envaluation_container);
         tvAmountLabel = (TextView) findViewById(R.id.tv_account_label);
         vDivider = findViewById(R.id.v_divider);
         etInvestAmount = (EditText) findViewById(R.id.et_invest_amount);
@@ -380,6 +407,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         });
         isShowAmountLabel(true);
         btnInvestRightNow = (Button) findViewById(R.id.btn_invest_right_now);
+        btnEnvaluateRightNow = (Button) findViewById(R.id.btn_envaluate_right_now);
 
         rlBalanceLessContainer = (RelativeLayout) findViewById(R.id.rl_balance_less_container);
         btnRechargeRightNow = (Button) findViewById(R.id.btn_recharge_right_now);
@@ -1035,6 +1063,17 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
 
     }
 
+    @Override
+    public void getRiskEnvaluationStateSuccess(RiskEnvaluationStateJson response) {
+        riskEnvaluationState = response.getData();
+        getProjectDetail();
+    }
+
+    @Override
+    public void getRiskEnvaluationStateFail() {
+
+    }
+
     class KeyboardClickListener implements OnClickListener {
         int value;
 
@@ -1181,25 +1220,40 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
      */
     private void dealWithOnSale(FinanceInfoData financeInfoData) {
         llDkbContainer.setVisibility(View.GONE);
-        rlInvestAmountContainer.setVisibility(View.VISIBLE);
-        if (isCollection == 1) {
-            btnInvestRightNow.setText("一键投资");
-        } else {
-            btnInvestRightNow.setText("立即投资");
-        }
-        btnInvestRightNow.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // 投资流程
-                isInvestFlag = true;
-                if (isEcwAccount) {// 是存管账户
-                    investFlow();
-                } else {// 不是存管账户
-                    oldInvestFlow();
+        if (riskEnvaluationState.equals("0")) {
+            rlInvestAmountContainer.setVisibility(View.GONE);
+            llRiskEnvaluation.setVisibility(View.VISIBLE);
+            btnEnvaluateRightNow.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(FinanceProjectDetailActivity.this, MainWebActivity.class);
+                    intent.putExtra("web_url", HttpServiceURL.RISK_ENVALUATION_URL);
+                    intent.putExtra("need_header", "0");
+                    intent.putExtra("title", getResources().getString(R.string.risk_envaluate));
+                    startActivity(intent);
                 }
+            });
+        } else {
+            rlInvestAmountContainer.setVisibility(View.VISIBLE);
+            if (isCollection == 1) {
+                btnInvestRightNow.setText("一键投资");
+            } else {
+                btnInvestRightNow.setText("立即投资");
             }
-        });
+            btnInvestRightNow.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    // 投资流程
+                    isInvestFlag = true;
+                    if (isEcwAccount) {// 是存管账户
+                        investFlow();
+                    } else {// 不是存管账户
+                        oldInvestFlow();
+                    }
+                }
+            });
+        }
     }
 
     /**
@@ -1241,6 +1295,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
         rlInvestAmountContainer.setVisibility(View.GONE);
         rlXxbContainer.setVisibility(View.GONE);
 
+
         financeInfoData = pi;
         String display = pi.getPrj_type_display();
         String name = pi.getPrj_name();
@@ -1256,7 +1311,6 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             mTvTitle.setText(String.format("%s%s", title, name));
         }
         if (!isLogin) {
-            Log.e(TAG, "dealWithPrjDetailData: 未登录");
             btnInvestStatusTips.setVisibility(View.VISIBLE);
             btnInvestStatusTips.setOnClickListener(new OnClickListener() {
                 @Override

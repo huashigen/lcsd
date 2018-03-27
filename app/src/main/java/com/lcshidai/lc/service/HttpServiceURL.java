@@ -1,5 +1,7 @@
 package com.lcshidai.lc.service;
 
+import java.net.URL;
+
 /**
  * 接口地址（全部）
  *
@@ -368,4 +370,10 @@ public interface HttpServiceURL {
     String CHECK_FUND_REGISTER = CFY_HEAD + "/index.php/ApiInvestor/User/checkRegister";
     // 获取项目借款人记录
     String FINACE_ITEM_BORROWER_RECORD = "Mobile2/Invest/get_borrower_list";
+
+    //判断用户是否以及进行风险评估
+    String IS_INVEST_RISK_ENVALUATION = "Mobile2/Auth/riskAssessStatus";
+
+    //风险评估链接
+    String RISK_ENVALUATION_URL = "http://16p5614y04.iask.in:41648/#/rankEvaluation";
 }

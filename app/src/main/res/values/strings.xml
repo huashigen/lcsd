@@ -244,8 +244,11 @@
     <string name="dialog_auto_invest_other_time">以后再说</string>
     <string name="dialog_auto_invest_open_right_now">立即开通</string>
     <string name="invest_right_now">立即投资</string>
+    <string name="envaluate_right_now">立即评估</string>
+    <string name="risk_envaluate">风险评估</string>
     <string name="invest_amount_label">投资金额</string>
     <string name="invest_amount_modify">修改</string>
+    <string name="envaluate_note">为协助您合理投资，请先完成风险评估</string>
     <string name="see_other_where">去别处看看</string>
     <string name="recharge_right_now">立即充值</string>
     <string name="balance_less_label">余额不足</string>

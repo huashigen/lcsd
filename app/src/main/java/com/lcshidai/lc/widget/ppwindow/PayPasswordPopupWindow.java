@@ -90,7 +90,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
     private TextView agree_tv;// , agree_tv_cash;// ,
     // bespeak_agree_tv,bespeak_agree_tv_x;
     private TextView tv_loan_prjname, tv_repay_way, tv_cash_money,
-            tv_loan_rate, pay_pwd_tv_agree_and, tv_cfd_protocol, pay_pwd_tv_agree_repay, pay_pwd_tv_note1, pay_pwd_tv_note2;
+            tv_loan_rate, pay_pwd_tv_agree_and, tv_cfd_protocol, pay_pwd_tv_agree_repay, pay_pwd_tv_note0, pay_pwd_tv_note1, pay_pwd_tv_note2;
     private TextView withdrawals_tv;
     PIPWCallBack mCallBack;
 
@@ -266,6 +266,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
         tv_loan_rate = (TextView) mMenuView.findViewById(R.id.tv_loan_rate);
         pay_pwd_tv_agree_and = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_agree_and);
         tv_cfd_protocol = (TextView) mMenuView.findViewById(R.id.tv_cfd_protocol);
+        pay_pwd_tv_note0 = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_note0);
         pay_pwd_tv_note1 = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_note1);
         pay_pwd_tv_note2 = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_note2);
         pay_pwd_tv_agree_repay = (TextView) mMenuView.findViewById(R.id.pay_pwd_tv_agree_repay);
@@ -283,6 +284,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
 
         tvForgetPsw = (TextView) mMenuView.findViewById(R.id.tv_foregive_psw);
         tvForgetPsw.setOnClickListener(this);
+        pay_pwd_tv_note0.setOnClickListener(this);
         pay_pwd_tv_note1.setOnClickListener(this);
         pay_pwd_tv_note2.setOnClickListener(this);
 
@@ -1363,6 +1365,7 @@ public class PayPasswordPopupWindow extends PopupWindow implements UpdateJxqInco
                 Intent intent = new Intent(context, UserMobilePayPwdActivity.class);
                 context.startActivity(intent);
                 break;
+            case R.id.pay_pwd_tv_note0:
             case R.id.pay_pwd_tv_note1:
                 Intent intent1 = new Intent(context, MainWebActivity.class);
                 intent1.putExtra("title", "出借风险提示及禁止性行为说明书");

@@ -28,6 +28,8 @@ import org.json.JSONObject;
 
 import cn.udesk.JsonUtils;
 
+import static android.app.Notification.BADGE_ICON_SMALL;
+
 /**
  * 继承 GTIntentService 接收来自个推的消息, 所有消息在线程中回调, 如果注册了该服务, 则务必要在 AndroidManifest中声明, 否则无法接受消息<br>
  * onReceiveMessageData 处理透传消息<br>

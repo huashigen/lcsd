@@ -36,4 +36,6 @@ public class UserInfoModel implements Serializable {
     public boolean user_is_qfx;      //是否yq付用户
     public String uc_id;// 用户中新id
     public String is_binding_bank;     //是否充值用户
+    public String risk_assess;     //用户风险评估等级
+
 }
