@@ -2,7 +2,9 @@ package com.lcshidai.lc.ui.finance;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -14,6 +16,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -87,6 +90,7 @@ import com.lcshidai.lc.ui.base.TRJFragment;
 import com.lcshidai.lc.ui.fragment.finance.ChargeDialogFragment;
 import com.lcshidai.lc.ui.fragment.finance.FinanceProjectDetailFirstFragment;
 import com.lcshidai.lc.ui.fragment.finance.FinanceProjectDetailSecondFragment;
+import com.lcshidai.lc.ui.fragment.finance.WarnDialogFragment;
 import com.lcshidai.lc.utils.CommonUtil;
 import com.lcshidai.lc.utils.Constants;
 import com.lcshidai.lc.utils.GoLoginUtil;
@@ -192,6 +196,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
     private Dialog openEcwDialog = null;
     private Dialog remindDialog = null;
 
+    private String safetyLevel;
 
     @Override
     protected void onPause() {
@@ -280,6 +285,7 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
             @Override
             protected void onRightData(FinanceInfoJson response) {
                 FinanceInfoData financeInfoData = response.getData();
+                safetyLevel = financeInfoData.getSafety_level();
                 String message = response.getMessage();
                 if (null != financeInfoData) {
                     String can_read = financeInfoData.getCan_read();
@@ -1227,8 +1233,8 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(FinanceProjectDetailActivity.this, MainWebActivity.class);
-                    intent.putExtra("web_url", HttpServiceURL.RISK_ENVALUATION_URL);
-                    intent.putExtra("need_header", "0");
+                    intent.putExtra("web_url", LCHttpClient.BASE_WAP_HEAD + HttpServiceURL.RISK_ENVALUATION_URL);
+                    intent.putExtra("need_header", "1");
                     intent.putExtra("title", getResources().getString(R.string.risk_envaluate));
                     startActivity(intent);
                 }
@@ -1241,9 +1247,25 @@ public class FinanceProjectDetailActivity extends TRJActivity implements Finance
                 btnInvestRightNow.setText("立即投资");
             }
             btnInvestRightNow.setOnClickListener(new OnClickListener() {
-
                 @Override
                 public void onClick(View v) {
+                    boolean allowInvest = false;
+                    if (!TextUtils.isEmpty(safetyLevel)) {
+                        try {
+                            int safetyLevelInt = Integer.parseInt(safetyLevel);
+                            int riskLevelInt = Integer.parseInt(riskEnvaluationState);
+                            if (riskLevelInt + 1 >= safetyLevelInt) {
+                                allowInvest = true;
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!allowInvest) {
+                        WarnDialogFragment fragment = new WarnDialogFragment();
+                        fragment.show(getSupportFragmentManager(),"warn");
+                        return;
+                    }
                     // 投资流程
                     isInvestFlag = true;
                     if (isEcwAccount) {// 是存管账户

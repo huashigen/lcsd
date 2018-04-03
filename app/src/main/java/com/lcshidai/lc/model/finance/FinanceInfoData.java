@@ -83,6 +83,17 @@ public class FinanceInfoData extends BaseData {
     private String can_read_msg;
 
     private String prj_name_show;
+    private String safety_level;
+
+    public String getSafety_level() {
+        return safety_level;
+    }
+
+    @JsonProperty("safety_level")
+    public void setSafety_level(String safety_level) {
+        this.safety_level = safety_level;
+    }
+
 
     public int getActivity_id() {
         return activity_id;

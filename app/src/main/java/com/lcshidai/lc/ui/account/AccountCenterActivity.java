@@ -30,19 +30,24 @@ import com.lcshidai.lc.impl.BroadCastImpl;
 import com.lcshidai.lc.impl.GainOpenAccountImpl;
 import com.lcshidai.lc.impl.ResultImpl;
 import com.lcshidai.lc.impl.account.AccountSettingImpl;
+import com.lcshidai.lc.impl.finance.GetRiskEnvaluationStateImpl;
 import com.lcshidai.lc.impl.onKeyInvest.IsOpenAutoInvestImpl;
 import com.lcshidai.lc.model.OpenAccountData;
 import com.lcshidai.lc.model.OpenAccountJson;
 import com.lcshidai.lc.model.account.AccountSettingData;
 import com.lcshidai.lc.model.account.AccountSettingImg;
 import com.lcshidai.lc.model.account.AccountSettingJson;
+import com.lcshidai.lc.model.finance.RiskEnvaluationStateJson;
 import com.lcshidai.lc.model.oneKeyInvest.IsOpenAutoInvestJson;
 import com.lcshidai.lc.service.HttpGainOpenAccountService;
+import com.lcshidai.lc.service.HttpServiceURL;
 import com.lcshidai.lc.service.account.HttpAccountSettingService;
+import com.lcshidai.lc.service.finance.GetRiskEnvaluationStateService;
 import com.lcshidai.lc.service.oneKeyInvest.IsOpenAutoInvestService;
 import com.lcshidai.lc.ui.MainWebActivity;
 import com.lcshidai.lc.ui.account.pwdmanage.UserPwdManageActivity;
 import com.lcshidai.lc.ui.base.TRJActivity;
+import com.lcshidai.lc.ui.finance.FinanceProjectDetailActivity;
 import com.lcshidai.lc.utils.CommonUtil;
 import com.lcshidai.lc.utils.SpUtils;
 import com.lcshidai.lc.utils.StringUtils;
@@ -62,7 +67,7 @@ import butterknife.ButterKnife;
  * 个人中心
  */
 public class AccountCenterActivity extends TRJActivity implements View.OnClickListener, ResultImpl,
-        AccountSettingImpl, GainOpenAccountImpl, IsOpenAutoInvestImpl {
+        AccountSettingImpl, GainOpenAccountImpl, IsOpenAutoInvestImpl, GetRiskEnvaluationStateImpl {
     @Bind(R.id.ib_top_bar_back)
     ImageButton ibTopBarBack;
     @Bind(R.id.tv_top_bar_title)
@@ -107,7 +112,7 @@ public class AccountCenterActivity extends TRJActivity implements View.OnClickLi
     FrameLayout main;
     @Bind(R.id.progressContainer)
     LinearLayout mProgressContainer;
-//    @Bind(R.id.tv_current_version)
+    //    @Bind(R.id.tv_current_version)
 //    TextView tvCurrentVersion;
     @Bind(R.id.tv_auto_invest_status)
     TextView tvAutoInvestStatus;
@@ -133,6 +138,8 @@ public class AccountCenterActivity extends TRJActivity implements View.OnClickLi
 
     private IsOpenAutoInvestService isOpenAutoInvestService;
     private OpenEcwAccountReceiver mOpenEcwAccountReceiver;
+    //获取风险评估状态
+    private GetRiskEnvaluationStateService getRiskEnvaluationStateService;
     private String openEscrowUrl;
     // 是否已开通一键投资，默认关闭
     private boolean isAutoShowDialog = false;
@@ -156,12 +163,15 @@ public class AccountCenterActivity extends TRJActivity implements View.OnClickLi
         hass = new HttpAccountSettingService(this, this);
         httpGainOpenAccountService = new HttpGainOpenAccountService(this, this);
         isOpenAutoInvestService = new IsOpenAutoInvestService(this, this);
+        getRiskEnvaluationStateService = new GetRiskEnvaluationStateService(this, this);
         initView();
 
         mOpenEcwAccountReceiver = new OpenEcwAccountReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(BroadCastImpl.ACTION_OPEN_ECW_ACCOUNT);
         registerReceiver(mOpenEcwAccountReceiver, filter);
+
+        getGetRiskEnvaluationState();
     }
 
     @Override
@@ -485,7 +495,8 @@ public class AccountCenterActivity extends TRJActivity implements View.OnClickLi
 
     //实名认证跳转充值提示Dialog
     private Dialog mRzDialog = null;
-    private void goRechargeDialog(){
+
+    private void goRechargeDialog() {
         String title = "温馨提示";
         String msg = "充值成功后系统自动进行实名认证！";
         String absBtn = "现在去充值";
@@ -533,6 +544,40 @@ public class AccountCenterActivity extends TRJActivity implements View.OnClickLi
 //        点击安全等级弹出popwindow
         SafeLevelPopupWindow safeLevelPopupWindow = new SafeLevelPopupWindow(AccountCenterActivity.this, bundle);
         safeLevelPopupWindow.showAtLocation(main, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+    }
+
+    /**
+     * 获取用户风险评估等级
+     */
+    private void getGetRiskEnvaluationState() {
+        getRiskEnvaluationStateService.getRiskEnvaluationState();
+    }
+
+
+    @Override
+    public void getRiskEnvaluationStateSuccess(RiskEnvaluationStateJson response) {
+        final String riskEnvaluationState = response.getData();
+        final String message = response.getMessage();
+        View rlRisk = findViewById(R.id.rl_risk_envaluate_container);
+        TextView tvRiskState = findViewById(R.id.tv_risk_envaluate);
+        tvRiskState.setText(message);
+        if (riskEnvaluationState.equals("0")) {
+            rlRisk.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(AccountCenterActivity.this, MainWebActivity.class);
+                    intent.putExtra("web_url", LCHttpClient.BASE_WAP_HEAD + HttpServiceURL.RISK_ENVALUATION_URL);
+                    intent.putExtra("need_header", "1");
+                    intent.putExtra("title", getResources().getString(R.string.risk_envaluate));
+                    startActivity(intent);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void getRiskEnvaluationStateFail() {
+
     }
 
     private class OpenEcwAccountReceiver extends BroadcastReceiver {

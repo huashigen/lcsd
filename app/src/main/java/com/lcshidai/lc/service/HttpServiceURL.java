@@ -375,5 +375,5 @@ public interface HttpServiceURL {
     String IS_INVEST_RISK_ENVALUATION = "Mobile2/Auth/riskAssessStatus";
 
     //风险评估链接
-    String RISK_ENVALUATION_URL = "http://16p5614y04.iask.in:41648/#/rankEvaluation";
+    String RISK_ENVALUATION_URL = "#/rankEvaluation";
 }
